@@ -1,0 +1,18 @@
+/*variables*/
+$topWidth : 100%;
+$topHeight : 100%;
+
+/*colors*/
+$ltBlue : #00b9ee;
+
+.wrapper{
+	width: 100%;
+	height: 1000px;
+}
+
+header{
+	background-color: #FFF;
+	height: $topHeight / 100 * 10;
+	background-color: $ltBlue;
+}
+
