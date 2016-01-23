@@ -1,18 +1,78 @@
 /*variables*/
 $topWidth : 100%;
-$topHeight : 100%;
+$topHeight : 1000px;
 
 /*colors*/
 $ltBlue : #00b9ee;
+$dkGray : #333333;
+$white : #fff;
+
+/*fonts*/
+$Bebas : "BebasBold";
+
+/*size*/
+$headerSize: 74px;
+$navFontsSize: 34px;
 
 .wrapper{
-	width: 100%;
+	width: $topWidth;
 	height: 1000px;
+	
 }
 
 header{
-	background-color: #FFF;
-	height: $topHeight / 100 * 10;
 	background-color: $ltBlue;
+	height: $headerSize;
+	border-bottom: 2px solid $dkGray;
+	div{
+		width: 30%;
+		height: 100%;
+		float: left;
+		h1{
+			color: $white;
+			font-family: $Bebas;
+			font-size: $navFontsSize;
+			text-align: center;
+			margin-top: $headerSize/3;
+			margin-left: 20px;
+		}
+	}
+	nav{
+	
+		height: 100%;
+		width: 70%;
+		float: right;
+		ul{
+			text-align: left;
+			li{
+				display: inline-block;
+				border-right: 1px solid $dkGray;
+				margin-left: -.36em;
+				a{
+					color: $white;
+					height: $headerSize;
+					font-family: $Bebas;
+					line-height: $headerSize;
+					display: inline-block;
+					font-size: $navFontsSize;
+					text-align: center;
+					/* margin-top: $headerSize/3; */
+					text-decoration: none;
+					padding: 0 50px;
+					vertical-align: middle;
+					&:hover{
+						background-color: $dkGray;
+
+					}
+
+				}
+			}
+		}
+	}
+	
+}
+
+.active{
+	background-color: $dkGray;
 }
 
