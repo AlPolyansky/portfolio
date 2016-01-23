@@ -2,6 +2,10 @@
 /*colors*/
 /*fonts*/
 /*size*/
+body {
+  box-sizing: border-box;
+}
+
 .wrapper {
   width: 100%;
   height: 1000px;
@@ -13,25 +17,28 @@ header {
   border-bottom: 2px solid #333333;
 }
 header div {
-  width: 30%;
+  width: 20%;
   height: 100%;
-  float: left;
+  float: left
+  /* border-right: 2px solid $dkGray; */
 }
 header div h1 {
   color: #fff;
   font-family: "BebasBold";
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
-  margin-top: 24.66667px;
-  margin-left: 20px;
+  margin-top: 23.125px;
+  margin-left: 10px;
 }
 header nav {
   height: 100%;
-  width: 70%;
-  float: right;
+  width: 79%;
+  float: left;
+  margin-left: -1px;
 }
 header nav ul {
   text-align: left;
+  margin-left: 7px;
 }
 header nav ul li {
   display: inline-block;
@@ -44,7 +51,7 @@ header nav ul li a {
   font-family: "BebasBold";
   line-height: 74px;
   display: inline-block;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
   /* margin-top: $headerSize/3; */
   text-decoration: none;
@@ -57,6 +64,119 @@ header nav ul li a:hover {
 
 .active {
   background-color: #333333;
+}
+
+.sideBar {
+  width: 20%;
+  background-color: #737373;
+  height: 1000px;
+  border-right: 2px solid #333333;
+  position: absolute;
+}
+
+.avatar {
+  text-align: center;
+  padding: 10px 0;
+}
+.avatar img {
+  width: 50%;
+}
+
+.about {
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.about h2 {
+  color: #fff;
+  font-family: "RobotoLight";
+  font-size: 16px;
+  margin-left: 30px;
+}
+.about h2 span {
+  background-image: url("../img/icons.png");
+  padding-left: 25px;
+  background-position: 25px 2px;
+  /* background-repeat: no-repeat; */
+  height: 20px;
+  width: 20px;
+}
+.about h2:after {
+  content: "__________________";
+  width: 10px;
+  padding-left: 10px;
+}
+.about p {
+  color: #fff;
+  font-family: "RobotoLight";
+  font-size: 12.8px;
+  padding: 20px;
+  padding-top: 20px;
+}
+
+.contacts {
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.contacts h2 {
+  color: #fff;
+  font-family: "RobotoLight";
+  font-size: 16px;
+  margin-left: 30px;
+}
+.contacts h2 span {
+  background-image: url("../img/icons.png");
+  padding-left: 25px;
+  background-position: 25px -20px;
+  /* background-repeat: no-repeat; */
+  width: 20px;
+}
+.contacts h2:after {
+  content: "_______________";
+  width: 10px;
+  padding-left: 10px;
+}
+.contacts address {
+  color: #fff;
+  font-family: "RobotoLight";
+  font-size: 12.8px;
+  padding-top: 20px;
+  margin-left: 60px;
+}
+.contacts address:nth-child(2):before {
+  content: "";
+  background-image: url("../img/icons.png");
+  background-position: 1px -71px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+.contacts address:nth-child(3):before {
+  content: "";
+  background-image: url("../img/icons.png");
+  background-position: 1px -107px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+.contacts address:nth-child(4):before {
+  content: "";
+  background-image: url("../img/icons.png");
+  background-position: 1px -145px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+  right: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */
