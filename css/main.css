@@ -77,9 +77,12 @@ header nav ul li a:hover {
 .avatar {
   text-align: center;
   padding: 10px 0;
+  margin-top: 30px;
 }
 .avatar img {
   width: 50%;
+  border-radius: 50%;
+  border: 5px solid #00b9ee;
 }
 
 .about {
@@ -169,7 +172,7 @@ header nav ul li a:hover {
 .contacts address:nth-child(4):before {
   content: "";
   background-image: url("../img/icons.png");
-  background-position: 1px -145px;
+  background-position: 1px -14px;
   background-repeat: no-repeat;
   display: inline-block;
   width: 30px;
