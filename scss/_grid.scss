@@ -1,0 +1,24 @@
+.wrapper:before,
+.wrapper:after {
+    content: " ";
+    display: table;
+}
+
+
+header{
+	height: $headerHeight;
+	div,
+	nav{
+		
+		height: $headerHeight;
+	}
+	div{
+		min-width: 25%;
+		float:left;
+	}
+	nav{
+		min-width: 75%;
+	}
+}
+	
+

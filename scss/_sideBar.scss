@@ -1,0 +1,120 @@
+.sideBar{
+	width: 20%;
+	background-color: $grey;
+	height: 1000px;
+	border-right: 2px solid $dkGray;
+	position: absolute;
+}
+
+.avatar{
+	text-align: center;
+	padding: 10px 0;
+	img{
+		width: 50%;
+	}
+}
+
+.about{
+	margin-top: 10px;
+	padding-top: 20px;
+	h2{
+		color: $white;
+		font-family: $RoborLight;
+		font-size: $navFontsSize * 0.5;
+		margin-left: 30px;
+		
+		span{
+			background-image: url("../img/icons.png");
+			padding-left: 25px;
+			background-position: 25px 2px;
+			/* background-repeat: no-repeat; */
+			height: 20px;
+			width: 20px;
+		}
+		&:after{
+			content: "__________________";
+			width: 10px;
+			padding-left: 10px;
+
+		}
+	}
+
+	p{
+		color: $white;
+		font-family: $RoborLight;
+		font-size: $navFontsSize * 0.4;
+		padding: 20px;
+		padding-top: 20px;
+	}
+}
+
+.contacts{
+	margin-top: 10px;
+	padding-top: 20px;
+	h2{
+		color: $white;
+		font-family: $RoborLight;
+		font-size: $navFontsSize * 0.5;
+		margin-left: 30px;
+		
+		span{
+			background-image: url("../img/icons.png");
+			padding-left: 25px;
+			background-position: 25px -20px;
+			/* background-repeat: no-repeat; */
+			width: 20px;
+		}
+		&:after{
+			content: "_______________";
+			width: 10px;
+			padding-left: 10px;
+
+		}
+	}
+
+	address{
+		color: $white;
+		font-family: $RoborLight;
+		font-size: $navFontsSize * 0.4;
+		padding-top: 20px;
+		margin-left: 60px;
+
+			&:nth-child(2):before{
+			content:"";
+			background-image: url("../img/icons.png");
+			background-position: 1px -71px;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			position:relative;
+			top: 10px;
+			right: 10px;
+		}
+
+			&:nth-child(3):before{
+			content:"";
+			background-image: url("../img/icons.png");
+			background-position: 1px -107px;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			position:relative;
+			top: 10px;
+			right: 10px;
+		}
+		&:nth-child(4):before{
+			content:"";
+			background-image: url("../img/icons.png");
+			background-position: 1px -145px;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			position:relative;
+			top: 10px;
+			right: 10px;
+		}
+	}
+}

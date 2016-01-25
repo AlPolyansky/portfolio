@@ -2,7 +2,133 @@
 /*colors*/
 /*fonts*/
 /*size*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
 body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* font-family: "RobotoRegular"; */
+@font-face {
+  font-family: "RobotoRegular";
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoLight"; */
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/RobotoLight.eot");
+  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot");
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoMedium/RobotoMedium.woff") format("woff"), url("../fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoBold"; */
+@font-face {
+  font-family: "RobotoBold";
+  src: url("../fonts/RobotoBold/RobotoBold.eot");
+  src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'BebasRegular';
+  src: url("../fonts/BebasRegular/BebasRegular.eot");
+  src: url("../fonts/BebasRegular/BebasRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasRegular/BebasRegular.woff") format("woff"), url("../fonts/BebasRegular/BebasRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'BebasBold';
+  src: url("../fonts/BebasBold/BebasBold.eot");
+  src: url("../fonts/BebasBold/BebasBold.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasBold/BebasBold.woff") format("woff"), url("../fonts/BebasBold/BebasBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'RobotoCondensedRegular';
+  src: url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.eot");
+  src: url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.woff") format("woff"), url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+.wrapper:before,
+.wrapper:after {
+  content: " ";
+  display: table;
+}
+
+header {
+  height: 74px;
+}
+header div,
+header nav {
+  height: 74px;
+}
+header div {
+  min-width: 25%;
+  float: left;
+}
+header nav {
+  min-width: 75%;
+}
+
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -13,170 +139,37 @@ body {
 
 header {
   background-color: #00b9ee;
-  height: 74px;
+  font-family: "BebasBold";
+  font-size: 32px;
+  color: #fff;
+  line-height: 74px;
   border-bottom: 2px solid #333333;
 }
-header div {
-  width: 20%;
-  height: 100%;
-  float: left
-  /* border-right: 2px solid $dkGray; */
-}
-header div h1 {
-  color: #fff;
-  font-family: "BebasBold";
-  font-size: 32px;
+header h1 {
   text-align: center;
-  margin-top: 23.125px;
-  margin-left: 10px;
 }
-header nav {
-  height: 100%;
-  width: 79%;
-  float: left;
-  margin-left: -1px;
+header ul {
+  font-size: 0;
 }
-header nav ul {
-  text-align: left;
-  margin-left: 7px;
-}
-header nav ul li {
+header li {
   display: inline-block;
-  border-right: 1px solid #333333;
-  margin-left: -.36em;
-}
-header nav ul li a {
-  color: #fff;
+  font-size: 0;
   height: 74px;
-  font-family: "BebasBold";
-  line-height: 74px;
-  display: inline-block;
-  font-size: 32px;
-  text-align: center;
-  /* margin-top: $headerSize/3; */
-  text-decoration: none;
-  padding: 0 50px;
-  vertical-align: middle;
+  text-align: left;
+  border-left: 2px solid #333333;
 }
-header nav ul li a:hover {
-  background-color: #333333;
-}
-
-.active {
-  background-color: #333333;
-}
-
-.sideBar {
-  width: 20%;
-  background-color: #737373;
-  height: 1000px;
+header li:last-child {
   border-right: 2px solid #333333;
-  position: absolute;
 }
-
-.avatar {
-  text-align: center;
-  padding: 10px 0;
-}
-.avatar img {
-  width: 50%;
-}
-
-.about {
-  margin-top: 10px;
-  padding-top: 20px;
-}
-.about h2 {
+header li a {
+  text-decoration: none;
   color: #fff;
-  font-family: "RobotoLight";
-  font-size: 16px;
-  margin-left: 30px;
+  display: block;
+  padding: 0 50px;
+  font-size: 32px;
 }
-.about h2 span {
-  background-image: url("../img/icons.png");
-  padding-left: 25px;
-  background-position: 25px 2px;
-  /* background-repeat: no-repeat; */
-  height: 20px;
-  width: 20px;
-}
-.about h2:after {
-  content: "__________________";
-  width: 10px;
-  padding-left: 10px;
-}
-.about p {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 12.8px;
-  padding: 20px;
-  padding-top: 20px;
-}
-
-.contacts {
-  margin-top: 10px;
-  padding-top: 20px;
-}
-.contacts h2 {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 16px;
-  margin-left: 30px;
-}
-.contacts h2 span {
-  background-image: url("../img/icons.png");
-  padding-left: 25px;
-  background-position: 25px -20px;
-  /* background-repeat: no-repeat; */
-  width: 20px;
-}
-.contacts h2:after {
-  content: "_______________";
-  width: 10px;
-  padding-left: 10px;
-}
-.contacts address {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 12.8px;
-  padding-top: 20px;
-  margin-left: 60px;
-}
-.contacts address:nth-child(2):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -71px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 10px;
-  right: 10px;
-}
-.contacts address:nth-child(3):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -107px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 10px;
-  right: 10px;
-}
-.contacts address:nth-child(4):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -145px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 10px;
-  right: 10px;
+header li a:hover {
+  background-color: #333333;
 }
 
 /*# sourceMappingURL=main.css.map */

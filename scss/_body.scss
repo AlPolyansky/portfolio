@@ -1,0 +1,16 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.wrapper{
+	width: $topWidth;
+	height: 1000px;
+	
+}
+
+.active{
+	//background-color: $dkGray;
+}
+
