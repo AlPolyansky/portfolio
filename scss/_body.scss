@@ -5,8 +5,8 @@
 }
 
 .wrapper{
-	width: $topWidth;
-	height: 1000px;
+	min-width: #{$topWidth + "px"};
+	min-height: #{$topHeight + "px"};
 	
 }
 

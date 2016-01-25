@@ -16,16 +16,15 @@ header{
 		font-size: 0;
 		height: $headerHeight;
 		text-align: left;
-		border-left:2px solid $dkGray;
-		&:last-child{
-			border-right:2px solid $dkGray;
-		}
+		position:relative;
+		border-right: 2px solid $dkGray;
 		a{
 			text-decoration: none;
 			color: $white;
 			display: block;
 			padding: 0 50px;
 			font-size: $navFontsSize;
+			transition: all 0.1s ease-in-out;
 			&:hover{
 				background-color: $dkGray;
 			}

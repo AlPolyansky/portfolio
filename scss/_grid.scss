@@ -13,11 +13,17 @@ header{
 		height: $headerHeight;
 	}
 	div{
-		min-width: 25%;
+		min-width: $nameWidth;
 		float:left;
 	}
 	nav{
-		min-width: 75%;
+		min-width: $hNavWidth;
+	}
+}
+.content{
+	article{
+		outline: 1px solid #111;
+		width: $sideBarWidth;
 	}
 }
 	

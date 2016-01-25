@@ -1,6 +1,6 @@
 /*variables*/
-$topWidth : 100%;
-$topHeight : 1000px;
+$topWidth : 1024;
+$topHeight : 1000;
 
 /*colors*/
 $ltBlue : #00b9ee;
@@ -12,6 +12,14 @@ $grey: #737373;
 $Bebas : "BebasBold";
 $RoborLight : "RobotoLight";
 
-/*size*/
-$headerHeight: 74px;
-$navFontsSize: 32px;
+/*sizes*/
+	/*header*/
+	$nameWidth: #{($topWidth / 100 * 30) + "px"};
+	$hNavWidth: #{($topWidth / 100 * 70) + "px"}; 
+	$headerHeight: 74px;
+	$navFontsSize: 32px;
+	/*content*/
+	$sideBarWidth: #{($topWidth / 100 * 30) + "px"};
+
+/*url*/
+$img: "../img/";
