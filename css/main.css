@@ -5,6 +5,7 @@
 /*header*/
 /*content*/
 /*url*/
+/* Mixin */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -129,8 +130,10 @@ header nav {
   min-width: 716.8px;
 }
 
+.content {
+  height: 100%;
+}
 .content article {
-  outline: 1px solid #111;
   width: 307.2px;
 }
 
@@ -166,6 +169,7 @@ header li {
   text-align: left;
   position: relative;
   border-right: 2px solid #333333;
+  margin-left: -1px;
 }
 header li a {
   text-decoration: none;
@@ -183,114 +187,80 @@ header li a:hover {
 .sideBar {
   width: 20%;
   background-color: #737373;
-  height: 1000px;
   border-right: 2px solid #333333;
+  color: #fff;
+  font-family: "RobotoLight";
+}
+.sideBar h2 {
+  font-size: 16px;
+  margin-left: 40.96px;
+}
+.sideBar span {
+  background-image: url("../img/icons.png");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 25px;
+  display: inline-block;
   position: absolute;
+  top: 8px;
+  left: 10px;
 }
-
-.avatar {
+.sideBar section {
+  padding-top: 20px;
+  outline: 1px solid red;
+  min-height: 100px;
+  position: relative;
+}
+.sideBar .avatar {
+  padding-top: 0;
+  height: 200px;
   text-align: center;
-  padding: 10px 0;
 }
-.avatar img {
+.sideBar .avatar img {
   width: 50%;
-}
-
-.about {
-  margin-top: 10px;
-  padding-top: 20px;
-}
-.about h2 {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 16px;
-  margin-left: 30px;
-}
-.about h2 span {
-  background-image: url("../img/icons.png");
-  padding-left: 25px;
-  background-position: 25px 2px;
-  /* background-repeat: no-repeat; */
-  height: 20px;
-  width: 20px;
-}
-.about h2:after {
-  content: "__________________";
-  width: 10px;
-  padding-left: 10px;
-}
-.about p {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 12.8px;
-  padding: 20px;
-  padding-top: 20px;
-}
-
-.contacts {
-  margin-top: 10px;
-  padding-top: 20px;
-}
-.contacts h2 {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 16px;
-  margin-left: 30px;
-}
-.contacts h2 span {
-  background-image: url("../img/icons.png");
-  padding-left: 25px;
-  background-position: 25px -20px;
-  background-repeat: no-repeat;
-  width: 20px;
-}
-.contacts h2:after {
-  content: "_______________";
-  width: 10px;
-  padding-left: 10px;
-}
-.contacts address {
-  color: #fff;
-  font-family: "RobotoLight";
-  font-size: 12.8px;
-  padding-top: 20px;
-  margin-left: 60px;
-}
-.contacts address:nth-child(2):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -71px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+  border: 5px solid #00b9ee;
+  border-radius: 50%;
   position: relative;
-  top: 10px;
-  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-.contacts address:nth-child(3):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -107px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 10px;
-  right: 10px;
+.sideBar .about h2 > span {
+  background-position: 0 1px;
 }
-.contacts address:nth-child(4):before {
-  content: "";
-  background-image: url("../img/icons.png");
-  background-position: 1px -145px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 10px;
-  right: 10px;
+.sideBar .about p {
+  font-size: 14.08px;
+  padding: 13px 35px 54px 20px;
+}
+.sideBar .contacts h2 > span {
+  background-position: 0 -30px;
+}
+.sideBar .contacts address {
+  padding-left: 84px;
+  padding-top: 20px;
+}
+.sideBar .contacts address:nth-child(2) > span {
+  height: 40px;
+  top: 40px;
+  left: 48px;
+  background-position: -1px -106px;
+}
+.sideBar .contacts address:nth-child(3) > span {
+  height: 40px;
+  top: 76px;
+  left: 48px;
+  background-position: -1px -158px;
+}
+.sideBar .contacts address:nth-child(4) > span {
+  height: 40px;
+  top: 113px;
+  left: 48px;
+  background-position: -1px -207px;
+}
+.sideBar .scills h2 > span {
+  background-position: 0 -66px;
+  top: 11px;
 }
 
 /*# sourceMappingURL=main.css.map */

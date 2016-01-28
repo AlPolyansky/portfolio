@@ -21,9 +21,11 @@ header{
 	}
 }
 .content{
+	height: 100%;
 	article{
-		outline: 1px solid #111;
 		width: $sideBarWidth;
+		.avatar{
+		}
 	}
 }
 	
