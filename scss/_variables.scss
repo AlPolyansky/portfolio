@@ -22,9 +22,9 @@ $RoborLight : "RobotoLight";
 
 	/*content*/
 	$sideBarWidth: $topWidth / 100 * 20;
-	$sectionHeigth: ($topHeight / 100 * 25);
+	$contentWidth: $topWidth / 100 * 80;
+	$sectionHeigth: $topHeight / 100 * 25;
 	$contentWidthProcent: $topWidth / 100 * 70;
-	$contentWidth: $contentWidthProcent / $topWidth * 100;
 		/*indicators*/
 	$indicatorWidth: $topWidth / 0.8;
 

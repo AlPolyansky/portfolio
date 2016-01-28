@@ -169,10 +169,27 @@ header{
 		}
 	}
 	.content{
-		min-width: $contentWidth + 0%;
-		min-height: 1000px;
-		outline: 1px solid red;
+		width: $contentWidth + 0%;
+		min-height: $topHeight + px;
 		float: left;
+		h2{
+			font-size: $headerFontsSize *1.8 +em;
+			text-align: center;
+			margin-top: $topHeight / 100 * 4 +px;
+		}
+		.jobs{
+			margin: 0 auto;
+			margin-top: $topHeight / 100 * 5 +px;;
+			text-align: center;
+			min-height: $topHeight + px;
+			width: ($contentWidth) + 0%;
+			a{
+				img{
+					width: 25%;
+					margin: 20px;
+				}
+			}
+		}
 	}
 }
 	

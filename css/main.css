@@ -265,10 +265,25 @@ header nav ul li a {
   left: 25px;
 }
 .main .content {
-  min-width: 70%;
+  width: 80%;
   min-height: 1000px;
-  outline: 1px solid red;
   float: left;
+}
+.main .content h2 {
+  font-size: 3.6em;
+  text-align: center;
+  margin-top: 40px;
+}
+.main .content .jobs {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  min-height: 1000px;
+  width: 80%;
+}
+.main .content .jobs a img {
+  width: 25%;
+  margin: 20px;
 }
 
 *,
@@ -326,6 +341,15 @@ header li a:hover {
 }
 .sideBar .scills .indicator .loader {
   background-color: #00b9ee;
+}
+
+.content h2 {
+  color: #333333;
+  font-family: "BebasBold";
+}
+.content .jobs img {
+  border: 5px solid #737373;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */
