@@ -1,5 +1,5 @@
 /*variables*/
-$topWidth : 1024;
+$topWidth : 100;
 $topHeight : 1000;
 
 /*colors*/
@@ -14,14 +14,19 @@ $RoborLight : "RobotoLight";
 
 /*sizes*/
 	/*header*/
-	$nameWidth: #{($topWidth / 100 * 30) + "px"};
-	$hNavWidth: #{($topWidth / 100 * 70) + "px"}; 
+	$nameWidth: $topWidth / 100 * 20;
+	$hNavWidth: $topWidth / 100 * 80; 
 	$headerHeight: 74px;
-	$navFontsSize: 32px;
+	$headerFontsSize: $topWidth / 100 * 2;
+
+
 	/*content*/
-	$sideBarWidth: #{($topWidth / 100 * 30) + "px"};
+	$sideBarWidth: $topWidth / 100 * 20;
+	$sectionHeigth: ($topHeight / 100 * 25);
+	$contentWidthProcent: $topWidth / 100 * 70;
+	$contentWidth: $contentWidthProcent / $topWidth * 100;
 		/*indicators*/
-		$indicatorWidth: 130;
+	$indicatorWidth: $topWidth / 0.8;
 
 /*url*/
 $img: "../img/";

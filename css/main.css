@@ -116,27 +116,159 @@ table {
   display: table;
 }
 
-header {
-  height: 74px;
+.wrapper {
+  width: 100%;
+  min-height: 1000px;
 }
-header div,
-header nav {
+
+header {
+  font-size: 2em;
+}
+header div, header nav {
   height: 74px;
 }
 header div {
-  min-width: 307.2px;
+  width: 20%;
   float: left;
 }
 header nav {
-  min-width: 716.8px;
+  width: 80%;
+  margin-left: 20%;
+}
+header nav ul {
+  word-spacing: -.15em;
+  width: 80%;
+}
+header nav ul li {
+  display: inline-block;
+}
+header nav ul li a {
+  padding-left: 1px;
+  padding: 0 40px;
 }
 
-.content {
-  height: 100%;
-}
-.content article {
-  width: 307.2px;
+.main .sideBar {
+  width: 20%;
   min-height: 1000px;
+  float: left;
+}
+.main .sideBar section {
+  min-height: 250px;
+  padding: 50px 0;
+  position: relative;
+}
+.main .sideBar section h2 {
+  font-size: 1.4em;
+  margin-left: 20px;
+}
+.main .sideBar section span {
+  width: 30px;
+  height: 25px;
+  display: inline-block;
+}
+.main .sideBar .avatar {
+  text-align: center;
+}
+.main .sideBar .avatar img {
+  width: 60%;
+}
+.main .sideBar .about p {
+  font-size: 1em;
+  padding: 16.66667px;
+}
+.main .sideBar .contacts h2 > span {
+  background-position: 0 -30px;
+}
+.main .sideBar .contacts address {
+  font-size: 1em;
+  padding-left: 100px;
+  padding-top: 20px;
+  position: relative;
+}
+.main .sideBar .contacts address span {
+  height: 40px;
+}
+.main .sideBar .contacts address:nth-child(2) > span {
+  position: absolute;
+  top: 5px;
+  left: 60px;
+  background-position: -1px -106px;
+}
+.main .sideBar .contacts address:nth-child(3) > span {
+  position: absolute;
+  top: 5px;
+  left: 60px;
+  background-position: -1px -158px;
+}
+.main .sideBar .contacts address:nth-child(4) > span {
+  position: absolute;
+  top: 5px;
+  left: 60px;
+  background-position: -1px -207px;
+}
+.main .sideBar .scills {
+  padding-top: 20px;
+}
+.main .sideBar .scills h2 > span {
+  background-position: 0 -66px;
+  top: 11px;
+}
+.main .sideBar .scills .indicator {
+  width: 125px;
+  margin: 45px 0;
+  height: 10px;
+  border-radius: 5px;
+  margin-left: 80px;
+  position: relative;
+}
+.main .sideBar .scills .indicator > span {
+  height: 40px;
+  top: -15px;
+  left: -37px;
+  position: absolute;
+}
+.main .sideBar .scills .indicator > span p {
+  width: 30px;
+  font-size: 0.68966em;
+  position: absolute;
+  top: -10px;
+  text-align: center;
+}
+.main .sideBar .scills .indicator:nth-child(2) > span {
+  background-position: -1px -262px;
+}
+.main .sideBar .scills .indicator:nth-child(3) > span {
+  background-position: -1px -318px;
+}
+.main .sideBar .scills .indicator:nth-child(4) > span {
+  background-position: -1px -372px;
+}
+.main .sideBar .scills .indicator .loader {
+  border-radius: 5px;
+  width: 12.5px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+}
+.main .sideBar .scills .indicator .num_skill {
+  position: absolute;
+  left: 135px;
+  top: -4px;
+}
+.main .sideBar .scills .indicator:nth-child(2) .loader {
+  left: 50px;
+}
+.main .sideBar .scills .indicator:nth-child(3) .loader {
+  left: 50px;
+}
+.main .sideBar .scills .indicator:nth-child(4) .loader {
+  left: 25px;
+}
+.main .content {
+  min-width: 70%;
+  min-height: 1000px;
+  outline: 1px solid red;
+  float: left;
 }
 
 *,
@@ -145,15 +277,9 @@ header nav {
   box-sizing: border-box;
 }
 
-.wrapper {
-  min-width: 1024px;
-  min-height: 1000px;
-}
-
 header {
   background-color: #00b9ee;
   font-family: "BebasBold";
-  font-size: 32px;
   color: #fff;
   line-height: 74px;
   border-bottom: 2px solid #333333;
@@ -161,24 +287,16 @@ header {
 header h1 {
   text-align: center;
 }
-header ul {
-  font-size: 0;
-}
 header li {
-  display: inline-block;
-  font-size: 0;
   height: 74px;
   text-align: left;
   position: relative;
   border-right: 2px solid #333333;
-  margin-left: -1px;
 }
 header li a {
   text-decoration: none;
   color: #fff;
   display: block;
-  padding: 0 50px;
-  font-size: 32px;
   -webkit-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out;
 }
@@ -187,138 +305,27 @@ header li a:hover {
 }
 
 .sideBar {
-  width: 20%;
   background-color: #737373;
   border-right: 2px solid #333333;
   color: #fff;
   font-family: "RobotoLight";
 }
-.sideBar h2 {
-  font-size: 16px;
-  margin-left: 40.96px;
-}
 .sideBar span {
   background-image: url("../img/icons.png");
   background-repeat: no-repeat;
-  width: 30px;
-  height: 25px;
-  display: inline-block;
-  position: absolute;
-  top: 8px;
-  left: 10px;
-}
-.sideBar section {
-  padding: 20px 0;
-  /* outline: 1px solid red;  */
-  min-height: 150px;
-  position: relative;
-}
-.sideBar .avatar {
-  padding-top: 0;
-  height: 200px;
-  text-align: center;
 }
 .sideBar .avatar img {
-  margin-top: 30px;
-  width: 50%;
   border: 5px solid #00b9ee;
   border-radius: 50%;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-.sideBar .about h2 > span {
-  background-position: 0 1px;
-}
-.sideBar .about p {
-  font-size: 14.08px;
-  padding: 13px 35px 24px 20px;
-}
-.sideBar .contacts h2 > span {
-  background-position: 0 -30px;
-}
-.sideBar .contacts address {
-  padding-left: 84px;
-  padding-top: 20px;
-}
-.sideBar .contacts address:nth-child(2) > span {
-  height: 40px;
-  top: 40px;
-  left: 48px;
-  background-position: -1px -106px;
-}
-.sideBar .contacts address:nth-child(3) > span {
-  height: 40px;
-  top: 76px;
-  left: 48px;
-  background-position: -1px -158px;
-}
-.sideBar .contacts address:nth-child(4) > span {
-  height: 40px;
-  top: 113px;
-  left: 48px;
-  background-position: -1px -207px;
-}
-.sideBar .scills {
-  padding-top: 20px;
-}
-.sideBar .scills h2 > span {
-  background-position: 0 -66px;
-  top: 11px;
 }
 .sideBar .scills .indicator {
-  width: 130px;
-  margin: 45px 0;
-  height: 10px;
   background-color: #333333;
-  border-radius: 5px;
-  margin-left: 84px;
-  position: relative;
 }
-.sideBar .scills .indicator > span {
-  height: 40px;
-  top: -15px;
-  left: -37px;
-}
-.sideBar .scills .indicator > span p {
-  width: 30px;
-  font-size: 11.85185px;
+.sideBar .scills .indicator span p {
   text-transform: uppercase;
-  position: absolute;
-  top: -10px;
-  text-align: center;
-}
-.sideBar .scills .indicator:nth-child(2) > span {
-  background-position: -1px -262px;
-}
-.sideBar .scills .indicator:nth-child(3) > span {
-  background-position: -1px -318px;
-}
-.sideBar .scills .indicator:nth-child(4) > span {
-  background-position: -1px -372px;
 }
 .sideBar .scills .indicator .loader {
   background-color: #00b9ee;
-  border-radius: 5px;
-  width: 13px;
-  height: 10px;
-  position: absolute;
-}
-.sideBar .scills .indicator .num_skill {
-  position: absolute;
-  left: 140px;
-  top: -4px;
-}
-.sideBar .scills .indicator:nth-child(2) .loader {
-  left: 52px;
-}
-.sideBar .scills .indicator:nth-child(3) .loader {
-  left: 52px;
-}
-.sideBar .scills .indicator:nth-child(4) .loader {
-  left: 26px;
 }
 
 /*# sourceMappingURL=main.css.map */

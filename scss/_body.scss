@@ -4,11 +4,7 @@
   box-sizing: border-box;
 }
 
-.wrapper{
-	min-width: #{$topWidth + "px"};
-	min-height: #{$topHeight + "px"};
-	
-}
+
 
 .active{
 	//background-color: $dkGray;

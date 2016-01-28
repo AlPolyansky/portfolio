@@ -1,156 +1,32 @@
 .sideBar{
-	width: 20%;
-	
 	background-color: $grey;
 	border-right: 2px solid $dkGray;
 	color: $white;
 	font-family: $RoborLight;
-
-	h2{
-		font-size: $navFontsSize * 0.5;
-		margin-left: #{($topWidth / 100 * 4) + "px"};
-		
-	}
 	span{
-
-			background-image: url($img + "icons.png");
-			background-repeat: no-repeat;
-			width: 30px;
-			height: 25px;
-			display: inline-block;
-			position: absolute;
-			top: 8px;
-			left: 10px;
+		background-image: url($img + "icons.png");
+		background-repeat: no-repeat;
 	}
 	
-
-
-section{
-	padding: 20px 0;
-	 /* outline: 1px solid red;  */
-	min-height: 150px;
-	position: relative;
-}
-
 
 
 .avatar{
-	padding-top: 0;
-	height: 200px;
-	text-align:center;
 		img{
-		margin-top: 30px;
-		width: 50%;
 		border: 5px solid $ltBlue;
 		border-radius: 50%;
-		@include vertical-align(relative);
 	}
 }
-
-.about{
-	h2>span{
-		background-position: 0 1px;
-	}
-	p{
-		font-size: $navFontsSize * 0.44;
-		padding: 13px 35px 24px 20px;
-	}
-}
-
-.contacts{
-	h2>span{
-		background-position: 0 -30px;
-	}
-	address{
-		padding-left:84px;
-		padding-top: 20px;
-		&:nth-child(2) > span{
-			height: 40px;
-			top:40px;
-			left: 48px;
-			background-position: -1px -106px;
-		}
-		&:nth-child(3) > span{
-			height: 40px;
-			top:76px;
-			left: 48px;
-			background-position: -1px -158px;
-		}
-		&:nth-child(4) > span{
-			height: 40px;
-			top:113px;
-			left: 48px;
-			background-position: -1px -207px;
-		}
-		
-	}
-}
-
 .scills{
-	padding-top: 20px;
-	h2>span{
-		background-position: 0 -66px;
-		top: 11px;
-	}
-		.indicator{
-		width: $indicatorWidth + px;
-		margin: 45px 0;
-		height: 10px;
+	.indicator{
 		background-color: $dkGray;
-		border-radius: 5px;
-		margin-left:84px;
-		position: relative;
-		&>span{
-
-			height: 40px;
-			top: -15px;
-			left: -37px;
+		span{
 			p{
-				width: 30px;
-				font-size: $navFontsSize /2.7;
 				text-transform: uppercase;
-				position: absolute;
-				top: -10px;
-				text-align: center;
 			}
-		}
-		&:nth-child(2) > span{
-			background-position: -1px -262px;
-		}
-		&:nth-child(3) > span{
-			background-position: -1px -318px;
-		}
-		&:nth-child(4) > span{
-			background-position: -1px -372px;
 		}
 		.loader{
 			background-color: $ltBlue;
-			border-radius: 5px;
-			width: ($indicatorWidth / 10) + px;
-			height: 10px;
-			position: absolute;
 		}
-		.num_skill{
-			position: absolute;
-			left: ($indicatorWidth + 10) + px;
-			top: -4px;
-		}
-		&:nth-child(2){
-			.loader{
-				left: ($indicatorWidth / 100 * 40) + px;
-			}
-		}
-		&:nth-child(3){
-			.loader{
-				left: ($indicatorWidth / 100 * 40) + px;
-			}
-		}
-		&:nth-child(4){
-			.loader{
-				left: ($indicatorWidth / 100 * 20) + px;
-			}
-		}
-	
 	}
 }
 

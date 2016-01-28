@@ -4,29 +4,175 @@
     display: table;
 }
 
+.wrapper{
+	width: 100%;
+	min-height: #{$topHeight + "px"};
+	
+}
+
 
 header{
-	height: $headerHeight;
-	div,
-	nav{
-		
+	font-size: $headerFontsSize + em;
+	div,nav{
 		height: $headerHeight;
 	}
 	div{
-		min-width: $nameWidth;
-		float:left;
+		width: $nameWidth + 0%;
+		float: left;
 	}
 	nav{
-		min-width: $hNavWidth;
+		width: $hNavWidth + 0%;
+		margin-left: $nameWidth + 0%;
+		ul{
+			word-spacing: -.15em;
+			width:$hNavWidth + 0%; 
+			li{
+				display: inline-block;
+				a{
+					padding-left: 1px;
+					padding: 0 ($hNavWidth/2) +px;
+				}
+			}
+		}
 	}
 }
-.content{
-	height: 100%;
-	article{
-		width: $sideBarWidth;
-		min-height: 1000px;
-		.avatar{
+.main{
+
+	.sideBar{
+		width: $sideBarWidth + 0%;
+		min-height: $topHeight + px;
+		float: left;
+		section{
+			min-height: $sectionHeigth + px;
+			padding: ($sectionHeigth / 5) + px 0;
+			position: relative;
+			h2{
+				font-size: $headerFontsSize * 0.7 +em;
+				margin-left: $sideBarWidth + px;
+			}
+			span{
+				width: 30px;
+				height: 25px;
+				display: inline-block;
+			}
 		}
+		.avatar{
+			text-align: center;
+			img{
+				width:60%;
+			}
+			
+		}
+		.about{
+			p{
+				font-size: $headerFontsSize * 0.5 +em;
+				padding: ($sectionHeigth / 15) + px;
+			}
+		}
+		.contacts{
+			h2>span{
+				background-position: 0 -30px;
+
+			}
+			address{
+				font-size: $headerFontsSize * 0.5 +em; 
+				padding-left:($sideBarWidth * 5) + px;
+				padding-top: 20px;
+				position: relative;
+				span{
+					height: 40px;
+				}
+				&:nth-child(2) > span{
+					position: absolute;
+					top: 5px;
+					left: ($sideBarWidth  * 3) + px;
+					background-position: -1px -106px;
+				}
+				&:nth-child(3) > span{
+					position: absolute;
+					top: 5px;
+					left: ($sideBarWidth  * 3) + px;
+					background-position: -1px -158px;
+				}
+				&:nth-child(4) > span{
+					position: absolute;
+					top: 5px;
+					left: ($sideBarWidth  * 3) + px;
+					background-position: -1px -207px;
+				}
+			}
+		}
+		.scills{
+			padding-top: 20px;
+			h2>span{
+				background-position: 0 -66px;
+				top: 11px;
+			}
+			.indicator{
+				width: $indicatorWidth + px;
+				margin: 45px 0;
+				height: 10px;
+				border-radius: 5px;
+				margin-left:($sideBarWidth * 4) + px;
+				position: relative;
+				&>span{
+					height: 40px;
+					top: -15px;
+					left: -37px;
+					position: absolute;
+					p{
+						width: 30px;
+						font-size: $headerFontsSize /2.9 +em;
+						position: absolute;
+						top: -10px;
+						text-align: center;
+					}
+				}
+				&:nth-child(2) > span{
+					background-position: -1px -262px;
+				}
+				&:nth-child(3) > span{
+					background-position: -1px -318px;
+				}
+				&:nth-child(4) > span{
+					background-position: -1px -372px;
+				}
+				.loader{
+					border-radius: 5px;
+					width: ($indicatorWidth / 10) + px;
+					height: 10px;
+					position: absolute;
+					top:0;
+				}
+				.num_skill{
+					position: absolute;
+					left: ($indicatorWidth + 10) + px;
+					top: -4px;
+				}
+				&:nth-child(2){
+					.loader{
+						left: ($indicatorWidth / 100 * 40) + px;
+					}
+				}
+				&:nth-child(3){
+					.loader{
+						left: ($indicatorWidth / 100 * 40) + px;
+					}
+				}
+				&:nth-child(4){
+					.loader{
+						left: ($indicatorWidth / 100 * 20) + px;
+					}
+				}
+			
+			}
+		}
+	}
+	.content{
+		min-width: $contentWidth + 0%;
+		min-height: 1000px;
+		outline: 1px solid red;
+		float: left;
 	}
 }
 	
