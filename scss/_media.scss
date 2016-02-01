@@ -1,0 +1,32 @@
+header{
+	@include screen(768px, 1024px, landscape) {
+		font-size: $headerFontsSize / 1.5 + em;
+	}
+	div{
+		@include screen(768px, 1024px, landscape) {
+		min-width: 170px;
+		}
+	}
+	
+}
+.main{
+	.sideBar{
+	@include screen(768px, 1024px, landscape){
+		font-size: $headerFontsSize / 2.5 + em;
+		min-width: 170px;
+		float: left;
+	}
+	}
+	.content{
+	@include screen(768px, 1024px, landscape){
+		font-size: $headerFontsSize / 2.5 + em;
+		width: ($contentWidth - 1.5 ) + 0%;
+	}
+	.jobs{
+		@include screen(768px, 1024px, landscape){
+		width: ($contentWidth - 1.5 ) + 0%;
+		}
+
+	}
+}
+}

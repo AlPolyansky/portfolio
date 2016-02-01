@@ -1,6 +1,6 @@
 /*variables*/
-$topWidth : 100;
-$topHeight : 1000;
+$topWidth : 1024;
+$topHeight : 720;
 
 /*colors*/
 $ltBlue : #00b9ee;
@@ -14,19 +14,19 @@ $RoborLight : "RobotoLight";
 
 /*sizes*/
 	/*header*/
-	$nameWidth: $topWidth / 100 * 20;
+	$nameWidth: $topWidth / 100 * 25;
 	$hNavWidth: $topWidth / 100 * 80; 
 	$headerHeight: 74px;
-	$headerFontsSize: $topWidth / 100 * 2;
+	$headerFontsSize: 1;
 
 
 	/*content*/
-	$sideBarWidth: $topWidth / 100 * 20;
+	$sideBarWidth: $topWidth / 100 * 25;
 	$contentWidth: $topWidth / 100 * 80;
 	$sectionHeigth: $topHeight / 100 * 25;
 	$contentWidthProcent: $topWidth / 100 * 70;
 		/*indicators*/
-	$indicatorWidth: $topWidth / 0.8;
+	$indicatorWidth: $topWidth / 10;
 
 /*url*/
 $img: "../img/";

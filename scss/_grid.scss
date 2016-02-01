@@ -5,50 +5,51 @@
 }
 
 .wrapper{
-	width: 100%;
-	min-height: #{$topHeight + "px"};
+	overflow: hidden;
+	min-width: $topWidth + px;
 	
 }
 
 
 header{
-	font-size: $headerFontsSize + em;
+	font-size: $headerFontsSize + 0.7em;
 	div,nav{
 		height: $headerHeight;
 	}
 	div{
-		width: $nameWidth + 0%;
+		width: $nameWidth + px;	
 		float: left;
 	}
 	nav{
-		width: $hNavWidth + 0%;
-		margin-left: $nameWidth + 0%;
+		min-width: $hNavWidth + px;
+		margin-left: $nameWidth + px;
+		position: relative;
+		left: -2px;
 		ul{
 			word-spacing: -.15em;
-			width:$hNavWidth + 0%; 
+			width:$hNavWidth + px; 
 			li{
 				display: inline-block;
 				a{
 					padding-left: 1px;
-					padding: 0 ($hNavWidth/2) +px;
+					padding: 0 ($hNavWidth / 12) + px;
 				}
 			}
 		}
 	}
 }
 .main{
-
+	width: 100%;
 	.sideBar{
-		width: $sideBarWidth + 0%;
-		min-height: $topHeight + px;
+		width: $sideBarWidth + px;
+		min-height: ($topHeight * 1.5) + px;
 		float: left;
 		section{
 			min-height: $sectionHeigth + px;
-			padding: ($sectionHeigth / 5) + px 0;
+			padding: ($sectionHeigth / 10) + px;
 			position: relative;
 			h2{
-				font-size: $headerFontsSize * 0.7 +em;
-				margin-left: $sideBarWidth + px;
+				font-size: $headerFontsSize + 0.5 +em;
 			}
 			span{
 				width: 30px;
@@ -59,13 +60,13 @@ header{
 		.avatar{
 			text-align: center;
 			img{
-				width:60%;
+				width:70%;
 			}
 			
 		}
 		.about{
 			p{
-				font-size: $headerFontsSize * 0.5 +em;
+				font-size: $headerFontsSize +em;
 				padding: ($sectionHeigth / 15) + px;
 			}
 		}
@@ -75,8 +76,8 @@ header{
 
 			}
 			address{
-				font-size: $headerFontsSize * 0.5 +em; 
-				padding-left:($sideBarWidth * 5) + px;
+				font-size: $headerFontsSize + em; 
+				margin-left: ($sideBarWidth / 3) + px;
 				padding-top: 20px;
 				position: relative;
 				span{
@@ -85,19 +86,19 @@ header{
 				&:nth-child(2) > span{
 					position: absolute;
 					top: 5px;
-					left: ($sideBarWidth  * 3) + px;
+					left: -($sideBarWidth  / 5) + px;
 					background-position: -1px -106px;
 				}
 				&:nth-child(3) > span{
 					position: absolute;
 					top: 5px;
-					left: ($sideBarWidth  * 3) + px;
+					left: -($sideBarWidth  / 5) + px;
 					background-position: -1px -158px;
 				}
 				&:nth-child(4) > span{
 					position: absolute;
 					top: 5px;
-					left: ($sideBarWidth  * 3) + px;
+					left: -($sideBarWidth  / 5) + px;
 					background-position: -1px -207px;
 				}
 			}
@@ -113,7 +114,7 @@ header{
 				margin: 45px 0;
 				height: 10px;
 				border-radius: 5px;
-				margin-left:($sideBarWidth * 4) + px;
+				margin-left:($sideBarWidth  / 5) + px;;
 				position: relative;
 				&>span{
 					height: 40px;
@@ -122,7 +123,7 @@ header{
 					position: absolute;
 					p{
 						width: 30px;
-						font-size: $headerFontsSize /2.9 +em;
+						font-size: $headerFontsSize /1.5 +em;
 						position: absolute;
 						top: -10px;
 						text-align: center;
@@ -130,12 +131,15 @@ header{
 				}
 				&:nth-child(2) > span{
 					background-position: -1px -262px;
+					margin-left: -($sideBarWidth  / 90) + px;
 				}
 				&:nth-child(3) > span{
 					background-position: -1px -318px;
+					margin-left: -($sideBarWidth  / 90) + px;
 				}
 				&:nth-child(4) > span{
 					background-position: -1px -372px;
+					margin-left: -($sideBarWidth  / 90) + px;
 				}
 				.loader{
 					border-radius: 5px;
@@ -169,26 +173,21 @@ header{
 		}
 	}
 	.content{
-		width: $contentWidth + 0%;
-		min-height: $topHeight + px;
-		float: left;
 		h2{
-			font-size: $headerFontsSize *1.8 +em;
+			font-size: $headerFontsSize  + 2 +em;
 			text-align: center;
-			margin-top: $topHeight / 100 * 4 +px;
+			padding-top: $topHeight / 100 * 6 +px;
 		}
 		.jobs{
-			margin: 0 auto;
-			margin-top: $topHeight / 100 * 5 +px;;
+			margin-top: $topHeight / 100 * 10 +px;
 			text-align: center;
-			min-height: $topHeight + px;
-			width: ($contentWidth) + 0%;
-			a{
+			min-width: $contentWidth + px;
+			padding: 0 ($contentWidth / 6)+ px;
+			margin-left: $sideBarWidth + px;
 				img{
 					width: 25%;
 					margin: 20px;
 				}
-			}
 		}
 	}
 }
