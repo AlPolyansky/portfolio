@@ -118,7 +118,6 @@ table {
 
 .wrapper {
   overflow: hidden;
-  min-width: 1024px;
 }
 
 header {
@@ -150,16 +149,16 @@ header nav ul li a {
 }
 
 .main {
-  width: 100%;
+  min-width: 1024px;
 }
 .main .sideBar {
   width: 256px;
-  min-height: 1080px;
+  min-height: 1536px;
   float: left;
 }
 .main .sideBar section {
-  min-height: 180px;
-  padding: 18px;
+  min-height: 256px;
+  padding: 25.6px;
   position: relative;
 }
 .main .sideBar section h2 {
@@ -178,7 +177,7 @@ header nav ul li a {
 }
 .main .sideBar .about p {
   font-size: 1em;
-  padding: 12px;
+  padding: 17.06667px;
 }
 .main .sideBar .contacts h2 > span {
   background-position: 0 -30px;
@@ -271,21 +270,22 @@ header nav ul li a {
 .main .sideBar .scills .indicator:nth-child(4) .loader {
   left: 20.48px;
 }
+.main .content {
+  min-width: 70%;
+}
 .main .content h2 {
   font-size: 3em;
   text-align: center;
-  padding-top: 43.2px;
+  padding-top: 81.92px;
 }
 .main .content .jobs {
-  margin-top: 72px;
+  margin: 0 auto;
+  margin-top: 40.96px;
   text-align: center;
-  min-width: 819.2px;
-  padding: 0 136.53333px;
-  margin-left: 256px;
 }
 .main .content .jobs img {
-  width: 25%;
-  margin: 20px;
+  width: 227.55556px;
+  margin: 30px;
 }
 
 *,

@@ -6,7 +6,8 @@
 
 .wrapper{
 	overflow: hidden;
-	min-width: $topWidth + px;
+	
+
 	
 }
 
@@ -39,7 +40,8 @@ header{
 	}
 }
 .main{
-	width: 100%;
+	min-width:$topWidth + px;
+
 	.sideBar{
 		width: $sideBarWidth + px;
 		min-height: ($topHeight * 1.5) + px;
@@ -173,22 +175,22 @@ header{
 		}
 	}
 	.content{
+		min-width: $contentWidthProcent / $topWidth * 100%;
 		h2{
 			font-size: $headerFontsSize  + 2 +em;
 			text-align: center;
-			padding-top: $topHeight / 100 * 6 +px;
+			padding-top: $topHeight / 100 * 8 +px;
 		}
 		.jobs{
-			margin-top: $topHeight / 100 * 10 +px;
+			
+			margin: 0 auto;
+			margin-top: $topHeight / 100 *4 +px;
 			text-align: center;
-			min-width: $contentWidth + px;
-			padding: 0 ($contentWidth / 6)+ px;
-			margin-left: $sideBarWidth + px;
 				img{
-					width: 25%;
-					margin: 20px;
+					width: $topWidth /4.5 + px;
+					margin: 30px;
 				}
-		}
+			}
 	}
 }
 	
