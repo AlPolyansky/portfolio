@@ -1,15 +1,13 @@
-@import "_variables";
-//@import "_media-queries";
-@import "_mixins";
-@import "_reset";
-@import "_fonts";
-@import "_grid";
-@import "_body";
-@import "_head";
-@import "_sideBar";
-@import "_content";
-@import "_animation";
-//@import "_media";
+@import "base/bootstrap";
+@import "base/reset";
+@import "base/fonts";
+@import "utils/variables";
+@import "layout/grid";
+//@import "layout/body";
+@import "layout/head";
+@import "layout/sideBar";
+@import "components/media"; 
+//@import "layout/content";
 
 
 

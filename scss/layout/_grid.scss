@@ -1,52 +1,40 @@
-.wrapper:before,
-.wrapper:after {
-    content: " ";
-    display: table;
-}
-
 .wrapper{
-	overflow: hidden;
-	
-
+	width: 100%;
 	
 }
 
 
 header{
-	font-size: $headerFontsSize + 0.7em;
-	position: fixed;
-	div,nav{
-		height: $headerHeight;
-	}
-	div{
-		width: $nameWidth + px;	
-		float: left;
-	}
-	nav{
-		min-width: $hNavWidth + px;
-		margin-left: $nameWidth + px;
-		position: relative;
-		left: -2px;
-		ul{
-			word-spacing: -.15em;
-			width:$hNavWidth + px; 
-			li{
-				display: inline-block;
-				a{
-					padding-left: 1px;
-					padding: 0 ($hNavWidth / 12) + px;
-				}
+	font-size: $headerFontsSize + 0.6em;
+	width: 100%;
+	min-height: $headerHeight;
+	background-color: $ltBlue;
+	.top_name{
+	    float: left;
+	    transition: all 0.5s ease 0s;
+		width: 250px;
+	    z-index: 1000;
 			}
+	.top_menu{
+		ul li{
+		display: inline-block;
+		text-align: center;
+		}
+		a{
+			min-width: 130px;
 		}
 	}
+	
 }
 .main{
-	min-width:$topWidth + px;
-
 	.sideBar{
-		width: $sideBarWidth + px;
-		min-height: ($topHeight * 1.5) + px;
-		float: left;
+		background: $grey;
+	    left: 250px;
+	    margin-left: -250px;
+	    position: absolute;
+	    transition: all 0.5s ease 0s;
+		width: 250px;
+	    z-index: 1000;
 		section{
 			min-height: $sectionHeigth + px;
 			padding: ($sectionHeigth / 18) + px;
@@ -178,7 +166,9 @@ header{
 		}
 	}
 	.content{
-		min-width: $contentWidthProcent / $topWidth * 100%;
+		
+		width: 100%;
+		padding-left: 250px;
 		h2{
 			font-size: $headerFontsSize  + 2 +em;
 			text-align: center;

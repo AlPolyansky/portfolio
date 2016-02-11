@@ -6,12 +6,10 @@ header{
 	border-bottom: 2px solid $dkGray;
 	h1{
 		text-align: center;
+
 	}
 	li{
-		
-		height: $headerHeight;
 		text-align: left;
-		position:relative;
 		border-right: 2px solid $dkGray;
 		a{
 			text-decoration: none;
@@ -20,6 +18,8 @@ header{
 			transition: all 0.1s ease-in-out;
 			&:hover{
 				background-color: $dkGray;
+				color: $white;
+				text-decoration: none;
 			}
 		}
 	}
