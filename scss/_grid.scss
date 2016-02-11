@@ -14,6 +14,7 @@
 
 header{
 	font-size: $headerFontsSize + 0.7em;
+	position: fixed;
 	div,nav{
 		height: $headerHeight;
 	}
@@ -48,7 +49,7 @@ header{
 		float: left;
 		section{
 			min-height: $sectionHeigth + px;
-			padding: ($sectionHeigth / 10) + px;
+			padding: ($sectionHeigth / 18) + px;
 			position: relative;
 			h2{
 				font-size: $headerFontsSize + 0.5 +em;
@@ -60,6 +61,8 @@ header{
 			}
 		}
 		.avatar{
+			
+			top: ($sectionHeigth / 6) + px;
 			text-align: center;
 			img{
 				width:70%;
@@ -182,15 +185,57 @@ header{
 			padding-top: $topHeight / 100 * 8 +px;
 		}
 		.jobs{
-			
-			margin: 0 auto;
 			margin-top: $topHeight / 100 *4 +px;
 			text-align: center;
-				img{
-					width: $topWidth /4.5 + px;
-					margin: 30px;
+			.jobs_wrap{
+				max-width: 300px;
+				display: inline-block;
+				height: 100%;
+				position: relative;
+				margin: 10px;
+				text-transform: uppercase;
+				font-size: 14px;
+				letter-spacing: 2;
+				&:hover .jobs_content{
+					opacity: 1;
+					background-color: rgba(0,0,0,.85);
 				}
 			}
+				img{
+					/* width: $topWidth /4.5 + px; */
+					margin: 0;
+					width: 100%;
+					padding: 0;
+				}
+			.jobs_content{
+				position:absolute;
+				top: 0;
+				left: 0;
+				height: 99%;
+				width: 100%;
+				text-align: center;
+				color: $white;
+				padding-top: 30%;
+				opacity: 0;
+				transition: all .35s;
+					h3{
+						padding-bottom: 10px;
+					}
+					p{
+						font-size: 10px;
+						color: #ccc;
+					}
+					button{
+						margin-top: 15px;
+						background-color: inherit;
+						border: 2px solid $ltBlue;
+						color: $white;
+						cursor: pointer;
+					}
+				
+			}
+
+		}
 	}
 }
 	

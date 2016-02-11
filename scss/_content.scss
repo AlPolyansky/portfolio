@@ -5,8 +5,10 @@
 	}
 	.jobs{
 		img{
-			border: 5px solid $grey;
-			border-radius: 50%;
+			border: 1px solid $grey;
+		}
+		&:hover{
+			
 		}
 	}
 }
