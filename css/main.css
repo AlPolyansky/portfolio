@@ -1522,6 +1522,8 @@ header .top_menu a {
   padding-top: 61.44px;
 }
 .main .content .jobs {
+  -webkit-transition: all 0.5s ease 0s;
+          transition: all 0.5s ease 0s;
   margin-top: 30.72px;
   text-align: center;
 }
@@ -1584,8 +1586,8 @@ header h1 {
   text-align: center;
 }
 header li {
-  text-align: left;
-  border-right: 2px solid #333333;
+  text-align: left
+  /* border-right: 2px solid $dkGray; */
 }
 header li a {
   text-decoration: none;
@@ -1647,7 +1649,7 @@ header li a:hover {
     display: none;
   }
 
-  .main .sideBar {
+  .wrapper .main .sideBar {
     margin-left: -500px;
   }
 

@@ -175,6 +175,7 @@ header{
 			padding-top: $topHeight / 100 * 8 +px;
 		}
 		.jobs{
+			transition: all 0.5s ease 0s;
 			margin-top: $topHeight / 100 *4 +px;
 			text-align: center;
 			.jobs_wrap{
