@@ -83,7 +83,7 @@ $(document).ready(function() {
 
 
 	$(window).resize(function(){
-		if (($(window).width()) <= 769) {
+		if (($(window).width()) <= 768) {
 			$(sideBar).css({
 				'margin-left': '-500px'
 				
@@ -94,7 +94,7 @@ $(document).ready(function() {
 			});
 
 		}
-		else{
+		if (($(window).width()) > 768 && $(this).scrollTop() == 0){
 			$(".top_menu_wrap").show();
 			$(sideBar).css({
 				'margin-left': '-250px'
@@ -108,6 +108,10 @@ $(document).ready(function() {
 });
 
 $(window).load(function() {
+
+	$(".loader_inner").fadeOut();
+	$(".loader").delay(400).fadeOut("slow");
+	
 	if($(this).width() > 768){
 			$(".sideBar").css({
 				'margin-left': '-500px'
@@ -135,6 +139,11 @@ $(window).load(function() {
 		$(".content").css({
 				'padding-left': '250px'
 			});
+
+	if($(this).scrollTop() == 0 && $(this).width() > 768){
+		$(".scroll_tabs_wrap").hide();
+	}
+
 	if($(this).scrollTop() == 0 && $(this).width() <= 768){
 		$(".scroll_tabs_wrap").hide();
 		$(".sideBar").css({

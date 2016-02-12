@@ -20,6 +20,12 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+	.gallery_job{
+		padding-bottom: 40px;
+	}
+	.content{
+		padding-top: 30px;
+	}
 	header{
 		position: fixed;
 		z-index: 1000;
@@ -155,6 +161,7 @@
 		.top_menu{
 			width: 250px;
 		}
+		
 	}
 }
 
