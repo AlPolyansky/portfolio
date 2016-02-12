@@ -10,6 +10,12 @@
 	body header .top_menu a{
 				min-width: 100px;
 			}
+	.mfp-arrow{
+		display: none !important;
+	}
+	.scroll_tabs{
+		display: none;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -131,7 +137,14 @@
 			top: 0;
 			transform: rotate(180deg);}
 	}
+	
 
+.mfp-arrow{
+	display: none !important;
+	}
+.scroll_tabs{
+		display: none;
+	}
 	
 }
 

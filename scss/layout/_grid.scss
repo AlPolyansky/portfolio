@@ -1,7 +1,12 @@
 .wrapper{
 	width: 100%;
-	
+	overflow-x: hidden
 }
+a:active, a:focus,a,img {
+  outline: none;
+}
+
+
 
 
 header{
@@ -32,7 +37,7 @@ header{
 	    left: 250px;
 	    margin-left: -250px;
 	    position: absolute;
-	    transition: all 0.5s ease 0s;
+	    transition: all 0.8s ease 0s;
 		width: 250px;
 	    z-index: 1000;
 		section{
@@ -114,7 +119,7 @@ header{
 					top: -15px;
 					left: -37px;
 					position: absolute;
-					p{
+					i{
 						width: 30px;
 						font-size: $headerFontsSize /1.5 +em;
 						position: absolute;
@@ -166,7 +171,7 @@ header{
 		}
 	}
 	.content{
-		
+		transition: all 0.5s ease 0.15s;
 		width: 100%;
 		padding-left: 250px;
 		h2{
@@ -175,6 +180,7 @@ header{
 			padding-top: $topHeight / 100 * 8 +px;
 		}
 		.jobs{
+			min-height: 1000px;
 			transition: all 0.5s ease 0s;
 			margin-top: $topHeight / 100 *4 +px;
 			text-align: center;
@@ -227,7 +233,78 @@ header{
 			}
 
 		}
+		.section_job{
+			min-height: 700px;
+			width: 100%;
+			font-family: $RoborLight;
+			line-height: 2;
+			.logo_job_wrap{
+				text-align: center;
+				padding-top: 70px;
+				padding-bottom: 60px;
+				img{
+					width: 150px;
+					height: 150px;
+					border-radius: 60%;
+					border: 3px solid $ltBlue;
+				}
+			}
+			.description_job{
+				padding: 0 15%;
+
+			}
+			.gallery_job{
+				margin-top: 40px;
+				text-align: center;
+				ul li{
+					display: inline-block;
+					padding: 0 10px;
+				}
+				img{
+					max-width: 130px;
+				}
+			}
+		}
 	}
 }
-	
 
+.darken{
+	background-color: $dkGray;
+	color: $white;
+}
+.lighten{
+	background-color: $grey;
+	color: $white;
+}
+.white{
+	background-color: $white;
+	color: $dkGray;
+}
+
+.scroll_tabs{
+	transition: all 0.2s ease 0s;
+	width: 15px;
+	height: 15px;
+	border: 2px solid $ltBlue;
+	border-radius: 50%;
+	background-color: inherit;
+	position: fixed;
+	top: 50%;
+	right: 7px;
+	transform: rotate(45deg);
+	cursor: pointer;
+	&:hover{
+		background-color:darken($ltBlue, 20%);
+		border: 2px solid darken($ltBlue, 20%);
+	}
+	&:nth-child(2){
+		top: 54%;
+	}
+}
+
+.mfp-arrow-right{
+	right: 200px;
+}
+.mfp-arrow-left{
+	left: 200px;
+}

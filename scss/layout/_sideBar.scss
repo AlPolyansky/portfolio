@@ -21,9 +21,7 @@
 	.indicator{
 		background-color: $dkGray;
 		span{
-			p{
-				text-transform: uppercase;
-			}
+			text-transform: uppercase;
 		}
 		.loader{
 			background-color: $ltBlue;
