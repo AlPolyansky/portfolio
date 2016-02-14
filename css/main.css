@@ -1857,7 +1857,7 @@ a:active, a:focus, a, img {
   color: #fff;
 }
 
-.loader {
+.preloader {
   background: none repeat scroll 0 0 #ffffff;
   bottom: 0;
   height: 100%;
@@ -1868,7 +1868,7 @@ a:active, a:focus, a, img {
   width: 100%;
   z-index: 9999;
 }
-.loader .loader_inner {
+.preloader .loader_inner {
   background-image: url("../img/preloader.gif");
   background-size: cover;
   background-repeat: no-repeat;
@@ -2171,34 +2171,29 @@ header .top_menu ul li {
   color: #333333;
 }
 
+.scroll_tabs_wrap {
+  position: fixed;
+  top: 35%;
+  right: 7px;
+}
+
 .scroll_tabs {
   -webkit-transition: all 0.2s ease 0s;
           transition: all 0.2s ease 0s;
-  width: 15px;
   height: 15px;
+  width: 15px;
+  display: block;
   border: 2px solid #00b9ee;
   border-radius: 50%;
-  background-color: inherit;
-  position: fixed;
-  top: 50%;
-  right: 7px;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   cursor: pointer;
+  margin-top: 7px;
 }
 .scroll_tabs:hover {
   background-color: #006a88;
   border: 2px solid #006a88;
-}
-.scroll_tabs:nth-child(2) {
-  top: 54%;
-}
-.scroll_tabs:nth-child(3) {
-  top: 58%;
-}
-.scroll_tabs:nth-child(4) {
-  top: 62%;
 }
 
 .mfp-arrow-right {
@@ -2237,6 +2232,12 @@ header li a {
           transition: all 0.1s ease-in-out;
 }
 header li a:hover {
+  background-color: #333333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.active {
   background-color: #333333;
   color: #fff;
   text-decoration: none;

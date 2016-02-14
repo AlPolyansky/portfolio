@@ -10,7 +10,7 @@ a:active, a:focus,a,img {
 ::-moz-selection {background: $ltBlue;}
 ::-webkit-selection {background: $ltBlue; color:$white;}
 
-.loader{
+.preloader{
 	background: none repeat scroll 0 0 #ffffff;
 	bottom: 0;
 	height: 100%;
@@ -342,30 +342,26 @@ header{
 	color: $dkGray;
 }
 
+.scroll_tabs_wrap{
+	position: fixed;
+	top: 35%;
+	right: 7px;
+}
+
+
 .scroll_tabs{
 	transition: all 0.2s ease 0s;
-	width: 15px;
 	height: 15px;
+	width: 15px;
+	display: block;
 	border: 2px solid $ltBlue;
 	border-radius: 50%;
-	background-color: inherit;
-	position: fixed;
-	top: 50%;
-	right: 7px;
 	transform: rotate(45deg);
 	cursor: pointer;
+	margin-top: 7px;
 	&:hover{
 		background-color:darken($ltBlue, 20%);
 		border: 2px solid darken($ltBlue, 20%);
-	}
-	&:nth-child(2){
-		top: 54%;
-	}
-	&:nth-child(3){
-		top: 58%;
-	}
-	&:nth-child(4){
-		top: 62%;
 	}
 }
 
