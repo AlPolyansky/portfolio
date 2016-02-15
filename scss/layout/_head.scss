@@ -1,0 +1,32 @@
+header{
+	background-color: $ltBlue;
+	font-family: $Bebas;
+	color: $white;
+	line-height: $headerHeight;
+	border-bottom: 2px solid $dkGray;
+	h1{
+		text-align: center;
+
+	}
+	li{
+		text-align: left;
+		/* border-right: 2px solid $dkGray; */
+		a{
+			text-decoration: none;
+			color: $white;
+			display: block;
+			transition: all 0.1s ease-in-out;
+			&:hover{
+				background-color: $dkGray;
+				color: $white;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.active{
+	background-color: $dkGray;
+	color: $white;
+	text-decoration: none;
+}
