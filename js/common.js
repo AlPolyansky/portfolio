@@ -49,33 +49,39 @@ $(document).ready(function() {
 		}
 	});
 
-	/*function inWindow(s){
-  		var scrollTop = $(window).scrollTop();
-  		var windowHeight = $(window).height();
-  		var currentEls = $(s);
-  		var result = [];
-  		currentEls.each(function(){
-    	var el = $(this);
-    	var offset = el.offset();
-   	 	if(scrollTop <= offset.top && (el.height() + offset.top) < (scrollTop + windowHeight))
-      		result.push(this);
-  		});
- 		 return $(result);
-	}*/
-
-
-	//alert($(window).scrollTop());
-	//alert($(window).height());
-	//alert($(".section_job").height())
-	//alert($("body").height())
-	var elem = $("section[id^='work_2']");
-	var elemHeight = elem.height();
-	var documentHeight = $(document).height();
-	var position = elem.offset();
-	var top_scroll = $(window).scrollTop();
-	var screen_height = $(window).height();
-	var see_y2 = screen_height + top_scroll;
 	
+
+
+
+
+
+
+
+function addSection(){
+	var jobs = $(".jobs_wrap");
+	var content = $(".content");
+	var colorArr = ["lighten","darken"];
+	var img = [];
+
+	for(var i = 0, j = 0; i < jobs.length; i++, j++){
+		if(j > colorArr.length){
+			j = 0;
+		}
+		content.append ("<section class='section_job'></section>");
+		$(".section_job").eq(i).attr("id","work_" + (i + 1));
+		$(".section_job").eq(i).addClass(colorArr[j]);
+
+		img.push([jobs.eq(i).find("img").attr("src")]);
+		console.log(img);
+
+
+		var sectionJob = $(".section_job");
+		sectionJob.eq(i).append("<div class='logo_job_wrap'><img src='" + img[i] +"' alt='#'></div>");
+
+	}
+}
+
+
 
 
 function getPosition(){
@@ -92,6 +98,8 @@ function getPosition(){
 	return positionArr;
 		
 }
+
+
 
 
 
@@ -113,42 +121,13 @@ function checkPosition(){
 				$("a[href^='#work_" + (i + 1) + "']").css({'background-color': 'inherit'});
 			}
 	}
-
-
 	}
 
 
+
+
+
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	function addTarget(){
 		var jobs = $(".jobs");
@@ -164,7 +143,12 @@ function checkPosition(){
 
 	}
 
+	
+	addSection();
 	addTarget();
+
+
+
 
 
 
