@@ -56,38 +56,44 @@
 					<? endwhile; endif; wp_reset_query(); ?>
 				</div>
 			</section>
-			<section class="section_job darken" id="work_1">
+			<?php if ( have_posts() ) : query_posts('cat=2');
+				while (have_posts()) : the_post(); ?>
+			<section class="section_job" id="work_1">
  				<div class="logo_job_wrap">
- 					<img src="img/1.jpg" alt="#">
+ 					<?php	$tags = wp_get_post_tags($post->ID);
+								if ($tags) {
+									foreach($tags as $tag) {
+										echo ' ' . $tag->name;
+									}
+								}
+								?> 
+					<?php the_post_thumbnail(array(350, 250)); ?>
  				</div>
- 				<p class="description_job"><?php the_content(); ?></p>
+ 				<h3><?php echo get_the_title()?></h3>
+ 				<div class="description_job">
+ 					<?php echo wp_strip_all_tags( get_the_content() ); ?>
+ 				</div>
  				<div class="gallery_job ">
- 					<ul>
+					<?php $args = array( 'post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => null, 'post_parent' => $post->ID );
+						$attachments = get_posts($args);
+					if ($attachments) {
+					foreach ( $attachments as $attachment ) {
+					//echo apply_filters( 'class' , $attachment->post_title );
+					the_attachment_link( $attachment->ID , false );
+						}
+					}
+					wp_reset_postdata(); ?>
+ 					<!-- <ul>
  						<li><a href="img/1.jpg" class="popup_content_1"><img src="img/1.jpg" alt="#"></a></li>
  						<li><a href="img/2.jpg" class="popup_content_1"><img src="img/2.jpg" alt="#"></a></li>
  						<li><a href="img/3.jpg" class="popup_content_1"><img src="img/3.jpg" alt="#"></a></li>
  						<li><a href="img/4.jpg" class="popup_content_1"><img src="img/4.jpg" alt="#"></a></li>
  						<li><a href="img/5.jpg" class="popup_content_1"><img src="img/5.jpg" alt="#"></a></li>
  						<li><a href="img/6.jpg" class="popup_content_1"><img src="img/6.jpg" alt="#"></a></li>
- 					</ul>
+ 					</ul> -->
  				</div>
  			</section>
- 			<section class="section_job lighten" id="work_2">
- 				<div class="logo_job_wrap">
- 					<img src="img/2.jpg" alt="#">
- 				</div>
- 				<p class="description_job">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto dicta quia assumenda minus ratione inventore harum, impedit culpa, vitae deserunt ab facere fugit repudiandae, eligendi eveniet, error accusantium officia nam?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis atque voluptas, veritatis alias nihil dolor harum optio consectetur, asperiores ab hic. Expedita nulla sed saepe officia, quidem eius! Eos, recusandae.</p>
- 				<div class="gallery_job">
- 				<ul>
- 					<li><a href="img/1.jpg" class="popup_content_2"><img src="img/1.jpg" alt="#"></a></li>
- 					<li><a href="img/2.jpg" class="popup_content_2"><img src="img/2.jpg" alt="#"></a></li>
- 					<li><a href="img/3.jpg" class="popup_content_2"><img src="img/3.jpg" alt="#"></a></li>
- 					<li><a href="img/4.jpg" class="popup_content_2"><img src="img/4.jpg" alt="#"></a></li>
- 					<li><a href="img/5.jpg" class="popup_content_2"><img src="img/5.jpg" alt="#"></a></li>
- 					<li><a href="img/6.jpg" class="popup_content_2"><img src="img/6.jpg" alt="#"></a></li>
- 				</ul>
- 				</div>
- 			</section>
+ 			<? endwhile; endif; wp_reset_query(); ?>
 		</div>
 	</div>
 	</div>

@@ -22,4 +22,15 @@ function logo_widget_init(){
 }
 
 
+add_filter( 'wp_get_attachment_link', 'remove_thumbnail_dimensions', 10 );
+
+
+function remove_thumbnail_dimensions( $html ) {
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
+}
+
+
+
+
 add_theme_support('post-thumbnails');

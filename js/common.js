@@ -2,7 +2,17 @@ $(document).ready(function() {
 
 	var sideBar = $('.sideBar');
 
-
+	$(".popup_content").magnificPopup({
+		type: 'image',
+		closeOnContentClick: false,
+		closeBtnInside: true,
+		mainClass: 'mfp-with-zoom',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1]
+		}
+});
 
 	function addPopUpManager(){
 		$(".popup_content_1").magnificPopup({
@@ -87,24 +97,14 @@ function hideSidebar(){
 
 function addSection(){
 	var jobs = $(".jobs_wrap");
-	var content = $(".content");
 	var colorArr = ["lighten","darken"];
-	var img = [];
 
 	for(var i = 0, j = 0; i < jobs.length; i++, j++){
 		if(j > colorArr.length){
 			j = 0;
 		}
-		content.append ("<section class='section_job'></section>");
 		$(".section_job").eq(i).attr("id","work_" + (i + 1));
 		$(".section_job").eq(i).addClass(colorArr[j]);
-
-		img.push([jobs.eq(i).find("img").attr("src")]);
-
-
-		var sectionJob = $(".section_job");
-		sectionJob.eq(i).append("<div class='logo_job_wrap'><img src='" + img[i] +"' alt='<?php the_title();?>'></div>");
-		sectionJob.eq(i).append("<?php the_content(); ?>");
 	}
 }
 
@@ -216,7 +216,7 @@ function checkPosition(){
 	}
 
 
-	//addSection();
+	addSection();
 	addTarget();
 	activeMenu();
 	sideBarHeight();
@@ -244,7 +244,7 @@ function checkPosition(){
 	});*/	
 
 	$(window).scroll(function() {
-		//checkPosition();
+		checkPosition();
 		hideSidebar();
 		hideTarget()
 		
