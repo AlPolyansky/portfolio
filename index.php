@@ -2,17 +2,14 @@
 	<div class="main">
 		<article class="sideBar">
 			<section class="avatar">
-				<img  src="<?php echo get_template_directory_uri();?>/img/avatar.png" alt="#">
+				<?php dynamic_sidebar('avatar'); ?>
 			</section>
 			<section class="about">
 				<h2><span></span>О себе</h2>
 				<p><?php echo get_bloginfo('description');?></p>
 			</section>
 			<section class="contacts">
-				<h2><span></span>Контакты</h2>
-				<address><span></span>eclerr</address>
-				<address><span></span>@eclerr</address>
-				<address><span></span>vk.com/eclerr</address>
+				<?php dynamic_sidebar('contacts'); ?>
 			</section>
 			<section class="scills">
 				<h2><span></span>Навыки</h2>
@@ -68,8 +65,11 @@
 								}
 								?> 
 					<?php the_post_thumbnail(array(350, 250)); ?>
+
+					<h3><a href=<?php echo get_post(get_post_thumbnail_id())->post_content; ?> target='_blank'><?php echo get_the_title()?></a></h3>
+
  				</div>
- 				<h3><?php echo get_the_title()?></h3>
+ 				
  				<div class="description_job">
  					<?php echo wp_strip_all_tags( get_the_content() ); ?>
  				</div>
@@ -83,14 +83,6 @@
 						}
 					}
 					wp_reset_postdata(); ?>
- 					<!-- <ul>
- 						<li><a href="img/1.jpg" class="popup_content_1"><img src="img/1.jpg" alt="#"></a></li>
- 						<li><a href="img/2.jpg" class="popup_content_1"><img src="img/2.jpg" alt="#"></a></li>
- 						<li><a href="img/3.jpg" class="popup_content_1"><img src="img/3.jpg" alt="#"></a></li>
- 						<li><a href="img/4.jpg" class="popup_content_1"><img src="img/4.jpg" alt="#"></a></li>
- 						<li><a href="img/5.jpg" class="popup_content_1"><img src="img/5.jpg" alt="#"></a></li>
- 						<li><a href="img/6.jpg" class="popup_content_1"><img src="img/6.jpg" alt="#"></a></li>
- 					</ul> -->
  				</div>
  			</section>
  			<? endwhile; endif; wp_reset_query(); ?>
