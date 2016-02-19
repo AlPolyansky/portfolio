@@ -1,0 +1,32 @@
+/*variables*/
+$topWidth : 1024;
+$topHeight : 768;
+
+/*colors*/
+$ltBlue : #00b9ee;
+$dkGray : #333333;
+$white : #fff;
+$grey: #737373;
+
+/*fonts*/
+$Bebas : "BebasBold";
+$RoborLight : "RobotoLight";
+
+/*sizes*/
+	/*header*/
+	$nameWidth: $topWidth / 100 * 25;
+	$hNavWidth: $topWidth / 100 * 80; 
+	$headerHeight: 74px;
+	$headerFontsSize: 1;
+
+
+	/*content*/
+	$sideBarWidth: $topWidth / 100 * 25;
+	$contentWidth: $topWidth / 100 * 80;
+	$sectionHeigth: $topHeight / 100 * 25;
+	$contentWidthProcent: $topWidth / 100 * 70;
+		/*indicators*/
+	$indicatorWidth: $topWidth / 10;
+
+/*url*/
+$img: "../img/";

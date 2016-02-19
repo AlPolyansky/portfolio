@@ -1,0 +1,60 @@
+.contacts i{
+	width: 35px;
+	height: 40px;
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+	left: -($sideBarWidth  / 6) + px;
+
+}
+
+.indicator span{
+	width: 30px;
+	height: 37px;
+	display: inline-block;
+	top: -15px;
+	left: -42px;
+	position: absolute;
+}
+
+.inst{
+	background-image: url($img + "icons.png");
+	background-repeat: no-repeat;
+	background-position: -1px -106px;
+}
+
+.vk{
+	background-image: url($img + "icons.png");
+	background-repeat: no-repeat;
+	background-position: -1px -207px;
+}
+
+.tw{
+	background-image: url($img + "icons.png");
+	background-repeat: no-repeat;
+	background-position: -1px -158px;
+}
+
+.mail{
+	background-image: url($img + "icons.png");
+	background-repeat: no-repeat;
+	background-position: -1px -414px;
+}
+
+.html{
+	background-image: url($img + "icons.png");
+	background-position: -1px -262px;
+	background-repeat: no-repeat;
+}
+
+.css{
+	background-image: url($img + "icons.png");
+	background-position: -1px -318px;
+	background-repeat: no-repeat;
+}
+
+.js{
+	background-image: url($img + "icons.png");
+	background-position: -1px -372px;
+	background-repeat: no-repeat;
+}
