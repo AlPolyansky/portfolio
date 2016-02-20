@@ -2,7 +2,9 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-
+	.mfp-arrow{
+		display: none !important;
+	}
 }
 
 /* Medium Devices, Desktops */
@@ -10,12 +12,7 @@
 	body header .top_menu a{
 				min-width: 100px;
 			}
-	.mfp-arrow{
-		display: none !important;
-	}
-	.scroll_tabs{
-		display: none;
-	}
+	
 }
 
 /* Small Devices, Tablets */
@@ -25,6 +22,7 @@
 	}
 	.content{
 		padding-top: 30px;
+		width: 100%;
 	}
 	header{
 		position: fixed;
@@ -41,7 +39,10 @@
 	}
 
 	.wrapper .main .sideBar{
-		margin-left: -500px;
+		display: none;
+	}
+	.scroll_tabs{
+		display: none;
 	}
 	.main .content,header .top_menu{
 		padding-left: 0;
@@ -57,6 +58,7 @@
     	display: block;
     	right: 0;
     	top: 0;
+    	display: none;
 	}
 	body header .top_menu .open_menu{
 		padding-top: $headerHeight/1.2;
@@ -145,12 +147,9 @@
 	}
 	
 
-.mfp-arrow{
-	display: none !important;
-	}
-.scroll_tabs{
-		display: none;
-	}
+.mfp-arrow{display: none !important;}
+.scroll_tabs{display: none;}
+.open_menu li a:hover{background-color: lighten($dkGray,5%);}
 	
 }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 19 2016 г., 05:57
+-- Время создания: Фев 21 2016 г., 00:24
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -800,7 +800,7 @@ CREATE TABLE IF NOT EXISTS `modx_categories` (
   UNIQUE KEY `category` (`parent`,`category`),
   KEY `parent` (`parent`),
   KEY `rank` (`rank`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `modx_categories`
@@ -814,7 +814,9 @@ INSERT INTO `modx_categories` (`id`, `parent`, `category`, `rank`) VALUES
 (5, 0, 'tpl', 0),
 (6, 0, 'Элементы страницы', 0),
 (8, 6, 'Сайдбар', 0),
-(9, 6, 'Секция работы', 0);
+(9, 6, 'Секция работы', 0),
+(10, 6, 'Футер', 0),
+(11, 10, 'portfolio-footer-contacts', 0);
 
 -- --------------------------------------------------------
 
@@ -851,7 +853,14 @@ INSERT INTO `modx_categories_closure` (`ancestor`, `descendant`, `depth`) VALUES
 (0, 8, 0),
 (9, 9, 0),
 (6, 9, 1),
-(0, 9, 0);
+(0, 9, 0),
+(10, 10, 0),
+(6, 10, 1),
+(0, 10, 0),
+(11, 11, 0),
+(6, 11, 2),
+(10, 11, 1),
+(0, 11, 0);
 
 -- --------------------------------------------------------
 
@@ -1391,7 +1400,7 @@ CREATE TABLE IF NOT EXISTS `modx_manager_log` (
   `item` varchar(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_occurred` (`user`,`occurred`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=733 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=929 ;
 
 --
 -- Дамп данных таблицы `modx_manager_log`
@@ -2130,7 +2139,203 @@ INSERT INTO `modx_manager_log` (`id`, `user`, `occurred`, `action`, `classKey`, 
 (729, 1, '2016-02-19 05:27:35', 'resource_update', 'modResource', '21'),
 (730, 1, '2016-02-19 05:31:00', 'tv_delete', 'modTemplateVar', '5'),
 (731, 1, '2016-02-19 05:35:58', 'chunk_update', 'modChunk', '4'),
-(732, 1, '2016-02-19 05:35:59', 'propertyset_update_from_element', 'modChunk', '4');
+(732, 1, '2016-02-19 05:35:59', 'propertyset_update_from_element', 'modChunk', '4'),
+(733, 1, '2016-02-19 06:04:50', 'login', 'modContext', 'mgr'),
+(734, 1, '2016-02-19 06:05:17', 'resource_update', 'modResource', '11'),
+(735, 1, '2016-02-19 13:40:05', 'login', 'modContext', 'mgr'),
+(736, 1, '2016-02-19 13:40:44', 'resource_update', 'modResource', '19'),
+(737, 1, '2016-02-19 13:41:32', 'resource_update', 'modResource', '19'),
+(738, 1, '2016-02-19 13:51:11', 'resource_update', 'modResource', '11'),
+(739, 1, '2016-02-19 13:58:34', 'template_update', 'modTemplate', '2'),
+(740, 1, '2016-02-19 13:58:35', 'propertyset_update_from_element', 'modTemplate', '2'),
+(741, 1, '2016-02-19 14:11:25', 'template_update', 'modTemplate', '2'),
+(742, 1, '2016-02-19 14:11:25', 'propertyset_update_from_element', 'modTemplate', '2'),
+(743, 1, '2016-02-19 14:12:10', 'template_update', 'modTemplate', '2'),
+(744, 1, '2016-02-19 14:12:10', 'propertyset_update_from_element', 'modTemplate', '2'),
+(745, 1, '2016-02-19 14:12:27', 'template_update', 'modTemplate', '2'),
+(746, 1, '2016-02-19 14:12:28', 'propertyset_update_from_element', 'modTemplate', '2'),
+(747, 1, '2016-02-19 14:13:30', 'template_update', 'modTemplate', '2'),
+(748, 1, '2016-02-19 14:13:30', 'propertyset_update_from_element', 'modTemplate', '2'),
+(749, 1, '2016-02-19 14:14:57', 'template_update', 'modTemplate', '2'),
+(750, 1, '2016-02-19 14:14:58', 'propertyset_update_from_element', 'modTemplate', '2'),
+(751, 1, '2016-02-19 14:31:03', 'template_update', 'modTemplate', '2'),
+(752, 1, '2016-02-19 14:31:03', 'propertyset_update_from_element', 'modTemplate', '2'),
+(753, 1, '2016-02-19 14:31:57', 'template_update', 'modTemplate', '2'),
+(754, 1, '2016-02-19 14:31:57', 'propertyset_update_from_element', 'modTemplate', '2'),
+(755, 1, '2016-02-19 14:37:04', 'template_update', 'modTemplate', '2'),
+(756, 1, '2016-02-19 14:37:04', 'propertyset_update_from_element', 'modTemplate', '2'),
+(757, 1, '2016-02-19 14:38:11', 'template_update', 'modTemplate', '2'),
+(758, 1, '2016-02-19 14:38:12', 'propertyset_update_from_element', 'modTemplate', '2'),
+(759, 1, '2016-02-19 15:08:04', 'template_update', 'modTemplate', '2'),
+(760, 1, '2016-02-19 15:08:04', 'propertyset_update_from_element', 'modTemplate', '2'),
+(761, 1, '2016-02-19 15:36:15', 'template_update', 'modTemplate', '2'),
+(762, 1, '2016-02-19 15:36:15', 'propertyset_update_from_element', 'modTemplate', '2'),
+(763, 1, '2016-02-19 15:37:39', 'chunk_create', 'modChunk', '17'),
+(764, 1, '2016-02-19 15:38:21', 'category_create', 'modCategory', '10'),
+(765, 1, '2016-02-19 15:39:02', 'template_update', 'modTemplate', '2'),
+(766, 1, '2016-02-19 15:39:02', 'propertyset_update_from_element', 'modTemplate', '2'),
+(767, 1, '2016-02-19 15:43:47', 'chunk_update', 'modChunk', '17'),
+(768, 1, '2016-02-19 15:43:48', 'propertyset_update_from_element', 'modChunk', '17'),
+(769, 1, '2016-02-19 15:44:49', 'chunk_update', 'modChunk', '17'),
+(770, 1, '2016-02-19 15:44:49', 'propertyset_update_from_element', 'modChunk', '17'),
+(771, 1, '2016-02-19 15:44:55', 'chunk_create', 'modChunk', '18'),
+(772, 1, '2016-02-19 15:45:55', 'chunk_update', 'modChunk', '17'),
+(773, 1, '2016-02-19 15:45:55', 'propertyset_update_from_element', 'modChunk', '17'),
+(774, 1, '2016-02-19 15:46:43', 'chunk_update', 'modChunk', '18'),
+(775, 1, '2016-02-19 15:46:43', 'propertyset_update_from_element', 'modChunk', '18'),
+(776, 1, '2016-02-19 15:49:29', 'chunk_update', 'modChunk', '18'),
+(777, 1, '2016-02-19 15:49:30', 'propertyset_update_from_element', 'modChunk', '18'),
+(778, 1, '2016-02-19 16:02:59', 'chunk_update', 'modChunk', '18'),
+(779, 1, '2016-02-19 16:02:59', 'propertyset_update_from_element', 'modChunk', '18'),
+(780, 1, '2016-02-19 16:03:18', 'chunk_update', 'modChunk', '18'),
+(781, 1, '2016-02-19 16:03:18', 'propertyset_update_from_element', 'modChunk', '18'),
+(782, 1, '2016-02-19 16:03:53', 'chunk_update', 'modChunk', '18'),
+(783, 1, '2016-02-19 16:03:53', 'propertyset_update_from_element', 'modChunk', '18'),
+(784, 1, '2016-02-19 16:04:35', 'resource_update', 'modResource', '7'),
+(785, 1, '2016-02-19 16:25:57', 'chunk_update', 'modChunk', '18'),
+(786, 1, '2016-02-19 16:25:57', 'propertyset_update_from_element', 'modChunk', '18'),
+(787, 1, '2016-02-19 16:26:21', 'chunk_update', 'modChunk', '17'),
+(788, 1, '2016-02-19 16:26:22', 'propertyset_update_from_element', 'modChunk', '17'),
+(789, 1, '2016-02-19 16:27:55', 'chunk_update', 'modChunk', '17'),
+(790, 1, '2016-02-19 16:27:55', 'propertyset_update_from_element', 'modChunk', '17'),
+(791, 1, '2016-02-19 16:39:06', 'chunk_update', 'modChunk', '17'),
+(792, 1, '2016-02-19 16:39:07', 'propertyset_update_from_element', 'modChunk', '17'),
+(793, 1, '2016-02-19 16:39:49', 'chunk_update', 'modChunk', '17'),
+(794, 1, '2016-02-19 16:39:49', 'propertyset_update_from_element', 'modChunk', '17'),
+(795, 1, '2016-02-19 16:46:01', 'chunk_update', 'modChunk', '17'),
+(796, 1, '2016-02-19 16:46:02', 'propertyset_update_from_element', 'modChunk', '17'),
+(797, 1, '2016-02-19 16:46:38', 'chunk_update', 'modChunk', '17'),
+(798, 1, '2016-02-19 16:46:39', 'propertyset_update_from_element', 'modChunk', '17'),
+(799, 1, '2016-02-19 16:47:35', 'chunk_update', 'modChunk', '17'),
+(800, 1, '2016-02-19 16:47:35', 'propertyset_update_from_element', 'modChunk', '17'),
+(801, 1, '2016-02-19 17:23:49', 'chunk_update', 'modChunk', '12'),
+(802, 1, '2016-02-19 17:23:49', 'propertyset_update_from_element', 'modChunk', '12'),
+(803, 1, '2016-02-19 17:26:36', 'chunk_update', 'modChunk', '12'),
+(804, 1, '2016-02-19 17:26:37', 'propertyset_update_from_element', 'modChunk', '12'),
+(805, 1, '2016-02-19 17:28:31', 'chunk_update', 'modChunk', '12'),
+(806, 1, '2016-02-19 17:28:31', 'propertyset_update_from_element', 'modChunk', '12'),
+(807, 1, '2016-02-19 18:10:19', 'resource_sort', '', 'unknown'),
+(808, 1, '2016-02-19 18:10:27', 'resource_update', 'modResource', '8'),
+(809, 1, '2016-02-19 18:16:50', 'chunk_update', 'modChunk', '17'),
+(810, 1, '2016-02-19 18:16:50', 'propertyset_update_from_element', 'modChunk', '17'),
+(811, 1, '2016-02-19 18:17:28', 'chunk_update', 'modChunk', '17'),
+(812, 1, '2016-02-19 18:17:28', 'propertyset_update_from_element', 'modChunk', '17'),
+(813, 1, '2016-02-19 18:18:02', 'chunk_update', 'modChunk', '17'),
+(814, 1, '2016-02-19 18:18:03', 'propertyset_update_from_element', 'modChunk', '17'),
+(815, 1, '2016-02-19 18:18:28', 'chunk_update', 'modChunk', '17'),
+(816, 1, '2016-02-19 18:18:28', 'propertyset_update_from_element', 'modChunk', '17'),
+(817, 1, '2016-02-19 18:20:45', 'chunk_update', 'modChunk', '17'),
+(818, 1, '2016-02-19 18:20:45', 'propertyset_update_from_element', 'modChunk', '17'),
+(819, 1, '2016-02-19 18:21:06', 'chunk_update', 'modChunk', '17'),
+(820, 1, '2016-02-19 18:21:07', 'propertyset_update_from_element', 'modChunk', '17'),
+(821, 1, '2016-02-19 18:33:00', 'chunk_update', 'modChunk', '17'),
+(822, 1, '2016-02-19 18:33:00', 'propertyset_update_from_element', 'modChunk', '17'),
+(823, 1, '2016-02-19 18:35:25', 'chunk_update', 'modChunk', '17'),
+(824, 1, '2016-02-19 18:35:26', 'propertyset_update_from_element', 'modChunk', '17'),
+(825, 1, '2016-02-19 18:40:10', 'chunk_update', 'modChunk', '17'),
+(826, 1, '2016-02-19 18:40:10', 'propertyset_update_from_element', 'modChunk', '17'),
+(827, 1, '2016-02-19 18:53:25', 'chunk_update', 'modChunk', '8'),
+(828, 1, '2016-02-19 18:53:26', 'propertyset_update_from_element', 'modChunk', '8'),
+(829, 1, '2016-02-19 18:58:31', 'chunk_update', 'modChunk', '7'),
+(830, 1, '2016-02-19 18:58:31', 'propertyset_update_from_element', 'modChunk', '7'),
+(831, 1, '2016-02-19 19:05:54', 'resource_create', 'modDocument', '22'),
+(832, 1, '2016-02-19 19:12:58', 'resource_update', 'modResource', '7'),
+(833, 1, '2016-02-19 19:13:25', 'resource_update', 'modResource', '8'),
+(834, 1, '2016-02-19 19:17:42', 'chunk_update', 'modChunk', '12'),
+(835, 1, '2016-02-19 19:17:43', 'propertyset_update_from_element', 'modChunk', '12'),
+(836, 1, '2016-02-19 19:18:21', 'category_create', 'modCategory', '11'),
+(837, 1, '2016-02-19 19:20:01', 'chunk_create', 'modChunk', '19'),
+(838, 1, '2016-02-19 19:20:30', 'chunk_update', 'modChunk', '19'),
+(839, 1, '2016-02-19 19:20:30', 'propertyset_update_from_element', 'modChunk', '19'),
+(840, 1, '2016-02-19 19:20:51', 'chunk_update', 'modChunk', '17'),
+(841, 1, '2016-02-19 19:20:52', 'propertyset_update_from_element', 'modChunk', '17'),
+(842, 1, '2016-02-19 19:22:50', 'chunk_update', 'modChunk', '12'),
+(843, 1, '2016-02-19 19:22:50', 'propertyset_update_from_element', 'modChunk', '12'),
+(844, 1, '2016-02-19 19:24:02', 'chunk_update', 'modChunk', '12'),
+(845, 1, '2016-02-19 19:24:03', 'propertyset_update_from_element', 'modChunk', '12'),
+(846, 1, '2016-02-19 19:26:59', 'chunk_update', 'modChunk', '17'),
+(847, 1, '2016-02-19 19:27:00', 'propertyset_update_from_element', 'modChunk', '17'),
+(848, 1, '2016-02-19 19:29:39', 'chunk_create', 'modChunk', '20'),
+(849, 1, '2016-02-19 19:30:13', 'chunk_update', 'modChunk', '17'),
+(850, 1, '2016-02-19 19:30:13', 'propertyset_update_from_element', 'modChunk', '17'),
+(851, 1, '2016-02-19 19:31:20', 'chunk_update', 'modChunk', '17'),
+(852, 1, '2016-02-19 19:31:20', 'propertyset_update_from_element', 'modChunk', '17'),
+(853, 1, '2016-02-19 19:32:31', 'resource_create', 'modDocument', '23'),
+(854, 1, '2016-02-19 19:32:39', 'resource_update', 'modResource', '23'),
+(855, 1, '2016-02-19 19:32:56', 'chunk_update', 'modChunk', '17'),
+(856, 1, '2016-02-19 19:32:56', 'propertyset_update_from_element', 'modChunk', '17'),
+(857, 1, '2016-02-19 19:34:37', 'chunk_update', 'modChunk', '17'),
+(858, 1, '2016-02-19 19:34:37', 'propertyset_update_from_element', 'modChunk', '17'),
+(859, 1, '2016-02-19 19:35:04', 'resource_update', 'modResource', '23'),
+(860, 1, '2016-02-19 19:35:53', 'chunk_update', 'modChunk', '17'),
+(861, 1, '2016-02-19 19:35:54', 'propertyset_update_from_element', 'modChunk', '17'),
+(862, 1, '2016-02-19 19:36:36', 'chunk_update', 'modChunk', '17'),
+(863, 1, '2016-02-19 19:36:36', 'propertyset_update_from_element', 'modChunk', '17'),
+(864, 1, '2016-02-19 19:37:39', 'chunk_update', 'modChunk', '17'),
+(865, 1, '2016-02-19 19:37:40', 'propertyset_update_from_element', 'modChunk', '17'),
+(866, 1, '2016-02-19 19:38:19', 'chunk_update', 'modChunk', '20'),
+(867, 1, '2016-02-19 19:38:19', 'propertyset_update_from_element', 'modChunk', '20'),
+(868, 1, '2016-02-19 19:39:16', 'chunk_update', 'modChunk', '20'),
+(869, 1, '2016-02-19 19:39:17', 'propertyset_update_from_element', 'modChunk', '20'),
+(870, 1, '2016-02-19 19:39:28', 'chunk_update', 'modChunk', '20'),
+(871, 1, '2016-02-19 19:39:28', 'propertyset_update_from_element', 'modChunk', '20'),
+(872, 1, '2016-02-19 19:40:21', 'chunk_update', 'modChunk', '17'),
+(873, 1, '2016-02-19 19:40:21', 'propertyset_update_from_element', 'modChunk', '17'),
+(874, 1, '2016-02-19 19:41:48', 'chunk_update', 'modChunk', '20'),
+(875, 1, '2016-02-19 19:41:48', 'propertyset_update_from_element', 'modChunk', '20'),
+(876, 1, '2016-02-19 19:42:33', 'chunk_update', 'modChunk', '20'),
+(877, 1, '2016-02-19 19:42:33', 'propertyset_update_from_element', 'modChunk', '20'),
+(878, 1, '2016-02-19 19:42:45', 'resource_update', 'modResource', '23'),
+(879, 1, '2016-02-19 19:43:13', 'chunk_update', 'modChunk', '17'),
+(880, 1, '2016-02-19 19:43:14', 'propertyset_update_from_element', 'modChunk', '17'),
+(881, 1, '2016-02-19 19:43:40', 'resource_update', 'modResource', '23'),
+(882, 1, '2016-02-19 19:43:59', 'resource_update', 'modResource', '23'),
+(883, 1, '2016-02-20 00:02:50', 'login', 'modContext', 'mgr'),
+(884, 1, '2016-02-20 00:03:50', 'resource_update', 'modResource', '11'),
+(885, 1, '2016-02-20 00:05:18', 'resource_update', 'modResource', '11'),
+(886, 1, '2016-02-20 00:05:39', 'resource_update', 'modResource', '11'),
+(887, 1, '2016-02-20 00:07:50', 'resource_update', 'modResource', '11'),
+(888, 1, '2016-02-20 00:10:13', 'resource_update', 'modResource', '22'),
+(889, 1, '2016-02-20 00:13:55', 'resource_update', 'modResource', '22'),
+(890, 1, '2016-02-20 00:15:26', 'resource_update', 'modResource', '22'),
+(891, 1, '2016-02-20 01:05:57', 'resource_sort', '', 'unknown'),
+(892, 1, '2016-02-20 01:06:11', 'resource_update', 'modResource', '22'),
+(893, 1, '2016-02-20 01:31:07', 'chunk_update', 'modChunk', '7'),
+(894, 1, '2016-02-20 01:31:08', 'propertyset_update_from_element', 'modChunk', '7'),
+(895, 1, '2016-02-20 01:31:30', 'chunk_update', 'modChunk', '7'),
+(896, 1, '2016-02-20 01:31:31', 'propertyset_update_from_element', 'modChunk', '7'),
+(897, 1, '2016-02-20 01:37:24', 'chunk_update', 'modChunk', '15'),
+(898, 1, '2016-02-20 01:37:25', 'propertyset_update_from_element', 'modChunk', '15'),
+(899, 1, '2016-02-20 19:41:01', 'login', 'modContext', 'mgr'),
+(900, 1, '2016-02-20 19:41:39', 'chunk_update', 'modChunk', '15'),
+(901, 1, '2016-02-20 19:41:40', 'propertyset_update_from_element', 'modChunk', '15'),
+(902, 1, '2016-02-20 19:42:19', 'chunk_update', 'modChunk', '15'),
+(903, 1, '2016-02-20 19:42:19', 'propertyset_update_from_element', 'modChunk', '15'),
+(904, 1, '2016-02-20 19:47:13', 'chunk_update', 'modChunk', '15'),
+(905, 1, '2016-02-20 19:47:13', 'propertyset_update_from_element', 'modChunk', '15'),
+(906, 1, '2016-02-20 19:47:24', 'chunk_update', 'modChunk', '15'),
+(907, 1, '2016-02-20 19:47:24', 'propertyset_update_from_element', 'modChunk', '15'),
+(908, 1, '2016-02-20 21:54:41', 'login', 'modContext', 'mgr'),
+(909, 1, '2016-02-20 21:57:21', 'resource_update', 'modResource', '7'),
+(910, 1, '2016-02-20 21:57:36', 'resource_update', 'modResource', '8'),
+(911, 1, '2016-02-20 21:57:46', 'resource_update', 'modResource', '9'),
+(912, 1, '2016-02-20 21:57:55', 'resource_update', 'modResource', '22'),
+(913, 1, '2016-02-20 21:59:44', 'resource_update', 'modResource', '7'),
+(914, 1, '2016-02-20 21:59:54', 'resource_update', 'modResource', '8'),
+(915, 1, '2016-02-20 22:00:07', 'resource_update', 'modResource', '9'),
+(916, 1, '2016-02-20 22:00:16', 'resource_update', 'modResource', '22'),
+(917, 1, '2016-02-20 22:21:50', 'resource_update', 'modResource', '7'),
+(918, 1, '2016-02-20 22:22:00', 'resource_update', 'modResource', '8'),
+(919, 1, '2016-02-20 22:22:07', 'resource_update', 'modResource', '9'),
+(920, 1, '2016-02-20 22:22:16', 'resource_update', 'modResource', '22'),
+(921, 1, '2016-02-20 22:22:24', 'resource_update', 'modResource', '9'),
+(922, 1, '2016-02-20 22:25:34', 'template_update', 'modTemplate', '2'),
+(923, 1, '2016-02-20 22:25:34', 'propertyset_update_from_element', 'modTemplate', '2'),
+(924, 1, '2016-02-20 22:25:48', 'template_update', 'modTemplate', '2'),
+(925, 1, '2016-02-20 22:25:48', 'propertyset_update_from_element', 'modTemplate', '2'),
+(926, 1, '2016-02-20 22:29:32', 'resource_update', 'modResource', '7'),
+(927, 1, '2016-02-20 22:30:25', 'resource_update', 'modResource', '7'),
+(928, 1, '2016-02-20 22:31:35', 'resource_update', 'modResource', '7');
 
 -- --------------------------------------------------------
 
@@ -2472,8 +2677,22 @@ INSERT INTO `modx_session` (`id`, `access`, `data`) VALUES
 ('5vkofuncous6at99dcc8oqor22', 1455739270, 'modx.user.contextTokens|a:0:{}'),
 ('2bf9cvjdtd43pqs0sts6m300j2', 1455739270, 'modx.user.contextTokens|a:0:{}'),
 ('jm80jlh2dradsopm0hhiefbte6', 1455848848, 'modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c61a89376f10.82887062";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:50:{i:0;s:23:"56c61a94def0a4.77048195";i:1;s:23:"56c61ef5989062.42238145";i:2;s:23:"56c6232407f832.12496383";i:3;s:23:"56c62567895983.84508803";i:4;s:23:"56c626fbbcdef3.52616862";i:5;s:23:"56c629aee95336.25426153";i:6;s:23:"56c62a247ee8b4.00461282";i:7;s:23:"56c62c9b75a401.13188700";i:8;s:23:"56c63387ee6a53.47470219";i:9;s:23:"56c633a04a7987.44892475";i:10;s:23:"56c633a6c82a60.55499545";i:11;s:23:"56c634a41689b8.50597636";i:12;s:23:"56c634d15c82b2.73818452";i:13;s:23:"56c6359e808517.70923876";i:14;s:23:"56c636a190bab9.17086898";i:15;s:23:"56c636db2929f4.08034042";i:16;s:23:"56c63a3b332a68.69663723";i:17;s:23:"56c63e2cae9d13.63622268";i:18;s:23:"56c63edf185b66.94053138";i:19;s:23:"56c63efe5c43a9.21223601";i:20;s:23:"56c63f19381789.77023652";i:21;s:23:"56c63f23197792.72731925";i:22;s:23:"56c63f2b34af76.26626726";i:23;s:23:"56c63f93a76471.27898794";i:24;s:23:"56c6402be03515.18117972";i:25;s:23:"56c64049dd8ea3.37932435";i:26;s:23:"56c64faed80f18.32519586";i:27;s:23:"56c650f3a68004.90382803";i:28;s:23:"56c651a84362b0.60952873";i:29;s:23:"56c65eb21a3248.78748318";i:30;s:23:"56c65fb70236c2.86348894";i:31;s:23:"56c660b0c1efd7.49499151";i:32;s:23:"56c661e2adb3a7.33178135";i:33;s:23:"56c669b9ef7ea2.22689657";i:34;s:23:"56c669e102fe82.00219785";i:35;s:23:"56c669eb1b3283.96586900";i:36;s:23:"56c66a17d9db11.90564986";i:37;s:23:"56c66a2ad48417.69075267";i:38;s:23:"56c66a6d0841f4.15722202";i:39;s:23:"56c66a7da134e6.27666835";i:40;s:23:"56c66bcce481e2.05497956";i:41;s:23:"56c66c9f8fa540.51459834";i:42;s:23:"56c66fb66faa02.73313194";i:43;s:23:"56c66fe3cd2932.40922957";i:44;s:23:"56c670086ee236.07707631";i:45;s:23:"56c6734be11976.54604250";i:46;s:23:"56c67372d690a3.38666175";i:47;s:23:"56c67d1d39b746.16584233";i:48;s:23:"56c67d7fe4a799.32378154";i:49;s:23:"56c67d9055ad44.16936863";}modx.user.1.userGroups|a:1:{i:0;i:1;}'),
-('vapqfeid3vjo1qmoceohfpoe16', 1455808942, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:0:{}'),
-('uaoj9uepr31etp5s017l4t2k16', 1455847429, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:0:{}');
+('gr3ll0fjeo1jvtrkk94kgh8702', 1455879060, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c6f1051083a8.69314958";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:3:{i:0;s:23:"56c6f11086c359.28305827";i:1;s:23:"56c6f3860cc940.69942134";i:2;s:23:"56c6f394336176.69985607";}'),
+('u4jiljljavje85p2d3as4ef444', 1455919558, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c68652ae9a53.85342471";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:16:{i:0;s:23:"56c686607e5c51.04270129";i:1;s:23:"56c712dc6e64b7.48240884";i:2;s:23:"56c7305c2341f4.21835575";i:3;s:23:"56c73d1d6ddfa6.35970372";i:4;s:23:"56c73d647794f1.91668508";i:5;s:23:"56c73f0270acf6.92206590";i:6;s:23:"56c73f1fc49433.10399352";i:7;s:23:"56c73ff908e624.62817592";i:8;s:23:"56c74383a5ae84.12778147";i:9;s:23:"56c743a0b5c448.48321589";i:10;s:23:"56c743cccc8798.87520343";i:11;s:23:"56c744e4279ce8.55056293";i:12;s:23:"56c7450d96ae93.29255758";i:13;s:23:"56c7463552e1a8.77700124";i:14;s:23:"56c7464753ee05.97220456";i:15;s:23:"56c791c64e4211.63782076";}modx.user.1.userGroups|a:1:{i:0;i:1;}'),
+('1l4e45tkmk5978l0u984fhh5d7', 1455916143, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c782fa6325f4.73943678";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:2:{i:0;s:23:"56c78324aa9212.75482862";i:1;s:23:"56c7846f328ae2.60027259";}'),
+('dq0gt2273grgbrduv55068qem1', 1455908151, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:0:{}'),
+('l56gek7vpr508haipr5aog6ir1', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('gishv4jbgs8u544bk6b0ibvuq6', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('hboflmfl5l2j9r3qknukb0abc5', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('j2pbcs6h6sgsrfgillgrhc42l0', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('9bqm1tqp8poqsot4916p9kjbg2', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('1slnn59qbs2j4omh8p1qfl99u5', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('6ki9ue7laijehlbvbi2ovroec2', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('pt92luj0ul8b1l1n1vqi96nc46', 1455908152, 'modx.user.contextTokens|a:0:{}'),
+('3s6bvgc3kad1gi1bchfg09skj5', 1455975348, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:0:{}'),
+('0qp83uu02dba866advetiiu0c3', 1455975517, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:0:{}'),
+('nkdvb1em69gasca24m5iopl987', 1455996567, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c8971d11dcf0.98251399";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:6:{i:0;s:23:"56c8bcc9116483.45492120";i:1;s:23:"56c8bcd2138a85.86946681";i:2;s:23:"56c8bcdb7367b9.33440363";i:3;s:23:"56c8bce2124743.85476033";i:4;s:23:"56c8bceb160186.87692936";i:5;s:23:"56c8be97025dc0.78459607";}'),
+('m4lviueo6nnlcb3v8jdcrposc5', 1455994810, 'modx.user.0.resourceGroups|a:1:{s:3:"web";a:0:{}}modx.user.0.attributes|a:1:{s:3:"web";a:5:{s:16:"modAccessContext";a:1:{s:3:"web";a:1:{i:0;a:3:{s:9:"principal";i:0;s:9:"authority";s:1:"0";s:6:"policy";a:1:{s:4:"load";b:1;}}}}s:22:"modAccessResourceGroup";a:0:{}s:17:"modAccessCategory";a:0:{}s:28:"sources.modAccessMediaSource";a:0:{}s:18:"modAccessNamespace";a:0:{}}}modx.user.contextTokens|a:1:{s:3:"mgr";i:1;}modx.mgr.user.token|s:52:"modx56c482d65776f8.31269366_156c8b671e87e77.59672906";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:8:{i:0;s:23:"56c8b709825135.04129213";i:1;s:23:"56c8b714806e76.18419900";i:2;s:23:"56c8b723b0ee65.49765793";i:3;s:23:"56c8b72d728ab3.86780924";i:4;s:23:"56c8b794e3c5f5.14872328";i:5;s:23:"56c8b7a44bcb64.73037372";i:6;s:23:"56c8b7b03207c5.49808975";i:7;s:23:"56c8b7ba91aa34.92155755";}');
 
 -- --------------------------------------------------------
 
@@ -2545,7 +2764,7 @@ CREATE TABLE IF NOT EXISTS `modx_site_content` (
   KEY `show_in_tree` (`show_in_tree`),
   KEY `cache_refresh_idx` (`parent`,`menuindex`,`id`),
   FULLTEXT KEY `content_ft_idx` (`pagetitle`,`longtitle`,`description`,`introtext`,`content`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Дамп данных таблицы `modx_site_content`
@@ -2554,19 +2773,21 @@ CREATE TABLE IF NOT EXISTS `modx_site_content` (
 INSERT INTO `modx_site_content` (`id`, `type`, `contentType`, `pagetitle`, `longtitle`, `description`, `alias`, `link_attributes`, `published`, `pub_date`, `unpub_date`, `parent`, `isfolder`, `introtext`, `content`, `richtext`, `template`, `menuindex`, `searchable`, `cacheable`, `createdby`, `createdon`, `editedby`, `editedon`, `deleted`, `deletedon`, `deletedby`, `publishedon`, `publishedby`, `menutitle`, `donthit`, `privateweb`, `privatemgr`, `content_dispo`, `hidemenu`, `class_key`, `context_key`, `content_type`, `uri`, `uri_override`, `hide_children_in_tree`, `show_in_tree`, `properties`) VALUES
 (1, 'document', 'text/html', 'Проекты', '', '', 'index', '', 1, 0, 0, 0, 1, '', '<h1> </h1>', 1, 2, 1, 1, 1, 1, 1455719135, 1, 1455812590, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/', 0, 0, 1, NULL),
 (2, 'document', 'text/html', 'О себе', '', '', 'test', '', 1, 0, 0, 0, 0, '', '', 1, 2, 2, 1, 1, 1, 1455735649, 1, 1455735910, 0, 0, 0, 1455735840, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'test.html', 0, 0, 1, NULL),
-(7, 'document', 'text/html', 'Buksmania', '', '', 'buksmania', '', 0, 0, 0, 1, 0, '', '<p>dfbdfbdfbd</p>', 1, 2, 0, 1, 1, 1, 1455742888, 1, 1455829933, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/buksmania.html', 0, 0, 1, NULL),
-(8, 'document', 'text/html', 'Gigabyte', '', '', 'gigabyte', '', 0, 0, 0, 1, 0, '', '', 1, 2, 1, 1, 1, 1, 1455747768, 1, 1455829912, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/gigabyte.html', 0, 0, 1, NULL),
-(9, 'document', 'text/html', 'TestSite', '', '', 'alexander', '', 1, 0, 0, 1, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.</p>', 1, 2, 2, 1, 1, 1, 1455749703, 1, 1455837135, 0, 0, 0, 1455749700, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/alexander.html', 0, 0, 1, NULL),
+(7, 'document', 'text/html', 'Buksmania', '', '', 'buksmania', '', 1, 0, 0, 1, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.</p>', 1, 2, 1, 1, 1, 1, 1455742888, 1, 1455996695, 0, 0, 0, 1455996695, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/buksmania.html', 0, 0, 1, NULL),
+(8, 'document', 'text/html', 'Gigabyte', '', '', 'gigabyte', '', 0, 0, 0, 1, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.</p>', 1, 2, 2, 1, 1, 1, 1455747768, 1, 1455996120, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/gigabyte.html', 0, 0, 1, NULL),
+(9, 'document', 'text/html', 'TestSite', '', '', 'alexander', '', 0, 0, 0, 1, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.</p>', 1, 2, 3, 1, 1, 1, 1455749703, 1, 1455996143, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/alexander.html', 0, 0, 1, NULL),
 (10, 'document', 'text/html', 'Сайдбар', '', '', 'сайдбар', '', 1, 0, 0, 0, 1, '', '', 1, 2, 2, 1, 1, 1, 1455791668, 1, 1455841781, 0, 0, 0, 1455841740, 1, '', 0, 0, 0, 0, 1, 'modDocument', 'web', 1, 'сайдбар/', 0, 0, 1, NULL),
-(11, 'document', 'text/html', 'Аватар', '', '', 'аватар', '', 1, 0, 0, 10, 0, '', '', 1, 2, 0, 1, 1, 1, 1455791763, 1, 1455828149, 0, 0, 0, 1455791760, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/аватар.html', 0, 0, 1, NULL),
+(11, 'document', 'text/html', 'Аватар', '', '', 'аватар', '', 1, 0, 0, 10, 0, '', '', 1, 2, 0, 1, 1, 1, 1455791763, 1, 1455916070, 0, 0, 0, 1455791760, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/аватар.html', 0, 0, 1, NULL),
 (12, 'document', 'text/html', 'О себе', '', '', 'о-себе', '', 1, 0, 0, 10, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa at minus maxime libero eveniet consectetur laborum repellendus deserunt alias enim quasi, necessitatibus eum vel sunt nobis aperiam. Ipsum, provident, dolor.</p>', 1, 2, 1, 1, 1, 1, 1455795504, 1, 1455795837, 0, 0, 0, 1455795480, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/о-себе.html', 0, 0, 1, NULL),
 (13, 'document', 'text/html', 'Контакты', '', '', 'контакты', '', 1, 0, 0, 10, 1, '', '', 1, 2, 2, 1, 1, 1, 1455795997, 1, 1455830212, 0, 0, 0, 1455795960, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/контакты/', 0, 0, 1, NULL),
 (14, 'document', 'text/html', 'e-mail', 'e-mail', '', 'instagram', '', 1, 0, 0, 13, 0, '', '', 1, 2, 2, 1, 1, 1, 1455796436, 1, 1455841250, 0, 0, 0, 1455797100, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/контакты/instagram.html', 0, 0, 1, NULL),
 (18, 'document', 'text/html', 'Навыки', '', '', 'навыки', '', 1, 0, 0, 10, 1, '', '', 1, 2, 3, 1, 1, 1, 1455843806, 1, 1455843843, 0, 0, 0, 1455843780, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/', 0, 0, 1, NULL),
 (16, 'document', 'text/html', 'Вконтакте', 'id19473263', '', 'vk', '', 1, 0, 0, 13, 0, '', '', 1, 2, 4, 1, 1, 1, 1455797349, 1, 1455841479, 0, 0, 0, 1455797340, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/контакты/vk.html', 0, 0, 1, NULL),
-(19, 'document', 'text/html', 'html5', '', '', 'html', '', 1, 0, 0, 18, 0, '', '', 1, 2, 0, 1, 1, 1, 1455843880, 1, 1455848844, 0, 0, 0, 1455843840, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/html.html', 0, 0, 1, NULL),
+(19, 'document', 'text/html', 'html5', '', '', 'html', '', 1, 0, 0, 18, 0, '', '', 1, 2, 0, 1, 1, 1, 1455843880, 1, 1455878492, 0, 0, 0, 1455843840, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/html.html', 0, 0, 1, NULL),
 (20, 'document', 'text/html', 'css3', '', '', 'css3', '', 1, 0, 0, 18, 0, '', '', 1, 2, 1, 1, 1, 1, 1455845381, 1, 1455848827, 0, 0, 0, 1455845340, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/css3.html', 0, 0, 1, NULL),
-(21, 'document', 'text/html', 'js', '', '', 'js', '', 1, 0, 0, 18, 0, '', '', 1, 2, 2, 1, 1, 1, 1455846256, 1, 1455848855, 0, 0, 0, 1455846240, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/js.html', 0, 0, 1, NULL);
+(21, 'document', 'text/html', 'js', '', '', 'js', '', 1, 0, 0, 18, 0, '', '', 1, 2, 2, 1, 1, 1, 1455846256, 1, 1455848855, 0, 0, 0, 1455846240, 1, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'сайдбар/навыки/js.html', 0, 0, 1, NULL),
+(22, 'document', 'text/html', 'ColorMania', '', '', 'colormania', '', 0, 0, 0, 1, 0, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate saepe tempora eligendi fugit dignissimos odio eaque. Eligendi excepturi praesentium facere commodi laborum, ut, ab ullam necessitatibus nulla eius reiciendis aut.</p>', 1, 2, 4, 1, 1, 1, 1455897954, 1, 1455996136, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'modDocument', 'web', 1, 'index/colormania.html', 0, 0, 1, NULL),
+(23, 'document', 'text/html', 'Копирайт', '', '', 'копирайт', '', 0, 0, 0, 0, 0, '', '', 1, 1, 3, 1, 1, 1, 1455899550, 1, 1455900239, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 1, 'modDocument', 'web', 1, 'копирайт.html', 0, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -2593,7 +2814,7 @@ CREATE TABLE IF NOT EXISTS `modx_site_htmlsnippets` (
   KEY `category` (`category`),
   KEY `locked` (`locked`),
   KEY `static` (`static`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Дамп данных таблицы `modx_site_htmlsnippets`
@@ -2603,18 +2824,22 @@ INSERT INTO `modx_site_htmlsnippets` (`id`, `source`, `property_preprocess`, `na
 (1, 0, 0, 'galAlbumRowTpl', '', 0, 3, 0, '<li[[+cls:notempty=` class="[[+cls]]"`]]><a href="[[~[[*id]]? &[[+albumRequestVar]]=`[[+id]]`]]">[[+showName:notempty=`[[+name]]`]]</a></li>', 0, '', 0, ''),
 (2, 0, 0, 'galItemThumb', '', 0, 3, 0, '<div class="[[+cls]]">\n    <a href="[[+linkToImage:if=`[[+linkToImage]]`:is=`1`:then=`[[+image_absolute]]`:else=`[[~[[*id]]?\n            &[[+imageGetParam]]=`[[+id]]`\n            &[[+albumRequestVar]]=`[[+album]]`\n            &[[+tagRequestVar]]=`[[+tag]]` ]]`]]" title="[[+name]]" [[+link_attributes]]>\n\n        <img class="[[+imgCls]]" src="[[+thumbnail]]" alt="[[+name]]" [[+image_attributes]] />\n    </a>\n</div>', 0, '', 0, ''),
 (3, 1, 0, 'portfolio-header', '', 0, 6, 0, '\n<header>\n  <div class="h_wrap" id="top_content">\n	<div class="top_name">\n	  <h1><a href="[[++site_url]]">alexander polyansky</a></h1>\n	</div>\n	<nav class="top_menu">\n	  <div class="top_menu_wrap">\n		[[Wayfinder? \n		&startId=`0`\n		&level=`1`\n		&outerTpl = `wayOuterTpl`\n		&rolTpl = `wayRolTpl`]]\n	  </div>\n	  <div class="buttom_menu">\n		<span class="sandwich">\n		  <span class="sw-topper"></span>\n		  <span class="sw-bottom"></span>\n		  <span class="sw-footer"></span>\n		</span>\n	  </div>\n	</nav>\n  </div>\n</header>', 0, 'a:0:{}', 0, ''),
-(7, 1, 0, 'portfolio-section-jobs', '', 0, 6, 0, '<section class="section_job darken" id="work_1">\n  <div class="logo_job_wrap">\n	<img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">\n  </div>\n  <h3 class="jobs_name">[[+pagetitle]]</h3>\n  <p class="description_job">[[+content:strip_tags]]</p>\n  <div class="gallery_job ">\n\n		[[!Gallery? &album=`[[+tv.galery]]` &containerTpl=`NewGalleryAlbumTpl` &thumbWidth=`300` &thumbHeight=`250` &thumbTpl=`NewGalItemThumb` &imageWidth=`750` &imageHeight=`800`]]\n\n  </div>\n</section>\n', 0, 'a:0:{}', 0, ''),
+(18, 1, 0, 'portfolio-footer-jobs', '', 0, 10, 0, '<div class="footer_jobs_wrap">\n<a href="#work_1">\n  <div class="footer_jobs_active"></div>\n  <img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">\n</a>\n</div>', 0, 'a:0:{}', 0, ''),
+(7, 1, 0, 'portfolio-section-jobs', '', 0, 6, 0, '<section class="section_job" >\n  <div class="logo_job_wrap">\n	<img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">\n  </div>\n  <h3 class="jobs_name">[[+pagetitle]]</h3>\n  <p class="description_job">[[+content:strip_tags]]</p>\n  <div class="gallery_job ">\n\n		[[!Gallery? &album=`[[+tv.galery]]` &containerTpl=`NewGalleryAlbumTpl` &thumbWidth=`300` &thumbHeight=`250` &thumbTpl=`NewGalItemThumb` &imageWidth=`750` &imageHeight=`800`]]\n\n  </div>\n</section>\n', 0, 'a:0:{}', 0, ''),
 (4, 1, 0, 'portfolio-sidebar', '', 0, 6, 0, '<article class="sideBar">\n  <section class="avatar">\n	[[!getResources? &parents=`-1` &resources=`11` &tpl=`portfolio-sidebar-avatar` &includeTVs=`image`]]\n  </section>\n  <section class="about">\n	[[!getResources? &parents=`-1` &resources=`12` &tpl=`portfolio-sidebar-about` &includeContent=`1`]]\n  </section>\n  <section class="contacts">\n	<h2><span></span>Контакты</h2>\n	[[!getResources?  &parents=`13` &tpl=`portfolio-sidebar-contacts` &includeTVs=`1`]]\n  </section>\n  <section class="skills">\n	<h2><span></span>Навыки</h2>\n	[[!getResources?  &parents=`18` &tpl=`portfolio-sidebar-skills` &includeTVs=`1` &sortdir=`ASC` ]]\n  </section>\n</article>', 0, 'a:0:{}', 0, ''),
+(17, 1, 0, 'portfolio-footer', '', 0, 6, 0, '<footer>\n  <div class="container-fluid">\n	<div class="row">\n	  <div class="col-md-3">\n		<div class="name">\n		  <h4><a href="[[++site_url]]">alexander polyansky</a></h4>\n		</div>\n	  </div>\n	  <div class="col-md-6">\n		<div class="footer_jobs">\n		  [[!getResources?\n			  &showHidden=`1`\n			  &tpl=`portfolio-footer-jobs`\n			  &parents=`[[*id]]`\n			  &includeTVs=`image`\n			  ]]\n		</div>\n	  </div>\n	  <div class="col-md-3">\n	  	<div class="footer_contacts">\n			[[!getResources?  &parents=`13` &tpl=`portfolio-footer-contacts` &includeTVs=`1`]]\n\n		</div>\n	  </div>\n	</div>\n  </div>\n  [[!getResources? &parents=`-1` &resources=`23` &tpl=`portfolio-copyright`]]\n</footer>', 0, 'a:0:{}', 0, ''),
 (13, 1, 0, 'portfolio-section-galery', '', 0, 9, 0, '<ul >\n [[+thumbnails]]\n</ul>', 0, 'a:0:{}', 0, ''),
 (5, 1, 0, 'wayOuterTpl', '', 0, 5, 0, '<ul>\n	[[+wf.wrapper]]\n</ul>', 0, 'a:0:{}', 0, ''),
 (6, 1, 0, 'wayRolTpl', '', 0, 5, 0, '<li [[+wf.classes]]>\n	<a href="[[+wf.link]]">[[+wf.linktext]]</a>\n</li>', 0, 'a:0:{}', 0, ''),
 (14, 1, 0, 'NewGalleryAlbumTpl', '', 0, 9, 0, '<ul>\n	[[+thumbnails]]\n</ul>', 0, 'a:0:{}', 0, ''),
 (15, 1, 0, 'NewGalItemThumb', '', 0, 9, 0, '<li><a href="[[+image]]">\n  <img src="[[+thumbnail]]" alt="" /></a>\n</li>', 0, 'a:0:{}', 0, ''),
-(8, 1, 0, 'portfolio-jobs', '', 0, 6, 0, '<div class="jobs_wrap">\n  <div class="jobs_content">\n	<h3>[[+pagetitle]]</h3>\n	<a href="#work_1">подробнее</a>\n  </div>\n  <img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">\n</div>', 0, 'a:0:{}', 0, ''),
+(8, 1, 0, 'portfolio-jobs', '', 0, 6, 0, '<div class="jobs_wrap">\n  <div class="jobs_content">\n	<h3>[[+pagetitle]]</h3>\n	<a>подробнее</a>\n  </div>\n  <img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">\n</div>', 0, 'a:0:{}', 0, ''),
 (11, 1, 0, 'portfolio-sidebar-about', '', 0, 8, 0, '<h2><span></span>[[+pagetitle]]</h2>\n[[+content]]', 0, 'a:0:{}', 0, ''),
 (10, 1, 0, 'portfolio-sidebar-avatar', '', 0, 8, 0, '<img src="[[+tv.jobs_img]]" alt="[[+pagetitle]]" title="[[+pagetitle]]">', 0, 'a:0:{}', 0, ''),
 (12, 1, 0, 'portfolio-sidebar-contacts', '', 0, 8, 0, '<address><i class="[[+tv.icons]]"></i><a href="[[+tv.contacts]]" target="_blank">[[+pagetitle]]</a></address>', 0, 'a:0:{}', 0, ''),
-(16, 1, 0, 'portfolio-sidebar-skills', '', 0, 8, 0, '<div class="indicator">\n  <span class="[[+tv.icons]]"><i>[[+pagetitle]]</i></span>\n  <div class="loader"></div>\n  <div class="num_skill">[[+tv.skills]]/10</div>\n</div>', 0, 'a:0:{}', 0, '');
+(16, 1, 0, 'portfolio-sidebar-skills', '', 0, 8, 0, '<div class="indicator">\n  <span class="[[+tv.icons]]"><i>[[+pagetitle]]</i></span>\n  <div class="loader"></div>\n  <div class="num_skill">[[+tv.skills]]/10</div>\n</div>', 0, 'a:0:{}', 0, ''),
+(19, 1, 0, 'portfolio-footer-contacts', '', 0, 10, 0, '<address><a href="[[+tv.contacts]]" target="_blank" class="[[+tv.icons]]"></a></address>', 0, 'a:0:{}', 0, ''),
+(20, 1, 0, 'portfolio-copyright', '', 0, 6, 0, '<div class="copy">\n  <span>[[+description]]</span>\n</div>', 0, 'a:0:{}', 0, '');
 
 -- --------------------------------------------------------
 
@@ -2788,7 +3013,7 @@ CREATE TABLE IF NOT EXISTS `modx_site_templates` (
 
 INSERT INTO `modx_site_templates` (`id`, `source`, `property_preprocess`, `templatename`, `description`, `editor_type`, `category`, `icon`, `template_type`, `content`, `locked`, `properties`, `static`, `static_file`) VALUES
 (1, 0, 0, 'Начальный шаблон', 'Template', 0, 0, '', 0, '<html>\n<head>\n<title>[[++site_name]] - [[*pagetitle]]</title>\n<base href="[[++site_url]]" />\n</head>\n<body>\n[[*content]]\n</body>\n</html>', 0, NULL, 0, ''),
-(2, 1, 0, 'portfolio', '', 0, 1, '', 0, '<!DOCTYPE html>\n<html lang="en">\n  <head>\n	<meta charset="UTF-8">\n	<title>Портфолио</title>\n	<base href="[[++site_url]]">\n	<link rel="stylesheet" href="/assets/templates/portfolio/css/main.css">\n	\n  </head>\n  <body>\n	<div class="wrapper">\n	  <div class="scroll_tabs_wrap">\n		<ul data-example="Пример атрибута">\n		  <li><a href="#top_content" class="scroll_tabs"></a></li>\n		</ul>\n		\n	  </div>\n	  [[$portfolio-header]]\n	  <div class="main">\n		[[$portfolio-sidebar]]\n		<div class="content">\n		  <section>\n			<h2>готовые проекты</h2>\n			<div class="jobs">\n			  [[!getResources?\n			  &showHidden=`1`\n			  &tpl=`portfolio-jobs`\n			  &parents=`[[*id]]`\n			  &includeTVs=`image`\n			  ]]\n			</div>\n		  </section>\n		  [[!getResources?\n		  &showHidden=`1`\n		  &tpl=`portfolio-section-jobs`\n		  &includeContent=`1`\n		  &parents=`[[*id]]`\n		  &includeTVs=`image`\n		  ]]\n		</div>\n	  </div>\n	</div>\n	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>\n	<script src="/assets/templates/portfolio/libs/scroll2id/PageScroll2id.min.js"></script>\n	<script src="/assets/templates/portfolio/libs/magnific-popup/jquery.magnific-popup.min.js"></script>\n	<script src="/assets/templates/portfolio/js/common.js"></script>\n  </body>\n</html>', 0, 'a:0:{}', 0, '');
+(2, 1, 0, 'portfolio', '', 0, 1, '', 0, '<!DOCTYPE html>\n<html lang="en">\n  <head>\n	<meta charset="UTF-8">\n	<title>Портфолио</title>\n	<base href="[[++site_url]]">\n	<link rel="stylesheet" href="/assets/templates/portfolio/css/main.css">\n	\n  </head>\n  <body>\n	<div class="wrapper">\n	  <div class="scroll_tabs_wrap">\n		<ul>\n		  \n		</ul>\n		\n	  </div>\n	  [[$portfolio-header]]\n	  <div class="main">\n		[[$portfolio-sidebar]]\n		<div class="content">\n		  <section>\n			<h2>готовые проекты</h2>\n			<div class="jobs">\n			  [[!getResources?\n			  &showHidden=`1`\n			  &tpl=`portfolio-jobs`\n			  &parents=`[[*id]]`\n			  &includeTVs=`image`\n			  ]]\n			</div>\n		  </section>\n		  [[!getResources?\n		  &showHidden=`1`\n		  &tpl=`portfolio-section-jobs`\n		  &includeContent=`1`\n		  &parents=`[[*id]]`\n		  &includeTVs=`image`\n		  ]]\n		</div>\n	  </div>\n	 [[$portfolio-footer]]\n	</div>\n	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>\n	<script src="/assets/templates/portfolio/libs/scroll2id/PageScroll2id.min.js"></script>\n	<script src="/assets/templates/portfolio/libs/magnific-popup/jquery.magnific-popup.min.js"></script>\n	<script src="/assets/templates/portfolio/js/common.js"></script>\n  </body>\n</html>', 0, 'a:0:{}', 0, '');
 
 -- --------------------------------------------------------
 
@@ -2864,7 +3089,7 @@ CREATE TABLE IF NOT EXISTS `modx_site_tmplvar_contentvalues` (
   KEY `tmplvarid` (`tmplvarid`),
   KEY `contentid` (`contentid`),
   KEY `tv_cnt` (`tmplvarid`,`contentid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
 -- Дамп данных таблицы `modx_site_tmplvar_contentvalues`
@@ -2875,12 +3100,14 @@ INSERT INTO `modx_site_tmplvar_contentvalues` (`id`, `tmplvarid`, `contentid`, `
 (2, 1, 1, 'assets/templates/portfolio/img/HjFyPW3.jpg'),
 (3, 1, 8, 'assets/templates/portfolio/img/2.jpg'),
 (4, 1, 9, 'assets/gallery/2/wJTX8KfzmoI.jpg'),
-(5, 1, 11, 'assets/gallery/2/gUqzBvyyRls.jpg'),
+(5, 1, 11, 'assets/gallery/2/test_site.png'),
 (24, 3, 14, 'mailto:eclerrrr@yandex.ru'),
 (8, 3, 16, 'https://vk.com/id19473263'),
 (9, 4, 7, '9'),
 (11, 4, 1, '9'),
+(32, 4, 22, '10'),
 (17, 4, 8, '1'),
+(31, 1, 22, 'assets/gallery/2/z_8ce9736e.jpg'),
 (19, 4, 9, '10'),
 (20, 6, 13, 'тест'),
 (21, 6, 14, 'mail'),
@@ -3626,7 +3853,7 @@ CREATE TABLE IF NOT EXISTS `modx_user_attributes` (
 --
 
 INSERT INTO `modx_user_attributes` (`id`, `internalKey`, `fullname`, `email`, `phone`, `mobilephone`, `blocked`, `blockeduntil`, `blockedafter`, `logincount`, `lastlogin`, `thislogin`, `failedlogincount`, `sessionid`, `dob`, `gender`, `address`, `country`, `city`, `state`, `zip`, `fax`, `photo`, `comment`, `website`, `extended`) VALUES
-(1, 1, 'Администратор по умолчанию', 'eclerrrr@yandex.ru', '', '', 0, 0, 0, 2, 1455719144, 1455823497, 0, 'jm80jlh2dradsopm0hhiefbte6', 0, 0, '', '', '', '', '', '', '', '', '', NULL);
+(1, 1, 'Администратор по умолчанию', 'eclerrrr@yandex.ru', '', '', 0, 0, 0, 7, 1455986461, 1455994481, 0, 'm4lviueo6nnlcb3v8jdcrposc5', 0, 0, '', '', '', '', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 

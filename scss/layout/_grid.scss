@@ -71,12 +71,12 @@ header{
 	.top_name{
 	    float: left;
 	    transition: all 0.5s ease 0s;
-		width: 250px;
+		width: 248px;
 	    z-index: 1000;
 			}
 	.top_menu{
 		ul li{
-		display: inline-block;
+		float: left;
 		text-align: center;
 		}
 
@@ -104,7 +104,10 @@ header{
 			padding: ($sectionHeigth / 18) + px;
 			position: relative;
 			h2{
-				font-size: $headerFontsSize + 0.5 +em;
+				font-size: $headerFontsSize + 0.4 +em;
+				font-family: $Bebas;
+				letter-spacing: 2px;
+				text-transform: uppercase;
 			}
 		}
 		.avatar{
@@ -134,8 +137,10 @@ header{
 				margin-left: ($sideBarWidth / 3) + px;
 				padding-top: 20px;
 				position: relative;
-				span{
+				a{
 					height: 40px;
+					text-transform: uppercase;
+					font-size: 12px;
 				}
 			}
 		}
@@ -184,12 +189,12 @@ header{
 		h2{
 			font-size: $headerFontsSize  + 2 +em;
 			text-align: center;
-			padding-top: $topHeight / 100 * 8 +px;
+			padding-top: $topHeight / 100 * 12 +px;
 		}
 		.jobs{
 			min-height: 1000px;
 			transition: all 0.5s ease 0s;
-			margin-top: $topHeight / 100 *4 +px;
+			margin-top: $topHeight / 100 *10 +px;
 			text-align: center;
 			.jobs_wrap{
 				width: 270px;
@@ -200,6 +205,8 @@ header{
 				text-transform: uppercase;
 				font-size: 14px;
 				font-family: $Bebas;
+				overflow: hidden;
+				border: 1px solid $grey;
 				&:hover .jobs_content{
 					opacity: 1;
 					background-color: rgba(0,0,0,.85);
@@ -208,14 +215,14 @@ header{
 			img{
 				margin: 0;
 				width: 270px;
-				height: 200px;
+				height: auto;
 				padding: 0;
 			}
 			.jobs_content{
 				position:absolute;
 				top: 0;
 				left: 0;
-				height: 99%;
+				height: 100%;
 				width: 100%;
 				text-align: center;
 				color: $white;
@@ -248,15 +255,19 @@ header{
 			font-family: $RoborLight;
 			line-height: 2;
 			.logo_job_wrap{
+				width: 150px;
+				margin: 0 auto;
 				text-align: center;
 				padding-top: 70px;
 				padding-bottom: 5px;
+				border-radius: 50%;
+				margin-bottom: 10px;
 				img{
 					width: 150px;
+					border-radius: 50%;
 					height: 150px;
-					border-radius: 60%;
 					border: 3px solid $ltBlue;
-					margin-bottom: 10px;
+					
 				}
 				h3 a{
 					font-family: $Bebas;
@@ -289,6 +300,7 @@ header{
 			}
 			.gallery_job{
 				margin-top: 60px;
+				padding-bottom: 60px;
 				text-align: center;
 				ul li{
 					display: inline-block;
@@ -304,12 +316,91 @@ header{
 		}
 	}
 }
+footer{
+	min-height: $footerHeight;
+	text-align: center;
+	background-color: darken($dkGray,10%);
+	color: $white;
+	position: relative;
+	.copy{
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		right: 0;
+		span{
+			font-family: $RoborLight;
+			font-size: 12px;
+		}
+	}
+	.name,{
+		position: relative;
+   		width: 100%; 
+    	height: $footerHeight;
+
+		h4{
+			margin: 0 auto;
+			position: relative;
+			top: 50%;
+			font-family: $Bebas;
+			font-size: 20px;
+			letter-spacing: 0.5px;
+		}
+	}
+	.footer_jobs{
+   		width: 100%;
+    	padding-top: 30px;
+    	.footer_jobs_wrap{
+    			top: 20%;
+    			width: 90px;
+				height: 70px;
+				display: inline-block;
+				position: relative;
+				margin: 10px;
+				border: 1px solid darken($dkGray,15%);
+				overflow: hidden;
+    		img{
+    			width: 100%;
+    			height: auto;
+    		}
+    		.footer_jobs_active{
+    			position: absolute;
+    			width: 100%;
+    			height: 100%;
+    			background-color: rgba(255,255,255,.2);
+				transition: all 0.2s ease 0s;
+				opacity: 0;
+				z-index: 1000;
+    		}
+    		&:hover .footer_jobs_active{
+				opacity: 1;
+    		}
+    	}
+	}
+
+	.footer_contacts{
+		height: $footerHeight;
+		text-transform: uppercase;
+			address{
+				top:35%;
+				
+			}
+			a{
+				font-family: $Bebas;
+				letter-spacing: 1px;
+
+			}
+    	}
+
+}
 
 .darken{
 	background-color: $dkGray;
 	color: $white;
 	a{
 		color: $white;
+	}
+	.gallery_job img{
+		border:1px solid darken($dkGray,10%);
 	}
 }
 .lighten{
@@ -318,6 +409,9 @@ header{
 	a{
 		color: $white;
 	}
+	.gallery_job img{
+		border:1px solid darken($grey,10%);
+	}
 }
 .white{
 	background-color: $white;
@@ -325,12 +419,17 @@ header{
 	a{
 		color: $dkGray;
 	}
+	.gallery_job img{
+		border:1px solid darken($white,50%);
+	}
 }
 
 .scroll_tabs_wrap{
 	position: fixed;
 	top: 35%;
 	right: 15px;
+	z-index: 100000;
+	display:none;
 }
 
 
@@ -351,8 +450,8 @@ header{
 }
 
 .mfp-arrow-right{
-	right: 200px;
+	right: 120px;
 }
 .mfp-arrow-left{
-	left: 200px;
+	left: 120px;
 }

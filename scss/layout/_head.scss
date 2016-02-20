@@ -10,14 +10,13 @@ header{
 	}
 	li{
 		text-align: left;
-		/* border-right: 2px solid $dkGray; */
 		a{
 			text-decoration: none;
 			color: $white;
 			display: block;
 			transition: all 0.1s ease-in-out;
 			&:hover{
-				background-color: $dkGray;
+				background-color: lighten($dkGray,5%);
 				color: $white;
 				text-decoration: none;
 			}

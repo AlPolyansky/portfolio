@@ -1075,6 +1075,7 @@ table {
 /*header*/
 /*content*/
 /*indicators*/
+/*footer*/
 /*url*/
 /* Magnific Popup CSS */
 .mfp-bg {
@@ -1546,10 +1547,10 @@ header {
   header .top_name {
     float: left;
     transition: all 0.5s ease 0s;
-    width: 250px;
+    width: 248px;
     z-index: 1000; }
   header .top_menu ul li {
-    display: inline-block;
+    float: left;
     text-align: center; }
 
 .main .about span, .main .contacts span, .main .skills h2 span {
@@ -1571,7 +1572,10 @@ header {
     padding: 10.66667px;
     position: relative; }
     .main .sideBar section h2 {
-      font-size: 1.5em; }
+      font-size: 1.4em;
+      font-family: "BebasBold";
+      letter-spacing: 2px;
+      text-transform: uppercase; }
   .main .sideBar .avatar {
     top: 32px;
     text-align: center; }
@@ -1590,8 +1594,10 @@ header {
       margin-left: 85.33333px;
       padding-top: 20px;
       position: relative; }
-      .main .sideBar .contacts address span {
-        height: 40px; }
+      .main .sideBar .contacts address a {
+        height: 40px;
+        text-transform: uppercase;
+        font-size: 12px; }
   .main .sideBar .skills {
     padding-top: 20px; }
     .main .sideBar .skills h2 > span {
@@ -1625,11 +1631,11 @@ header {
   .main .content h2 {
     font-size: 3em;
     text-align: center;
-    padding-top: 61.44px; }
+    padding-top: 92.16px; }
   .main .content .jobs {
     min-height: 1000px;
     transition: all 0.5s ease 0s;
-    margin-top: 30.72px;
+    margin-top: 76.8px;
     text-align: center; }
     .main .content .jobs .jobs_wrap {
       width: 270px;
@@ -1639,20 +1645,22 @@ header {
       margin: 10px;
       text-transform: uppercase;
       font-size: 14px;
-      font-family: "BebasBold"; }
+      font-family: "BebasBold";
+      overflow: hidden;
+      border: 1px solid #737373; }
       .main .content .jobs .jobs_wrap:hover .jobs_content {
         opacity: 1;
         background-color: rgba(0, 0, 0, 0.85); }
     .main .content .jobs img {
       margin: 0;
       width: 270px;
-      height: 200px;
+      height: auto;
       padding: 0; }
     .main .content .jobs .jobs_content {
       position: absolute;
       top: 0;
       left: 0;
-      height: 99%;
+      height: 100%;
       width: 100%;
       text-align: center;
       color: #fff;
@@ -1679,15 +1687,18 @@ header {
     font-family: "RobotoLight";
     line-height: 2; }
     .main .content .section_job .logo_job_wrap {
+      width: 150px;
+      margin: 0 auto;
       text-align: center;
       padding-top: 70px;
-      padding-bottom: 5px; }
+      padding-bottom: 5px;
+      border-radius: 50%;
+      margin-bottom: 10px; }
       .main .content .section_job .logo_job_wrap img {
         width: 150px;
+        border-radius: 50%;
         height: 150px;
-        border-radius: 60%;
-        border: 3px solid #00b9ee;
-        margin-bottom: 10px; }
+        border: 3px solid #00b9ee; }
       .main .content .section_job .logo_job_wrap h3 a {
         font-family: "BebasBold";
         text-transform: uppercase;
@@ -1711,6 +1722,7 @@ header {
       padding: 0 15%; }
     .main .content .section_job .gallery_job {
       margin-top: 60px;
+      padding-bottom: 60px;
       text-align: center; }
       .main .content .section_job .gallery_job ul li {
         display: inline-block;
@@ -1720,28 +1732,95 @@ header {
       .main .content .section_job .gallery_job img {
         max-width: 130px; }
 
+footer {
+  min-height: 150px;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  position: relative; }
+  footer .copy {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0; }
+    footer .copy span {
+      font-family: "RobotoLight";
+      font-size: 12px; }
+  footer .name {
+    position: relative;
+    width: 100%;
+    height: 150px; }
+    footer .name h4 {
+      margin: 0 auto;
+      position: relative;
+      top: 50%;
+      font-family: "BebasBold";
+      font-size: 20px;
+      letter-spacing: 0.5px; }
+  footer .footer_jobs {
+    width: 100%;
+    padding-top: 30px; }
+    footer .footer_jobs .footer_jobs_wrap {
+      top: 20%;
+      width: 90px;
+      height: 70px;
+      display: inline-block;
+      position: relative;
+      margin: 10px;
+      border: 1px solid #0d0d0d;
+      overflow: hidden; }
+      footer .footer_jobs .footer_jobs_wrap img {
+        width: 100%;
+        height: auto; }
+      footer .footer_jobs .footer_jobs_wrap .footer_jobs_active {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: all 0.2s ease 0s;
+        opacity: 0;
+        z-index: 1000; }
+      footer .footer_jobs .footer_jobs_wrap:hover .footer_jobs_active {
+        opacity: 1; }
+  footer .footer_contacts {
+    height: 150px;
+    text-transform: uppercase; }
+    footer .footer_contacts address {
+      top: 35%; }
+    footer .footer_contacts a {
+      font-family: "BebasBold";
+      letter-spacing: 1px; }
+
 .darken {
   background-color: #333333;
   color: #fff; }
   .darken a {
     color: #fff; }
+  .darken .gallery_job img {
+    border: 1px solid #1a1a1a; }
 
 .lighten {
   background-color: #737373;
   color: #fff; }
   .lighten a {
     color: #fff; }
+  .lighten .gallery_job img {
+    border: 1px solid #5a5a5a; }
 
 .white {
   background-color: #fff;
   color: #333333; }
   .white a {
     color: #333333; }
+  .white .gallery_job img {
+    border: 1px solid gray; }
 
 .scroll_tabs_wrap {
   position: fixed;
   top: 35%;
-  right: 15px; }
+  right: 15px;
+  z-index: 100000;
+  display: none; }
 
 .scroll_tabs {
   margin-top: 5px;
@@ -1758,17 +1837,10 @@ header {
     border: 2px solid #00a5d4 !important; }
 
 .mfp-arrow-right {
-  right: 200px; }
+  right: 120px; }
 
 .mfp-arrow-left {
-  left: 200px; }
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  left: 120px; }
 
 header {
   background-color: #00b9ee;
@@ -1779,15 +1851,14 @@ header {
   header h1 {
     text-align: center; }
   header li {
-    text-align: left;
-    /* border-right: 2px solid $dkGray; */ }
+    text-align: left; }
     header li a {
       text-decoration: none;
       color: #fff;
       display: block;
       transition: all 0.1s ease-in-out; }
       header li a:hover {
-        background-color: #333333;
+        background-color: #404040;
         color: #fff;
         text-decoration: none; }
 
@@ -1817,23 +1888,21 @@ header {
 
 /*==========  Desktop First Method  ==========*/
 /* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  .mfp-arrow {
+    display: none !important; } }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   body header .top_menu a {
-    min-width: 100px; }
-
-  .mfp-arrow {
-    display: none !important; }
-
-  .scroll_tabs {
-    display: none; } }
+    min-width: 100px; } }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
   .gallery_job {
     padding-bottom: 40px; }
 
   .content {
-    padding-top: 30px; }
+    padding-top: 30px;
+    width: 100%; }
 
   header {
     position: fixed;
@@ -1845,7 +1914,10 @@ header {
       display: none; }
 
   .wrapper .main .sideBar {
-    margin-left: -500px; }
+    display: none; }
+
+  .scroll_tabs {
+    display: none; }
 
   .main .content, header .top_menu {
     padding-left: 0;
@@ -1860,7 +1932,8 @@ header {
     background-color: rgba(0, 0, 0, 0.9);
     display: block;
     right: 0;
-    top: 0; }
+    top: 0;
+    display: none; }
 
   body header .top_menu .open_menu {
     padding-top: 61.66667px;
@@ -1943,7 +2016,10 @@ header {
     display: none !important; }
 
   .scroll_tabs {
-    display: none; } }
+    display: none; }
+
+  .open_menu li a:hover {
+    background-color: #404040; } }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
   body header {
@@ -1960,8 +2036,6 @@ header {
 .content h2 {
   color: #333333;
   font-family: "BebasBold"; }
-.content .jobs img {
-  border: 1px solid #737373; }
 
 .contacts i {
   width: 35px;
@@ -1970,6 +2044,15 @@ header {
   position: absolute;
   top: 5px;
   left: -42.66667px; }
+
+.footer_contacts address {
+  position: relative;
+  display: inline; }
+
+.footer_contacts a {
+  width: 35px;
+  height: 40px;
+  display: inline-block; }
 
 .indicator span {
   width: 30px;
