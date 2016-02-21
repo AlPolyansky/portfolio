@@ -1560,6 +1560,7 @@ header {
   top: 3px;
   display: inline-block; }
 .main .sideBar {
+  display: none;
   background: #737373;
   left: 250px;
   margin-left: -250px;
@@ -1624,6 +1625,46 @@ header {
         position: absolute;
         left: 112.4px;
         top: -4px; }
+.main .sideBarToAbout {
+  width: 100%; }
+  .main .sideBarToAbout h2 {
+    text-align: center;
+    font-size: 1.5em; }
+  .main .sideBarToAbout .avatar {
+    top: 64px;
+    text-align: center; }
+    .main .sideBarToAbout .avatar img {
+      transition: all 0.5s ease 0.15s;
+      width: 200px;
+      height: 200px; }
+  .main .sideBarToAbout .about {
+    margin-top: 50px; }
+    .main .sideBarToAbout .about span {
+      display: none; }
+    .main .sideBarToAbout .about p {
+      line-height: 30px;
+      font-size: 1em;
+      padding: 50px 25%; }
+  .main .sideBarToAbout .contacts {
+    text-align: center; }
+    .main .sideBarToAbout .contacts span {
+      display: none; }
+    .main .sideBarToAbout .contacts address {
+      display: inline-block; }
+  .main .sideBarToAbout .skills h2 span {
+    display: none; }
+  .main .sideBarToAbout .skills .indicator {
+    margin: 45px auto;
+    width: 307.2px;
+    height: 20px; }
+    .main .sideBarToAbout .skills .indicator .loader {
+      height: 20px;
+      position: absolute;
+      top: 0; }
+    .main .sideBarToAbout .skills .indicator .num_skill {
+      position: absolute;
+      left: 322.2px;
+      top: 0; }
 .main .content {
   transition: all 0.5s ease 0.15s;
   width: 100%;
@@ -1736,8 +1777,7 @@ footer {
   min-height: 150px;
   text-align: center;
   background-color: #1a1a1a;
-  color: #fff;
-  position: relative; }
+  color: #fff; }
   footer .copy {
     position: absolute;
     bottom: 5px;
@@ -1851,16 +1891,16 @@ header {
   header h1 {
     text-align: center; }
   header li {
-    text-align: left; }
-    header li a {
-      text-decoration: none;
+    text-decoration: none;
+    padding: 0 30px;
+    color: #fff;
+    display: block;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer; }
+    header li:hover {
+      background-color: #404040;
       color: #fff;
-      display: block;
-      transition: all 0.1s ease-in-out; }
-      header li a:hover {
-        background-color: #404040;
-        color: #fff;
-        text-decoration: none; }
+      text-decoration: none; }
 
 .active {
   background-color: #333333;
@@ -1906,15 +1946,15 @@ header {
 
   header {
     position: fixed;
-    z-index: 1000;
+    z-index: 1000000;
     min-height: 61.66667px;
     line-height: 61.66667px;
     transition: all 0.5s ease 0s; }
     header .top_menu ul {
       display: none; }
 
-  .wrapper .main .sideBar {
-    display: none; }
+  .sideBar {
+    top: 61.66667px; }
 
   .scroll_tabs {
     display: none; }
@@ -2025,7 +2065,10 @@ header {
   body header {
     height: 10px; }
     body header .top_menu {
-      width: 250px; } }
+      width: 250px; }
+
+  .main .sideBarToAbout .about p {
+    padding: 20px 0; } }
 /* Custom, iPhone Retina */
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */

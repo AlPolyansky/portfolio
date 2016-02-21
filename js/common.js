@@ -35,6 +35,41 @@ $(document).ready(function() {
 		};
 	}
 
+	function showAllAbout(){
+		
+		$(".top_menu_wrap li:last").click(function(){
+			$('.top_menu_wrap li').click(function(){
+    			$('.top_menu_wrap li').removeClass("active");
+    			$(this).addClass("active");
+			});
+			if($(window).width() <= 768){
+				$(".sideBar").addClass("sideBarToAbout");
+				$(".sideBar").show();
+				$(".section_job").hide();
+				$(".sideBar").css({"margin-left" : "0px","left" : "0"})
+			}
+			else{
+				$(".sideBar").addClass("sideBarToAbout");
+				$(".section_job").hide();
+				$(".sideBar").css({"margin-left" : "0px","left" : "0"})
+			}
+		});
+		$(".top_menu_wrap li:first").click(function(){
+				
+			if($(window).width() <= 768){
+				$(".sideBar").removeClass("sideBarToAbout");
+				$(".section_job").show();
+				$(".sideBar").css({'margin-left': '-500px'});
+			}
+			else{
+				$(".sideBar").removeClass("sideBarToAbout");
+				$(".section_job").show();
+				$(sideBar).css({'margin-left': '-250px','left': '250px'});
+			}
+		});
+	}
+	
+
 
 	function sideBarHeight(){
 		$(sideBar).css("height", $(".content").height());
@@ -43,30 +78,31 @@ $(document).ready(function() {
 
 	function hideSidebar(){
 		var sideBar = $('.sideBar');
-		if($(document).scrollTop() > ($(".jobs").height() - 100) || $(window).width() <= 768){
-				$(sideBar).css({
-					'margin-left': '-500px'
-					
-				});
-				$(".content").css({
-					'padding-left': '0'
-				});
+		if($(window).width() <= 768){
+			$(".content").css({'padding-left': '0'});
+			if(!$(sideBar).hasClass("sideBarToAbout")){
+				$(sideBar).css({'margin-left': '-500px'});
+				
 			}
-		else{
-			$(sideBar).css({
-					'margin-left': '-250px'
-					
-				});
-				$(".content").css({
-					'padding-left': '250px'
-				});
 		}
+		else{
+			$(sideBar).show();
+			if($(document).scrollTop() > ($(".jobs").height() - 100) && !$(".sideBar").hasClass("sideBarToAbout")){
+				$(sideBar).css({'margin-left': '-500px'});
+				$(".content").css({'padding-left': '0px'});
+			}
+			else{
+				$(sideBar).css({'margin-left': '-250px','left':'250px'});
+				$(".content").css({'padding-left': '250px'});
+			}
+		}	
 	}
 
 	function setWork(){
 		var jobs = $(".jobs_wrap");
 		for(var i = 0; i < jobs.length; i++){
 			$(".jobs_content a").eq(i).attr("href","#work_" + (i + 1));
+			$(".footer_jobs_wrap a").eq(i).attr("href","#work_" + (i + 1))
 		}
 
 	}
@@ -117,10 +153,10 @@ $(document).ready(function() {
 			}
 
 			if(top_scroll >= getPosition()[i] && top_scroll <= getPosition()[i + j]){
-					$("a[href^='#work_" + (i + 1) + "']").css({'background-color': '#00B9EE'});
+					$(".scroll_tabs_wrap a[href^='#work_" + (i + 1) + "']").css({'background-color': '#00B9EE'});
 				}
 				else{
-					$("a[href^='#work_" + (i + 1) + "']").css({'background-color': 'inherit'});
+					$(".scroll_tabs_wrap a[href^='#work_" + (i + 1) + "']").css({'background-color': 'inherit'});
 				}
 		}
 		}
@@ -148,18 +184,24 @@ $(document).ready(function() {
 		}
 
 		function hideTarget(){
-			if($(document).scrollTop() > 700 && $(window).width() > 768) {
+
+			if($(document).scrollTop() > 700 && $(window).width() > 768 && !$(".sideBar").hasClass("sideBarToAbout")) {
 				$(".scroll_tabs_wrap, scroll_tabs").fadeIn("slow");
 			}
 			else{
 
 				$(".scroll_tabs_wrap, scroll_tabs").fadeOut("slow");
 			}
+
 		}
 
 		
 
 	function addButtonMenu(){
+		$('.top_menu_wrap li').click(function(){
+    			$('.top_menu_wrap li').removeClass("active");
+    			$(this).addClass("active");
+			});
 		$(".buttom_menu").click(function() {
 		  	$(".sandwich").toggleClass("active");
 		  	if(!$(".top_menu_wrap").hasClass("open")){
@@ -176,11 +218,22 @@ $(document).ready(function() {
 		  			$(".top_menu_wrap ul").removeAttr("class");
 		  		});
 		  	}
-		  	
-		  	
-
-		  
 		})
+		$(".top_menu_wrap ul li").click(function(){
+			if($(window).width() <= 768){
+				$(".sandwich").toggleClass("active");
+				$(".top_menu_wrap").fadeOut(400,function(){
+					$(".top_menu_wrap").removeClass("open");
+		  			$(".top_menu_wrap ul").removeClass("open_menu");
+		  			$(".top_menu_wrap").removeAttr("style");
+		  			$(".top_menu_wrap ul").removeAttr("style");
+		  			$(".top_menu_wrap ul").removeAttr("class");
+
+				});
+			}
+		})
+
+
 	}
 
 	function addPreloader(){
@@ -205,13 +258,15 @@ $(document).ready(function() {
 		checkPosition();
 		sideBarHeight();
 		hideSidebar();
-		hideTarget();		
+		hideTarget();
+		showAllAbout();		
 	});
 
 
 	$(window).resize(function(){
 		sideBarHeight();
 		hideSidebar();
+		showAllAbout();
 	});
 
 
@@ -219,6 +274,14 @@ $(document).ready(function() {
 		sideBarHeight();
 		hideSidebar();
 		hideTarget()
+		showAllAbout();
 	}); 
 
 });
+
+
+/*[[Wayfinder? 
+		&startId=`0`
+		&level=`1`
+		&outerTpl = `wayOuterTpl`
+		&rolTpl = `wayRolTpl`]]*/

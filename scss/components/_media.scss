@@ -26,7 +26,7 @@
 	}
 	header{
 		position: fixed;
-		z-index: 1000;
+		z-index: 1000000;
 		min-height: $headerHeight/1.2;
 		line-height: $headerHeight/1.2;
 		transition: all 0.5s ease 0s;
@@ -38,9 +38,11 @@
 			
 	}
 
-	.wrapper .main .sideBar{
-		display: none;
+	.sideBar{
+		top: $headerHeight/1.2;
 	}
+
+	
 	.scroll_tabs{
 		display: none;
 	}
@@ -160,7 +162,9 @@
 		.top_menu{
 			width: 250px;
 		}
-		
+	}
+	.main .sideBarToAbout .about p{
+		padding: 20px 0;
 	}
 }
 

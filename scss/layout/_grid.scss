@@ -10,6 +10,7 @@ a,a:hover,a:active,a:visited{
 	color: $white;
 }
 
+
 ::selection {background: $ltBlue}
 ::-moz-selection {background: $ltBlue;}
 ::-webkit-selection {background: $ltBlue; color:$white;}
@@ -92,6 +93,7 @@ header{
 		display: inline-block;
 	}
 	.sideBar{
+		display: none;
 		background: $grey;
 	    left: 250px;
 	    margin-left: -250px;
@@ -180,6 +182,69 @@ header{
 				}
 			
 			}
+		}
+	}
+	.sideBarToAbout{
+		width: 100%;
+		h2{
+				text-align: center;
+				font-size: $headerFontsSize + 0.5 +em;
+			}
+		.avatar{
+			
+			top: ($sectionHeigth / 3) + px;
+			text-align: center;
+			img{
+				transition: all 0.5s ease 0.15s;
+				width: 200px;
+				height: 200px;
+			}
+		}
+		.about{
+			margin-top: 50px;
+			
+			span{
+				display: none;
+			}
+			p{
+				line-height: 30px;
+				font-size: $headerFontsSize +em;
+				padding: 50px 25%;
+			}
+		}
+		.contacts{
+			span{
+				display: none;
+			}
+			text-align: center;
+			address{
+				display: inline-block;
+
+			}
+		}
+		.skills{
+			h2{
+				span{
+					display: none;
+				}
+			}
+			
+			.indicator{
+				margin: 45px auto;
+				width: $indicatorWidth * 3 + px;
+				height: 20px;
+				.loader{
+					height: 20px;
+					position: absolute;
+					top:0;
+				}
+				.num_skill{
+					position: absolute;
+					left: ($indicatorWidth + 5)*3 + px;
+					top: 0;
+				}
+			}
+			
 		}
 	}
 	.content{
@@ -321,7 +386,7 @@ footer{
 	text-align: center;
 	background-color: darken($dkGray,10%);
 	color: $white;
-	position: relative;
+	//position: relative;
 	.copy{
 		position: absolute;
 		bottom: 5px;
