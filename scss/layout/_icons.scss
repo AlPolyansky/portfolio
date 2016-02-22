@@ -1,71 +1,38 @@
-.contacts i{
-	width: 35px;
-	height: 40px;
+.icons{
+	font-family: "IconsFont";
+	font-size: 32px;
 	display: inline-block;
-	position: absolute;
-	top: 5px;
-	left: -($sideBarWidth  / 6) + px;
-
+	font-style: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-.footer_contacts address{
-	position: relative;
-	display:inline;
+
+.i_person::before{
+	content: 'i';
 }
 
-.footer_contacts a{
-	width: 35px;
-	height: 40px;
-	display: inline-block;
+.i_mail::before{
+	content: 'a';
 }
 
-.indicator span{
-	width: 30px;
-	height: 37px;
-	display: inline-block;
-	top: -15px;
-	left: -42px;
-	position: absolute;
+.i_arrow::before{
+	content: 'j';
 }
 
-.inst{
-	background-image: url($img + "icons.png");
-	background-repeat: no-repeat;
-	background-position: -1px -106px;
+.i_vk::before{
+	content: 'l';
 }
 
-.vk{
-	background-image: url($img + "icons.png");
-	background-repeat: no-repeat;
-	background-position: -1px -207px;
+.i_html::before{
+	content: 'e';
 }
 
-.tw{
-	background-image: url($img + "icons.png");
-	background-repeat: no-repeat;
-	background-position: -1px -158px;
+.i_css::before{
+	content: 'b';
 }
 
-.mail{
-	background-image: url($img + "icons.png");
-	background-repeat: no-repeat;
-	background-position: -1px -414px;
-}
-
-.html{
-	background-image: url($img + "icons.png");
-	background-position: -1px -262px;
-	background-repeat: no-repeat;
-}
-
-.css{
-	background-image: url($img + "icons.png");
-	background-position: -1px -318px;
-	background-repeat: no-repeat;
-}
-
-.js{
-	background-image: url($img + "icons.png");
-	background-position: -1px -372px;
-	background-repeat: no-repeat;
+.i_js::before{
+	content: 'h';
 }
