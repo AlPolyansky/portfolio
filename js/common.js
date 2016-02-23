@@ -35,7 +35,19 @@ $(document).ready(function() {
 		};
 	}
 
+
 	function showAllAbout(){
+
+		for(var i = 0; i < $(".indicator").length; i++){
+			if($(".indicator").length > 3 && !$(".sideBar").hasClass("sideBarToAbout")){
+				$(".indicator").eq(i+3).hide();
+			}
+			if($(".sideBar").hasClass("sideBarToAbout")){
+				$(".indicator").eq(i).show();
+			}
+		}
+			
+		
 		
 		$(".top_menu_wrap li:last").click(function(){
 			$('.top_menu_wrap li').click(function(){
@@ -170,12 +182,12 @@ $(document).ready(function() {
 		function addTarget(){
 			var jobs = $(".jobs");
 			if(jobs.children().length != 0){
-				$(".scroll_tabs_wrap ul").append("<li><a href='#top_content' class='scroll_tabs'></li>");
+				$(".scroll_tabs_wrap ul").append("<li><a href='#top_content' class='scroll_tabs_cap icons i_cap'></a></li>");
 			}
 			
 				for (var i = 1; i <= jobs.children().length; i++) {
-					$(".scroll_tabs_wrap ul").append("<li><a class='scroll_tabs'></li>");
-					$(".scroll_tabs").each(function(i){
+					$(".scroll_tabs_wrap ul").append("<li><a class='scroll_tabs'></a></li>");
+					$(".scroll_tabs").each(function(){
 						if(!($(this).attr("href")))
 						$(this).attr("href","#work_" + i);
 					})
@@ -186,11 +198,11 @@ $(document).ready(function() {
 		function hideTarget(){
 
 			if($(document).scrollTop() > 700 && $(window).width() > 768 && !$(".sideBar").hasClass("sideBarToAbout")) {
-				$(".scroll_tabs_wrap, scroll_tabs").fadeIn("slow");
+				$(".scroll_tabs_wrap, .scroll_tabs, .scroll_tabs_cap").fadeIn("slow");
 			}
 			else{
 
-				$(".scroll_tabs_wrap, scroll_tabs").fadeOut("slow");
+				$(".scroll_tabs_wrap, .scroll_tabs, .scroll_tabs_cap").fadeOut("slow");
 			}
 
 		}
@@ -267,6 +279,7 @@ $(document).ready(function() {
 		sideBarHeight();
 		hideSidebar();
 		showAllAbout();
+		hideTarget();
 	});
 
 

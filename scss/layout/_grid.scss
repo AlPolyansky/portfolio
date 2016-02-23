@@ -110,6 +110,9 @@ header{
 				font-family: $Bebas;
 				letter-spacing: 2px;
 				text-transform: uppercase;
+				span{
+					font-size: 22px;
+				}
 			}
 		}
 		.avatar{
@@ -135,10 +138,16 @@ header{
 
 			}
 			address{
-				font-size: $headerFontsSize + em; 
-				margin-left: ($sideBarWidth / 3) + px;
+				font-size: $headerFontsSize + em;
+				padding-left: ($sideBarWidth / 6) + px;
 				padding-top: 20px;
 				position: relative;
+				i{
+					position:relative;
+					top: 8px;
+					right: 5px;
+					font-size: 28px;
+				}
 				a{
 					height: 40px;
 					text-transform: uppercase;
@@ -150,20 +159,21 @@ header{
 			padding-top: 20px;
 			h2>span{
 				background-position: 0 -66px;
-				top: 6px;
 			}
 			.indicator{
 				width: $indicatorWidth + px;
 				margin: 45px 0;
 				height: 10px;
-				margin-left:($sideBarWidth  / 5) + px;;
+				margin-left:($sideBarWidth  / 5) + px;
 				position: relative;
 				&>span{
-					
+					position: relative;
+					right: 35px;
+					bottom: 12px;
 					i{
 						width: 30px;
 						font-family: "RoborLight";
-						font-size: 14px;
+						font-size: 11px;
 						position: absolute;
 						top: -10px;
 						left: 1px;
@@ -220,6 +230,14 @@ header{
 			text-align: center;
 			address{
 				display: inline-block;
+				padding: 0 20px;
+				.icons{
+					position: relative;
+				    top: 10px;
+				}
+				a{
+					text-align: left;
+				}
 
 			}
 		}
@@ -227,6 +245,7 @@ header{
 			h2{
 				span{
 					display: none;
+
 				}
 			}
 			
@@ -234,6 +253,13 @@ header{
 				margin: 45px auto;
 				width: $indicatorWidth * 3 + px;
 				height: 20px;
+				.icons{
+					font-size: 45px;
+					right: 50px;
+					i{
+						width: 45px;
+					}
+				}
 				.loader{
 					height: 20px;
 					position: absolute;
@@ -368,15 +394,50 @@ header{
 				margin-top: 60px;
 				padding-bottom: 60px;
 				text-align: center;
+				.galery_content{
+					transition: all 0.2s ease 0s;
+					position: absolute;
+					height: 109px;
+					width: 130px;
+					background-color: rgba(0,0,0,.75);
+					z-index: 1000;
+					opacity: 0;
+					&:hover{
+						opacity: 1;
+					}
+				}
+
 				ul li{
 					display: inline-block;
 					padding: 0 10px;
+					position: relative;
+					margin: 0 20px;
+
 				}
 				a{
-					margin: 0 20px;
+					
+					display: block;
+					
+					hidden: 100%;
+					width: 100%;
+
+
 				}
 				img{
 					max-width: 130px;
+					
+					
+					
+
+
+				}
+				i{
+					left: 0;
+					font-size: 35px;
+				    position: absolute;
+				    right: 0;
+				    top: 20px;
+				    color: #ddd;
 				}
 			}
 		}
@@ -447,13 +508,31 @@ footer{
 		height: $footerHeight;
 		text-transform: uppercase;
 			address{
+				position: relative;
 				top:35%;
-				
+				display: inline-block;
+
 			}
 			a{
-				font-family: $Bebas;
+				font-family: "IconsFont";
+				text-decoration: none;
 				letter-spacing: 1px;
-
+				&:hover{
+					text-decoration: none;
+					color: $white;
+				}
+				&:active{
+					text-decoration: none;
+					color: $white;
+				}
+				&:visited{
+					text-decoration: none;
+					color: $white;
+				}
+				&:focus{
+					text-decoration: none;
+					color: $white;
+				}
 			}
     	}
 
@@ -507,11 +586,27 @@ footer{
 	display: block;
 	border: 2px solid $ltBlue;
 	border-radius: 50%;
-	transform: rotate(45deg);
 	cursor: pointer;
 	&:hover{
 		background-color:darken($ltBlue, 5%)!important;
 		border: 2px solid darken($ltBlue, 5%)!important;
+	}
+}
+.scroll_tabs_cap{
+	transition: all 0.2s ease 0s;
+	cursor: pointer;
+	position: absolute;
+	top:-30px;
+	left: -8px;
+	color: $ltBlue;
+	font-size: 32px;
+	&:hover{
+		color:darken($ltBlue, 5%)!important;
+		text-decoration: none;
+	}
+	&:visited,&:active,&:focus{
+		color:darken($ltBlue, 5%)!important;
+		text-decoration: none;
 	}
 }
 

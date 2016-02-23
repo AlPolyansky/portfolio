@@ -102,8 +102,6 @@ figure {
   margin: 1em 40px; }
 
 hr {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -154,8 +152,6 @@ input {
 
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0; }
 
@@ -165,8 +161,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -197,14 +191,10 @@ th {
   padding: 0; }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -261,7 +251,6 @@ img {
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -1114,6 +1103,18 @@ table {
 .i_js::before {
   content: 'h'; }
 
+.i_dog::before {
+  content: 'm'; }
+
+.i_cap::before {
+  content: 'c'; }
+
+.i_zoom::before {
+  content: 'n'; }
+
+.i_git::before {
+  content: 'd'; }
+
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -1145,8 +1146,6 @@ table {
   left: 0;
   top: 0;
   padding: 0 8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 .mfp-container:before {
@@ -1174,14 +1173,12 @@ table {
   cursor: progress; }
 
 .mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-  cursor: -moz-zoom-out;
   cursor: -webkit-zoom-out;
   cursor: zoom-out; }
 
 .mfp-zoom {
   cursor: pointer;
   cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in;
   cursor: zoom-in; }
 
 .mfp-auto-cursor .mfp-content {
@@ -1190,7 +1187,8 @@ table {
 .mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter {
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  -ms-user-select: none;
+      user-select: none; }
 
 .mfp-loading.mfp-figure {
   display: none; }
@@ -1231,7 +1229,6 @@ button.mfp-close, button.mfp-arrow {
   outline: none;
   padding: 0;
   z-index: 1046;
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 button::-moz-focus-inner {
@@ -1378,8 +1375,6 @@ img.mfp-img {
   height: auto;
   display: block;
   line-height: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 0 40px;
   margin: 0 auto; }
@@ -1458,8 +1453,6 @@ img.mfp-img {
     top: auto;
     padding: 3px 5px;
     position: fixed;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box; }
 
   .mfp-img-mobile .mfp-bottom-bar:empty {
@@ -1482,15 +1475,18 @@ img.mfp-img {
 @media all and (max-width: 900px) {
   .mfp-arrow {
     -webkit-transform: scale(0.75);
-    transform: scale(0.75); }
+    -ms-transform: scale(0.75);
+        transform: scale(0.75); }
 
   .mfp-arrow-left {
     -webkit-transform-origin: 0;
-    transform-origin: 0; }
+    -ms-transform-origin: 0;
+        transform-origin: 0; }
 
   .mfp-arrow-right {
     -webkit-transform-origin: 100%;
-    transform-origin: 100%; }
+    -ms-transform-origin: 100%;
+        transform-origin: 100%; }
 
   .mfp-container {
     padding-left: 6px;
@@ -1525,6 +1521,9 @@ a:active, a:focus, a, img {
 
 a, a:hover, a:active, a:visited {
   color: #fff; }
+
+::-moz-selection {
+  background: #00b9ee; }
 
 ::selection {
   background: #00b9ee; }
@@ -1583,7 +1582,8 @@ header {
       color: #fff; }
   header .top_name {
     float: left;
-    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
     width: 248px;
     z-index: 1000; }
   header .top_menu ul li {
@@ -1602,7 +1602,8 @@ header {
   left: 250px;
   margin-left: -250px;
   position: absolute;
-  transition: all 0.8s ease 0s;
+  -webkit-transition: all 0.8s ease 0s;
+          transition: all 0.8s ease 0s;
   width: 250px;
   z-index: 1000; }
   .main .sideBar section {
@@ -1614,6 +1615,8 @@ header {
       font-family: "BebasBold";
       letter-spacing: 2px;
       text-transform: uppercase; }
+      .main .sideBar section h2 span {
+        font-size: 22px; }
   .main .sideBar .avatar {
     top: 32px;
     text-align: center; }
@@ -1629,9 +1632,14 @@ header {
       background-position: 0 -30px; }
     .main .sideBar .contacts address {
       font-size: 1em;
-      margin-left: 85.33333px;
+      padding-left: 42.66667px;
       padding-top: 20px;
       position: relative; }
+      .main .sideBar .contacts address i {
+        position: relative;
+        top: 8px;
+        right: 5px;
+        font-size: 28px; }
       .main .sideBar .contacts address a {
         height: 40px;
         text-transform: uppercase;
@@ -1639,22 +1647,25 @@ header {
   .main .sideBar .skills {
     padding-top: 20px; }
     .main .sideBar .skills h2 > span {
-      background-position: 0 -66px;
-      top: 6px; }
+      background-position: 0 -66px; }
     .main .sideBar .skills .indicator {
       width: 102.4px;
       margin: 45px 0;
       height: 10px;
       margin-left: 51.2px;
       position: relative; }
-      .main .sideBar .skills .indicator > span i {
-        width: 30px;
-        font-family: "RoborLight";
-        font-size: 14px;
-        position: absolute;
-        top: -10px;
-        left: 1px;
-        text-align: center; }
+      .main .sideBar .skills .indicator > span {
+        position: relative;
+        right: 35px;
+        bottom: 12px; }
+        .main .sideBar .skills .indicator > span i {
+          width: 30px;
+          font-family: "RoborLight";
+          font-size: 11px;
+          position: absolute;
+          top: -10px;
+          left: 1px;
+          text-align: center; }
       .main .sideBar .skills .indicator .loader {
         height: 10px;
         position: absolute;
@@ -1672,7 +1683,8 @@ header {
     top: 64px;
     text-align: center; }
     .main .sideBarToAbout .avatar img {
-      transition: all 0.5s ease 0.15s;
+      -webkit-transition: all 0.5s ease 0.15s;
+              transition: all 0.5s ease 0.15s;
       width: 200px;
       height: 200px; }
   .main .sideBarToAbout .about {
@@ -1688,13 +1700,24 @@ header {
     .main .sideBarToAbout .contacts span {
       display: none; }
     .main .sideBarToAbout .contacts address {
-      display: inline-block; }
+      display: inline-block;
+      padding: 0 20px; }
+      .main .sideBarToAbout .contacts address .icons {
+        position: relative;
+        top: 10px; }
+      .main .sideBarToAbout .contacts address a {
+        text-align: left; }
   .main .sideBarToAbout .skills h2 span {
     display: none; }
   .main .sideBarToAbout .skills .indicator {
     margin: 45px auto;
     width: 307.2px;
     height: 20px; }
+    .main .sideBarToAbout .skills .indicator .icons {
+      font-size: 45px;
+      right: 50px; }
+      .main .sideBarToAbout .skills .indicator .icons i {
+        width: 45px; }
     .main .sideBarToAbout .skills .indicator .loader {
       height: 20px;
       position: absolute;
@@ -1704,7 +1727,8 @@ header {
       left: 322.2px;
       top: 0; }
 .main .content {
-  transition: all 0.5s ease 0.15s;
+  -webkit-transition: all 0.5s ease 0.15s;
+          transition: all 0.5s ease 0.15s;
   width: 100%;
   padding-left: 250px; }
   .main .content h2 {
@@ -1713,7 +1737,8 @@ header {
     padding-top: 92.16px; }
   .main .content .jobs {
     min-height: 1000px;
-    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
     margin-top: 76.8px;
     text-align: center; }
     .main .content .jobs .jobs_wrap {
@@ -1745,7 +1770,8 @@ header {
       color: #fff;
       padding-top: 25%;
       opacity: 0;
-      transition: all .35s; }
+      -webkit-transition: all .35s;
+              transition: all .35s; }
       .main .content .jobs .jobs_content a {
         border: 2px solid #00b9ee;
         font-size: 16px;
@@ -1803,13 +1829,35 @@ header {
       margin-top: 60px;
       padding-bottom: 60px;
       text-align: center; }
+      .main .content .section_job .gallery_job .galery_content {
+        -webkit-transition: all 0.2s ease 0s;
+                transition: all 0.2s ease 0s;
+        position: absolute;
+        height: 109px;
+        width: 130px;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+        opacity: 0; }
+        .main .content .section_job .gallery_job .galery_content:hover {
+          opacity: 1; }
       .main .content .section_job .gallery_job ul li {
         display: inline-block;
-        padding: 0 10px; }
-      .main .content .section_job .gallery_job a {
+        padding: 0 10px;
+        position: relative;
         margin: 0 20px; }
+      .main .content .section_job .gallery_job a {
+        display: block;
+        hidden: 100%;
+        width: 100%; }
       .main .content .section_job .gallery_job img {
         max-width: 130px; }
+      .main .content .section_job .gallery_job i {
+        left: 0;
+        font-size: 35px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        color: #ddd; }
 
 footer {
   min-height: 150px;
@@ -1855,7 +1903,8 @@ footer {
         width: 100%;
         height: 100%;
         background-color: rgba(255, 255, 255, 0.2);
-        transition: all 0.2s ease 0s;
+        -webkit-transition: all 0.2s ease 0s;
+                transition: all 0.2s ease 0s;
         opacity: 0;
         z-index: 1000; }
       footer .footer_jobs .footer_jobs_wrap:hover .footer_jobs_active {
@@ -1864,10 +1913,25 @@ footer {
     height: 150px;
     text-transform: uppercase; }
     footer .footer_contacts address {
-      top: 35%; }
+      position: relative;
+      top: 35%;
+      display: inline-block; }
     footer .footer_contacts a {
-      font-family: "BebasBold";
+      font-family: "IconsFont";
+      text-decoration: none;
       letter-spacing: 1px; }
+      footer .footer_contacts a:hover {
+        text-decoration: none;
+        color: #fff; }
+      footer .footer_contacts a:active {
+        text-decoration: none;
+        color: #fff; }
+      footer .footer_contacts a:visited {
+        text-decoration: none;
+        color: #fff; }
+      footer .footer_contacts a:focus {
+        text-decoration: none;
+        color: #fff; }
 
 .darken {
   background-color: #333333;
@@ -1902,17 +1966,33 @@ footer {
 
 .scroll_tabs {
   margin-top: 5px;
-  transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
   height: 15px;
   width: 15px;
   display: block;
   border: 2px solid #00b9ee;
   border-radius: 50%;
-  transform: rotate(45deg);
   cursor: pointer; }
   .scroll_tabs:hover {
     background-color: #00a5d4 !important;
     border: 2px solid #00a5d4 !important; }
+
+.scroll_tabs_cap {
+  -webkit-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  top: -30px;
+  left: -8px;
+  color: #00b9ee;
+  font-size: 32px; }
+  .scroll_tabs_cap:hover {
+    color: #00a5d4 !important;
+    text-decoration: none; }
+  .scroll_tabs_cap:visited, .scroll_tabs_cap:active, .scroll_tabs_cap:focus {
+    color: #00a5d4 !important;
+    text-decoration: none; }
 
 .mfp-arrow-right {
   right: 120px; }
@@ -1933,7 +2013,8 @@ header {
     padding: 0 30px;
     color: #fff;
     display: block;
-    transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
     cursor: pointer; }
     header li:hover {
       background-color: #404040;
@@ -1986,7 +2067,8 @@ header {
     z-index: 1000000;
     min-height: 61.66667px;
     line-height: 61.66667px;
-    transition: all 0.5s ease 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s; }
     header .top_menu ul {
       display: none; }
 
@@ -1998,7 +2080,8 @@ header {
 
   .main .content, header .top_menu {
     padding-left: 0;
-    transition: all 0.5s ease 0s; }
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s; }
 
   .open {
     background: white;
@@ -2051,7 +2134,8 @@ header {
     background: white;
     border: none;
     border-radius: 4px 4px 4px 4px;
-    transition: transform 0.5s, top 0.2s;
+    -webkit-transition: -webkit-transform 0.5s, top 0.2s;
+            transition: transform 0.5s, top 0.2s;
     display: block; }
 
   .sw-bottom {
@@ -2062,8 +2146,10 @@ header {
     background: white;
     border: none;
     border-radius: 4px 4px 4px 4px;
-    transition: transform 0.5s, top 0.2s;
-    transition-delay: 0.2s, 0s;
+    -webkit-transition: -webkit-transform 0.5s, top 0.2s;
+            transition: transform 0.5s, top 0.2s;
+    -webkit-transition-delay: 0.2s, 0s;
+            transition-delay: 0.2s, 0s;
     display: block; }
 
   .sw-footer {
@@ -2074,20 +2160,28 @@ header {
     background: white;
     border: none;
     border-radius: 4px 4px 4px 4px;
-    transition: all 0.5s;
-    transition-delay: 0.1s;
+    -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
     display: block; }
 
   .sandwich.active .sw-topper {
     top: 8.3px;
-    transform: rotate(-45deg); }
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
   .sandwich.active .sw-bottom {
     top: 6px;
-    transform: rotate(45deg); }
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
   .sandwich.active .sw-footer {
     opacity: 0;
     top: 0;
-    transform: rotate(180deg); }
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg); }
 
   .mfp-arrow {
     display: none !important; }
@@ -2105,7 +2199,11 @@ header {
       width: 250px; }
 
   .main .sideBarToAbout .about p {
-    padding: 20px 0; } }
+    padding: 20px 0; }
+  .main .sideBarToAbout .skills .indicator {
+    width: 146.28571px; }
+    .main .sideBarToAbout .skills .indicator .num_skill {
+      left: 160.57143px; } }
 /* Custom, iPhone Retina */
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
@@ -2116,5 +2214,4 @@ header {
 .content h2 {
   color: #333333;
   font-family: "BebasBold"; }
-
 /*# sourceMappingURL=main.css.map */
