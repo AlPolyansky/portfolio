@@ -36,20 +36,22 @@ $(document).ready(function() {
 	}
 
 
-	function showAllAbout(){
 
-		for(var i = 0; i < $(".indicator").length; i++){
-			if($(".indicator").length > 3 && !$(".sideBar").hasClass("sideBarToAbout")){
-				$(".indicator").eq(i+3).hide();
+	function showAllAbout(){
+		for(var i = 0; i < $(".skill_wrap").length; i++){
+			if($(".skill_wrap").length > 3 && !$(".sideBar").hasClass("sideBarToAbout")){
+				$(".skill_wrap").eq(i+3).hide();
 			}
 			if($(".sideBar").hasClass("sideBarToAbout")){
-				$(".indicator").eq(i).show();
+				$(".skill_wrap").eq(i).show();
 			}
 		}
+
 			
 		
-		
 		$(".top_menu_wrap li:last").click(function(){
+			setSkills();
+			$(".sideBar .form").show();
 			$('.top_menu_wrap li').click(function(){
     			$('.top_menu_wrap li').removeClass("active");
     			$(this).addClass("active");
@@ -57,55 +59,71 @@ $(document).ready(function() {
 			if($(window).width() <= 768){
 				$(".sideBar").addClass("sideBarToAbout");
 				$(".sideBar").show();
-				$(".section_job").hide();
-				$(".sideBar").css({"margin-left" : "0px","left" : "0"})
+				$(".content").hide();
+				$(".content").css({"opacity": "0"});
 			}
 			else{
 				$(".sideBar").addClass("sideBarToAbout");
-				$(".section_job").hide();
-				$(".sideBar").css({"margin-left" : "0px","left" : "0"})
+				$(".content").hide();
+				$(".content").css({"opacity": "0"});
 			}
 		});
 		$(".top_menu_wrap li:first").click(function(){
-				
+			setSkills();
+			$(".sideBar .form").hide();
 			if($(window).width() <= 768){
 				$(".sideBar").removeClass("sideBarToAbout");
-				$(".section_job").show();
-				$(".sideBar").css({'margin-left': '-500px'});
+				$(".content").show();
+				$(".sideBar").hide();
+				setTimeout(function(){
+					$(".content").css({"opacity": "1"});
+				} ,850)
 			}
 			else{
 				$(".sideBar").removeClass("sideBarToAbout");
-				$(".section_job").show();
-				$(sideBar).css({'margin-left': '-250px','left': '250px'});
+				setTimeout(function(){
+					$(".content").show();
+				} ,800)
+				setTimeout(function(){
+					$(".content").css({"opacity": "1"});
+				} ,850)
 			}
 		});
 	}
 	
+	function hideGalery(){
+		$(".top_menu_wrap li:last").click(function(){
+			$(".footer_jobs").hide();
+		})
+		$(".top_menu_wrap li:first").click(function(){
+			$(".footer_jobs").show();
+		})
+	}
 
 
 	function sideBarHeight(){
-		$(sideBar).css("height", $(".content").height());
+		//$(sideBar).css("height", $(".main").height());	
 	}
+
+
 
 
 	function hideSidebar(){
 		var sideBar = $('.sideBar');
 		if($(window).width() <= 768){
-			$(".content").css({'padding-left': '0'});
 			if(!$(sideBar).hasClass("sideBarToAbout")){
-				$(sideBar).css({'margin-left': '-500px'});
-				
+				$(".sideBar").hide();
 			}
 		}
 		else{
 			$(sideBar).show();
 			if($(document).scrollTop() > ($(".jobs").height() - 100) && !$(".sideBar").hasClass("sideBarToAbout")){
-				$(sideBar).css({'margin-left': '-500px'});
-				$(".content").css({'padding-left': '0px'});
+				//$(".sideBar").hide();
+				$(".sideBar").css({"margin-left" : "-256px"})
 			}
 			else{
-				$(sideBar).css({'margin-left': '-250px','left':'250px'});
-				$(".content").css({'padding-left': '250px'});
+				$(".sideBar").css({"margin-left" : "0"})
+				//$(".sideBar").show();
 			}
 		}	
 	}
@@ -257,6 +275,68 @@ $(document).ready(function() {
 		$(".jobs_content a, .scroll_tabs_wrap a, .footer_jobs_wrap a").mPageScroll2id({ scrollSpeed: 800 });
 	}
 
+	function footerPos(){
+		var contentPos = $("header").height() + $(".main").height();
+		$("footer").css({
+			"top" : $("body").height()
+		})
+	}
+
+
+	function footerPosWithSideBarOpen(){
+
+		$(".top_menu_wrap ul li").click(function(){
+			if($(".sideBar").hasClass(".sideBarToAbout")){
+				$("footer").css({
+				"top" : $(".sideBar").height()
+				})
+
+			}
+			console.log($(".sideBar").height());
+		})
+	}
+
+	function setStatus(){
+		var status = ["новичек","средний","опытный"];
+		var skill = $(".num_skill");
+		var summSkill = 0;
+		var summSkillMax = 0;
+		for (var i = 0; i <= skill.length-1; i++) {
+			var numSkill = skill.eq(i).text().split("/")[0];
+			var maxSkill = skill.eq(i).text().split("/")[1];
+			summSkill = +summSkill + +numSkill;
+			summSkillMax = +summSkillMax + +maxSkill;
+
+		};
+		var total = summSkill / summSkillMax * 100;
+		
+		switch (true){
+			case  total < 25:
+			$(".status p").text(status[0]);
+			break;
+			case total > 25 && total < 50:
+			$(".status p").text(status[1]);
+			break;
+			case total > 50:
+			$(".status p").text(status[2]);
+			break;
+		}	
+	}
+	/*function setSkills(){
+		var loader = $(".loader");
+		var skill = $(".num_skill");
+		var indicator = $(".indicator");
+
+		for (var i = 0; i <= skill.length-1; i++) {
+			var numSkill = skill.eq(i).text().split("/")[0];
+			var maxSkill = 10;
+			var procent = maxSkill / 100 * numSkill;
+			loader.eq(i).css({
+				"width" : indicator.width() * procent
+			})
+		};
+	}*/
+
 	setSkills();
 	setWork();
 	addSection();
@@ -264,14 +344,20 @@ $(document).ready(function() {
 	addButtonMenu();
 	addScroll2id();
 	addPopUpManager();
+	hideGalery();
+	sideBarHeight();
+	setStatus();
+	//footerPosWithSideBarOpen();
+		
 
 
 	$(window).scroll(function() {
 		checkPosition();
-		sideBarHeight();
+		//sideBarHeight();
 		hideSidebar();
 		hideTarget();
-		showAllAbout();		
+		showAllAbout();
+		//footerPos();
 	});
 
 
@@ -280,6 +366,7 @@ $(document).ready(function() {
 		hideSidebar();
 		showAllAbout();
 		hideTarget();
+		//footerPos();
 	});
 
 
@@ -288,8 +375,9 @@ $(document).ready(function() {
 		hideSidebar();
 		hideTarget()
 		showAllAbout();
+		//footerPos();
 	}); 
-
+	
 });
 
 

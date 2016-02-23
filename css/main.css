@@ -1115,6 +1115,9 @@ table {
 .i_git::before {
   content: 'd'; }
 
+.i_student::before {
+  content: 'o'; }
+
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -1514,7 +1517,8 @@ img.mfp-img {
 
 .wrapper {
   width: 100%;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100%; }
 
 a:active, a:focus, a, img {
   outline: none; }
@@ -1590,274 +1594,297 @@ header {
     float: left;
     text-align: center; }
 
-.main .about span, .main .contacts span, .main .skills h2 span {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 3px;
-  display: inline-block; }
-.main .sideBar {
-  display: none;
-  background: #737373;
-  left: 250px;
-  margin-left: -250px;
-  position: absolute;
-  -webkit-transition: all 0.8s ease 0s;
-          transition: all 0.8s ease 0s;
-  width: 250px;
-  z-index: 1000; }
-  .main .sideBar section {
-    min-height: 192px;
-    padding: 10.66667px;
-    position: relative; }
-    .main .sideBar section h2 {
-      font-size: 1.4em;
-      font-family: "BebasBold";
-      letter-spacing: 2px;
-      text-transform: uppercase; }
-      .main .sideBar section h2 span {
-        font-size: 22px; }
-  .main .sideBar .avatar {
-    top: 32px;
-    text-align: center; }
-    .main .sideBar .avatar img {
-      width: 150px;
-      height: 150px; }
-  .main .sideBar .about p {
-    font-size: 1em;
-    padding: 12.8px; }
-  .main .sideBar .contacts {
-    min-height: 150px; }
-    .main .sideBar .contacts h2 > span {
-      background-position: 0 -30px; }
-    .main .sideBar .contacts address {
+.main {
+  width: 100%;
+  display: table;
+  height: 100%; }
+  .main .about span, .main .contacts span, .main .skills h2 span, .main .status h2 span {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 3px;
+    display: inline-block; }
+  .main .sideBar {
+    width: 248px;
+    background: #737373;
+    -webkit-transition: all 0.8s ease 0s;
+            transition: all 0.8s ease 0s;
+    height: 100%;
+    display: inline-table;
+    zoom: 1;
+    *display: inline; }
+    .main .sideBar section {
+      min-height: 192px;
+      padding: 10.66667px;
+      position: relative; }
+      .main .sideBar section h2 {
+        font-size: 1.4em;
+        font-family: "BebasBold";
+        letter-spacing: 2px;
+        text-transform: uppercase; }
+        .main .sideBar section h2 span {
+          font-size: 22px; }
+    .main .sideBar .avatar {
+      top: 32px;
+      text-align: center; }
+      .main .sideBar .avatar img {
+        width: 150px;
+        height: 150px; }
+    .main .sideBar .about p {
       font-size: 1em;
-      padding-left: 42.66667px;
-      padding-top: 20px;
-      position: relative; }
-      .main .sideBar .contacts address i {
-        position: relative;
-        top: 8px;
-        right: 5px;
-        font-size: 28px; }
-      .main .sideBar .contacts address a {
-        height: 40px;
-        text-transform: uppercase;
-        font-size: 12px; }
-  .main .sideBar .skills {
-    padding-top: 20px; }
-    .main .sideBar .skills h2 > span {
-      background-position: 0 -66px; }
-    .main .sideBar .skills .indicator {
-      width: 102.4px;
-      margin: 45px 0;
-      height: 10px;
-      margin-left: 51.2px;
-      position: relative; }
-      .main .sideBar .skills .indicator > span {
-        position: relative;
-        right: 35px;
-        bottom: 12px; }
-        .main .sideBar .skills .indicator > span i {
-          width: 30px;
-          font-family: "RoborLight";
-          font-size: 11px;
-          position: absolute;
-          top: -10px;
-          left: 1px;
-          text-align: center; }
-      .main .sideBar .skills .indicator .loader {
+      padding: 12.8px; }
+    .main .sideBar .contacts {
+      min-height: 150px; }
+      .main .sideBar .contacts h2 > span {
+        background-position: 0 -30px; }
+      .main .sideBar .contacts address {
+        font-size: 1em;
+        padding-left: 42.66667px;
+        padding-top: 20px;
+        position: relative; }
+        .main .sideBar .contacts address i {
+          position: relative;
+          top: 8px;
+          right: 5px;
+          font-size: 28px; }
+        .main .sideBar .contacts address a {
+          height: 40px;
+          text-transform: uppercase;
+          font-size: 12px; }
+    .main .sideBar .skills {
+      padding-top: 20px; }
+      .main .sideBar .skills h2 > span {
+        background-position: 0 -66px; }
+      .main .sideBar .skills .indicator {
+        width: 102.4px;
+        margin: 45px 0;
         height: 10px;
+        margin-left: 51.2px;
+        position: relative; }
+        .main .sideBar .skills .indicator > span {
+          position: relative;
+          right: 35px;
+          bottom: 12px; }
+        .main .sideBar .skills .indicator .loader {
+          height: 10px;
+          position: absolute;
+          top: 0; }
+        .main .sideBar .skills .indicator .num_skill {
+          position: absolute;
+          left: 112.4px;
+          top: -4px; }
+      .main .sideBar .skills i {
+        display: none; }
+    .main .sideBar .status {
+      display: none; }
+    .main .sideBar .form {
+      display: none; }
+  .main .sideBarToAbout {
+    width: 100%;
+    -webkit-transition: all 0.8s ease 0s;
+            transition: all 0.8s ease 0s; }
+    .main .sideBarToAbout h2 span {
+      display: none; }
+    .main .sideBarToAbout h2 {
+      text-align: center;
+      font-size: 1.5em; }
+    .main .sideBarToAbout .avatar {
+      top: 64px;
+      text-align: center; }
+      .main .sideBarToAbout .avatar img {
+        -webkit-transition: all 0.5s ease 0.15s;
+                transition: all 0.5s ease 0.15s;
+        width: 200px;
+        height: 200px; }
+    .main .sideBarToAbout .about {
+      margin-top: 50px; }
+      .main .sideBarToAbout .about p {
+        line-height: 30px;
+        font-size: 1em;
+        padding: 50px 25%; }
+    .main .sideBarToAbout .contacts {
+      text-align: center; }
+      .main .sideBarToAbout .contacts address {
+        display: inline-block;
+        padding: 0 20px; }
+        .main .sideBarToAbout .contacts address .icons {
+          position: relative;
+          top: 10px; }
+        .main .sideBarToAbout .contacts address a {
+          text-align: left; }
+    .main .sideBarToAbout .skills .skill_wrap i {
+      text-align: center;
+      display: block;
+      font-family: "RobotoLight";
+      text-transform: uppercase;
+      margin-top: 30px; }
+    .main .sideBarToAbout .skills .skill_wrap .indicator {
+      margin: 10px auto 15px;
+      width: 307.2px;
+      height: 20px; }
+      .main .sideBarToAbout .skills .skill_wrap .indicator .icons {
+        font-size: 45px;
+        right: 50px; }
+      .main .sideBarToAbout .skills .skill_wrap .indicator .loader {
+        height: 20px;
         position: absolute;
         top: 0; }
-      .main .sideBar .skills .indicator .num_skill {
+      .main .sideBarToAbout .skills .skill_wrap .indicator .num_skill {
         position: absolute;
-        left: 112.4px;
-        top: -4px; }
-.main .sideBarToAbout {
-  width: 100%; }
-  .main .sideBarToAbout h2 {
-    text-align: center;
-    font-size: 1.5em; }
-  .main .sideBarToAbout .avatar {
-    top: 64px;
-    text-align: center; }
-    .main .sideBarToAbout .avatar img {
-      -webkit-transition: all 0.5s ease 0.15s;
-              transition: all 0.5s ease 0.15s;
-      width: 200px;
-      height: 200px; }
-  .main .sideBarToAbout .about {
-    margin-top: 50px; }
-    .main .sideBarToAbout .about span {
-      display: none; }
-    .main .sideBarToAbout .about p {
-      line-height: 30px;
-      font-size: 1em;
-      padding: 50px 25%; }
-  .main .sideBarToAbout .contacts {
-    text-align: center; }
-    .main .sideBarToAbout .contacts span {
-      display: none; }
-    .main .sideBarToAbout .contacts address {
-      display: inline-block;
-      padding: 0 20px; }
-      .main .sideBarToAbout .contacts address .icons {
-        position: relative;
-        top: 10px; }
-      .main .sideBarToAbout .contacts address a {
-        text-align: left; }
-  .main .sideBarToAbout .skills h2 span {
-    display: none; }
-  .main .sideBarToAbout .skills .indicator {
-    margin: 45px auto;
-    width: 307.2px;
-    height: 20px; }
-    .main .sideBarToAbout .skills .indicator .icons {
-      font-size: 45px;
-      right: 50px; }
-      .main .sideBarToAbout .skills .indicator .icons i {
-        width: 45px; }
-    .main .sideBarToAbout .skills .indicator .loader {
-      height: 20px;
-      position: absolute;
-      top: 0; }
-    .main .sideBarToAbout .skills .indicator .num_skill {
-      position: absolute;
-      left: 322.2px;
-      top: 0; }
-.main .content {
-  -webkit-transition: all 0.5s ease 0.15s;
-          transition: all 0.5s ease 0.15s;
-  width: 100%;
-  padding-left: 250px; }
-  .main .content h2 {
-    font-size: 3em;
-    text-align: center;
-    padding-top: 92.16px; }
-  .main .content .jobs {
-    min-height: 1000px;
-    -webkit-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-    margin-top: 76.8px;
-    text-align: center; }
-    .main .content .jobs .jobs_wrap {
-      width: 270px;
-      height: 200px;
-      display: inline-block;
-      position: relative;
-      margin: 10px;
-      text-transform: uppercase;
-      font-size: 14px;
-      font-family: "BebasBold";
-      overflow: hidden;
-      border: 1px solid #737373; }
-      .main .content .jobs .jobs_wrap:hover .jobs_content {
-        opacity: 1;
-        background-color: rgba(0, 0, 0, 0.85); }
-    .main .content .jobs img {
-      margin: 0;
-      width: 270px;
-      height: auto;
-      padding: 0; }
-    .main .content .jobs .jobs_content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      padding-top: 25%;
-      opacity: 0;
-      -webkit-transition: all .35s;
-              transition: all .35s; }
-      .main .content .jobs .jobs_content a {
-        border: 2px solid #00b9ee;
-        font-size: 16px;
-        letter-spacing: 1px;
-        padding: 5px;
-        color: #fff;
-        text-decoration: none; }
-      .main .content .jobs .jobs_content h3 {
-        margin-bottom: 25px;
-        letter-spacing: 2px;
-        font-size: 18px; }
-      .main .content .jobs .jobs_content p {
-        font-size: 10px;
-        color: #ccc; }
-  .main .content .section_job {
-    min-height: 800px;
-    width: 100%;
-    font-family: "RobotoLight";
-    line-height: 2; }
-    .main .content .section_job .logo_job_wrap {
-      width: 150px;
-      margin: 0 auto;
-      text-align: center;
-      padding-top: 70px;
-      padding-bottom: 5px;
-      border-radius: 50%;
-      margin-bottom: 10px; }
-      .main .content .section_job .logo_job_wrap img {
-        width: 150px;
-        border-radius: 50%;
-        height: 150px;
-        border: 3px solid #00b9ee; }
-      .main .content .section_job .logo_job_wrap h3 a {
-        font-family: "BebasBold";
-        text-transform: uppercase;
-        font-size: 22px; }
-        .main .content .section_job .logo_job_wrap h3 a:hover {
-          text-decoration: none;
-          color: #fff; }
-        .main .content .section_job .logo_job_wrap h3 a:active {
-          text-decoration: none;
-          color: #fff; }
-        .main .content .section_job .logo_job_wrap h3 a:focus {
-          text-decoration: none;
-          color: #fff; }
-    .main .content .section_job .jobs_name {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 28px;
-      letter-spacing: 1px;
-      font-family: "BebasBold"; }
-    .main .content .section_job .description_job {
-      padding: 0 15%; }
-    .main .content .section_job .gallery_job {
-      margin-top: 60px;
-      padding-bottom: 60px;
+        left: 322.2px;
+        top: 0; }
+    .main .sideBarToAbout .form {
       text-align: center; }
-      .main .content .section_job .gallery_job .galery_content {
-        -webkit-transition: all 0.2s ease 0s;
-                transition: all 0.2s ease 0s;
-        position: absolute;
-        height: 109px;
-        width: 130px;
-        background-color: rgba(0, 0, 0, 0.75);
-        z-index: 1000;
-        opacity: 0; }
-        .main .content .section_job .gallery_job .galery_content:hover {
-          opacity: 1; }
-      .main .content .section_job .gallery_job ul li {
+      .main .sideBarToAbout .form label {
+        display: block; }
+        .main .sideBarToAbout .form label span {
+          color: #fff; }
+        .main .sideBarToAbout .form label input {
+          color: #333333;
+          width: 150px;
+          margin: 20px 0; }
+    .main .sideBarToAbout .status {
+      margin-top: 70px;
+      display: block; }
+      .main .sideBarToAbout .status h2 span {
+        display: none; }
+      .main .sideBarToAbout .status p {
+        text-align: center;
+        padding: 40px 0;
+        text-transform: uppercase;
+        font-size: 30px; }
+  .main .content {
+    display: table-cell;
+    -webkit-transition: all 0.5s ease 0.15s;
+            transition: all 0.5s ease 0.15s;
+    width: 100%; }
+    .main .content h2 {
+      font-size: 3em;
+      text-align: center;
+      padding-top: 92.16px; }
+    .main .content .jobs {
+      min-height: 1000px;
+      -webkit-transition: all 0.5s ease 0s;
+              transition: all 0.5s ease 0s;
+      margin-top: 76.8px;
+      text-align: center; }
+      .main .content .jobs .jobs_wrap {
+        width: 270px;
+        height: 200px;
         display: inline-block;
-        padding: 0 10px;
         position: relative;
-        margin: 0 20px; }
-      .main .content .section_job .gallery_job a {
-        display: block;
-        hidden: 100%;
-        width: 100%; }
-      .main .content .section_job .gallery_job img {
-        max-width: 130px; }
-      .main .content .section_job .gallery_job i {
-        left: 0;
-        font-size: 35px;
+        margin: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "BebasBold";
+        overflow: hidden;
+        border: 1px solid #737373; }
+        .main .content .jobs .jobs_wrap:hover .jobs_content {
+          opacity: 1;
+          background-color: rgba(0, 0, 0, 0.85); }
+      .main .content .jobs img {
+        margin: 0;
+        width: 270px;
+        height: auto;
+        padding: 0; }
+      .main .content .jobs .jobs_content {
         position: absolute;
-        right: 0;
-        top: 20px;
-        color: #ddd; }
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        padding-top: 25%;
+        opacity: 0;
+        -webkit-transition: all .35s;
+                transition: all .35s; }
+        .main .content .jobs .jobs_content a {
+          border: 2px solid #00b9ee;
+          font-size: 16px;
+          letter-spacing: 1px;
+          padding: 5px;
+          color: #fff;
+          text-decoration: none; }
+        .main .content .jobs .jobs_content h3 {
+          margin-bottom: 25px;
+          letter-spacing: 2px;
+          font-size: 18px; }
+        .main .content .jobs .jobs_content p {
+          font-size: 10px;
+          color: #ccc; }
+    .main .content .section_job {
+      min-height: 800px;
+      width: 100%;
+      font-family: "RobotoLight";
+      line-height: 2; }
+      .main .content .section_job .logo_job_wrap {
+        width: 150px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 70px;
+        padding-bottom: 5px;
+        border-radius: 50%;
+        margin-bottom: 10px; }
+        .main .content .section_job .logo_job_wrap img {
+          width: 150px;
+          border-radius: 50%;
+          height: 150px;
+          border: 3px solid #00b9ee; }
+        .main .content .section_job .logo_job_wrap h3 a {
+          font-family: "BebasBold";
+          text-transform: uppercase;
+          font-size: 22px; }
+          .main .content .section_job .logo_job_wrap h3 a:hover {
+            text-decoration: none;
+            color: #fff; }
+          .main .content .section_job .logo_job_wrap h3 a:active {
+            text-decoration: none;
+            color: #fff; }
+          .main .content .section_job .logo_job_wrap h3 a:focus {
+            text-decoration: none;
+            color: #fff; }
+      .main .content .section_job .jobs_name {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 28px;
+        letter-spacing: 1px;
+        font-family: "BebasBold"; }
+      .main .content .section_job .description_job {
+        padding: 0 15%; }
+      .main .content .section_job .gallery_job {
+        margin-top: 60px;
+        padding-bottom: 60px;
+        text-align: center; }
+        .main .content .section_job .gallery_job .galery_content {
+          -webkit-transition: all 0.2s ease 0s;
+                  transition: all 0.2s ease 0s;
+          position: absolute;
+          height: 109px;
+          width: 130px;
+          background-color: rgba(0, 0, 0, 0.75);
+          z-index: 1000;
+          opacity: 0; }
+          .main .content .section_job .gallery_job .galery_content:hover {
+            opacity: 1; }
+        .main .content .section_job .gallery_job ul li {
+          display: inline-block;
+          padding: 0 10px;
+          position: relative;
+          margin: 0 20px; }
+        .main .content .section_job .gallery_job a {
+          display: block;
+          hidden: 100%;
+          width: 100%; }
+        .main .content .section_job .gallery_job img {
+          max-width: 130px; }
+        .main .content .section_job .gallery_job i {
+          left: 0;
+          font-size: 35px;
+          position: absolute;
+          right: 0;
+          top: 20px;
+          color: #ddd; }
 
 footer {
   min-height: 150px;
@@ -2055,6 +2082,9 @@ header {
     min-width: 100px; } }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
+  .sideBar {
+    display: none; }
+
   .gallery_job {
     padding-bottom: 40px; }
 
@@ -2193,6 +2223,9 @@ header {
     background-color: #404040; } }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
+  .sideBar {
+    display: none; }
+
   body header {
     height: 10px; }
     body header .top_menu {
@@ -2214,4 +2247,5 @@ header {
 .content h2 {
   color: #333333;
   font-family: "BebasBold"; }
+
 /*# sourceMappingURL=main.css.map */

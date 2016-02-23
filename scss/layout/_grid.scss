@@ -1,6 +1,9 @@
+
+
 .wrapper{
 	width: 100%;
 	overflow-x: hidden;
+	height: 100%;
 }
 a:active, a:focus,a,img {
   outline: none;
@@ -85,7 +88,10 @@ header{
 	
 }
 .main{
-	.about span,.contacts span, .skills h2 span{
+	width: 100%;
+	display: table;
+	height: 100%;
+	.about span,.contacts span, .skills h2 span, .status h2 span{
 		width: 30px;
 		height: 30px;
 		position: relative;
@@ -93,14 +99,13 @@ header{
 		display: inline-block;
 	}
 	.sideBar{
-		display: none;
+		width: 248px;
 		background: $grey;
-	    left: 250px;
-	    margin-left: -250px;
-	    position: absolute;
 	    transition: all 0.8s ease 0s;
-		width: 250px;
-	    z-index: 1000;
+	    height: 100%;
+	    display: inline-table;
+	    zoom: 1;
+ 		*display: inline;
 		section{
 			min-height: $sectionHeigth + px;
 			padding: ($sectionHeigth / 18) + px;
@@ -170,15 +175,6 @@ header{
 					position: relative;
 					right: 35px;
 					bottom: 12px;
-					i{
-						width: 30px;
-						font-family: "RoborLight";
-						font-size: 11px;
-						position: absolute;
-						top: -10px;
-						left: 1px;
-						text-align: center;
-					}
 				}
 				
 				.loader{
@@ -193,10 +189,23 @@ header{
 				}
 			
 			}
+			i{
+				display: none;
+				}
+		}
+		.status{
+				display: none;
+			}
+		.form{
+			display: none;
 		}
 	}
 	.sideBarToAbout{
+		h2 span{
+			display: none;
+		}
 		width: 100%;
+		transition: all 0.8s ease 0s;
 		h2{
 				text-align: center;
 				font-size: $headerFontsSize + 0.5 +em;
@@ -213,10 +222,6 @@ header{
 		}
 		.about{
 			margin-top: 50px;
-			
-			span{
-				display: none;
-			}
 			p{
 				line-height: 30px;
 				font-size: $headerFontsSize +em;
@@ -224,9 +229,6 @@ header{
 			}
 		}
 		.contacts{
-			span{
-				display: none;
-			}
 			text-align: center;
 			address{
 				display: inline-block;
@@ -242,23 +244,26 @@ header{
 			}
 		}
 		.skills{
-			h2{
-				span{
-					display: none;
-
-				}
+			.skill_wrap{
+				
+			
+			
+			i{
+			    text-align: center;
+			    display: block;
+			    font-family: $RoborLight;
+			    text-transform: uppercase;
+			    margin-top: 30px;
 			}
 			
 			.indicator{
-				margin: 45px auto;
+				margin: 10px auto 15px;
 				width: $indicatorWidth * 3 + px;
 				height: 20px;
 				.icons{
 					font-size: 45px;
 					right: 50px;
-					i{
-						width: 45px;
-					}
+			
 				}
 				.loader{
 					height: 20px;
@@ -274,10 +279,38 @@ header{
 			
 		}
 	}
+	.form{
+			text-align: center;
+			label{
+				display: block;
+				span{
+					color: $white;
+				}
+				input{
+					color: $dkGray;
+					width: 150px;
+					margin: 20px 0;
+				}
+
+			}
+			
+		}
+		.status{
+			margin-top: 70px;
+			h2 span{display: none;}
+				display: block;
+				p{
+					text-align: center;
+					padding: 40px 0;
+					text-transform: uppercase;
+					font-size: 30px;
+				}
+			}
+		}
 	.content{
+		display: table-cell;
 		transition: all 0.5s ease 0.15s;
 		width: 100%;
-		padding-left: 250px;
 		h2{
 			font-size: $headerFontsSize  + 2 +em;
 			text-align: center;
@@ -448,7 +481,6 @@ footer{
 	text-align: center;
 	background-color: darken($dkGray,10%);
 	color: $white;
-	//position: relative;
 	.copy{
 		position: absolute;
 		bottom: 5px;

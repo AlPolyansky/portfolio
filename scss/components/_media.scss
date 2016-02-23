@@ -17,6 +17,7 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+	.sideBar{display: none;}
 	.gallery_job{
 		padding-bottom: 40px;
 	}
@@ -157,6 +158,7 @@
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
+	.sideBar{display: none;}
 	body header{
 		height: 10px;
 		.top_menu{
