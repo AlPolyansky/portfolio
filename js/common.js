@@ -297,7 +297,7 @@ $(document).ready(function() {
 	}
 
 	function setStatus(){
-		var status = ["новичек","средний","опытный"];
+		var status = ["новичок","средний","опытный"];
 		var skill = $(".num_skill");
 		var summSkill = 0;
 		var summSkillMax = 0;
@@ -308,19 +308,11 @@ $(document).ready(function() {
 			summSkillMax = +summSkillMax + +maxSkill;
 
 		};
-		var total = summSkill / summSkillMax * 100;
-		
-		switch (true){
-			case  total < 25:
+		var total = summSkill / skill.length;
+		//console.log(total);
+		if(total < 100){
 			$(".status p").text(status[0]);
-			break;
-			case total > 25 && total < 50:
-			$(".status p").text(status[1]);
-			break;
-			case total > 50:
-			$(".status p").text(status[2]);
-			break;
-		}	
+		}
 	}
 	/*function setSkills(){
 		var loader = $(".loader");
