@@ -1,7 +1,16 @@
 $(document).ready(function() {
 	var sideBar = $('.sideBar');
+	var skillWrap = $(".skill_wrap");
+	var section_job = $(".section_job");
+	var top_menu_wrap = $(".top_menu_wrap");
+	var content = $(".content");
+	var status = "disable";
+	var active = "active";
+	var sideBarToAbout = "sideBarToAbout";
+
+	var top_menu_wrap_ul = top_menu_wrap.find("ul");
 	function addPopUpManager(){
-			var section_job = $(".section_job");
+			
 			var gallery = $(".gallery_job");
 
 			for(i = 1; i <= gallery.length; i++){
@@ -35,98 +44,125 @@ $(document).ready(function() {
 		};
 	}
 
+	function showScills(){
+			$('.skill_wrap:not(:lt(3))').hide();
+
+			top_menu_wrap.find("li:last").on('click', function(){
+				skillWrap.show();
+				setSkills();
+			})
+			top_menu_wrap.find("li:first").on('click', function(){
+				$('.skill_wrap:not(:lt(3))').hide();
+				setSkills();
+			})
+	}
+
 
 
 	function showAllAbout(){
-		for(var i = 0; i < $(".skill_wrap").length; i++){
-			if($(".skill_wrap").length > 3 && !$(".sideBar").hasClass("sideBarToAbout")){
-				$(".skill_wrap").eq(i+3).hide();
-			}
-			if($(".sideBar").hasClass("sideBarToAbout")){
-				$(".skill_wrap").eq(i).show();
-			}
-		}
+		top_menu_wrap.find("li:last").on('click',function(){
+			sideBar.find(".form").show();
 
-			
-		
-		$(".top_menu_wrap li:last").click(function(){
-			setSkills();
-			$(".sideBar .form").show();
-			$('.top_menu_wrap li').click(function(){
-    			$('.top_menu_wrap li').removeClass("active");
-    			$(this).addClass("active");
-			});
+
+
+
+
+			top_menu_wrap.find("li:first").addClass(status);
+			setTimeout(function(){
+					top_menu_wrap.find("li:first").removeClass(status);
+			} ,950)
+
+
+
+
 			if($(window).width() <= 768){
-				$(".sideBar").addClass("sideBarToAbout");
-				$(".sideBar").show();
-				$(".content").hide();
-				$(".content").css({"opacity": "0"});
+
+				sideBar.addClass("sideBarToAbout");
+				sideBar.show();
+				top_menu_wrap.find("li:last").addClass(active);
+				top_menu_wrap.find("li:first").removeClass(active);
+				content.hide();
+				content.css({"opacity": "0"});
+
 			}
-			else{
-				$(".sideBar").addClass("sideBarToAbout");
-				$(".content").hide();
-				$(".content").css({"opacity": "0"});
+			else if(!top_menu_wrap.find("li:last").hasClass(status)){
+				top_menu_wrap.find("li:last").addClass(active);
+				top_menu_wrap.find("li:first").removeClass(active);
+				
+				
+				sideBar.addClass(sideBarToAbout);
+				content.hide().css({"opacity": "0"});
+
 			}
 		});
-		$(".top_menu_wrap li:first").click(function(){
-			setSkills();
-			$(".sideBar .form").hide();
+		top_menu_wrap.find("li:first").on('click',function(){
+			
+			top_menu_wrap.find("li:last").addClass(status);
+			setTimeout(function(){
+					top_menu_wrap.find("li:last").removeClass(status);
+			} ,950)
+
+
+
+
+			sideBar.find(".form").hide();
 			if($(window).width() <= 768){
-				$(".sideBar").removeClass("sideBarToAbout");
-				$(".content").show();
-				$(".sideBar").hide();
+				sideBar.removeClass(sideBarToAbout);
+				top_menu_wrap.find("li:first").addClass(active);
+				top_menu_wrap.find("li:last").removeClass(active);
+				content.show();
+				sideBar.hide();
 				setTimeout(function(){
-					$(".content").css({"opacity": "1"});
+					content.css({"opacity": "1"});
 				} ,850)
 			}
-			else{
-				$(".sideBar").removeClass("sideBarToAbout");
+			else if(!top_menu_wrap.find("li:first").hasClass(status)){
+				top_menu_wrap.find("li:first").addClass(active);
+				top_menu_wrap.find("li:last").removeClass(active);
+				sideBar.removeClass(sideBarToAbout);
 				setTimeout(function(){
-					$(".content").show();
+					content.show();
 				} ,800)
 				setTimeout(function(){
-					$(".content").css({"opacity": "1"});
+					content.css({"opacity": "1"});
 				} ,850)
 			}
 		});
 	}
 	
 	function hideGalery(){
-		$(".top_menu_wrap li:last").click(function(){
+		top_menu_wrap.find("li:last").on('click',function(){
 			$(".footer_jobs").hide();
 		})
-		$(".top_menu_wrap li:first").click(function(){
+		top_menu_wrap.find("li:first").on('click',function(){
 			$(".footer_jobs").show();
 		})
 	}
 
 
-	function sideBarHeight(){
-		//$(sideBar).css("height", $(".main").height());	
-	}
+
 
 
 
 
 	function hideSidebar(){
-		var sideBar = $('.sideBar');
 		if($(window).width() <= 768){
-			if(!$(sideBar).hasClass("sideBarToAbout")){
-				$(".sideBar").hide();
+			if(!$(sideBar).hasClass(sideBarToAbout)){
+				sideBar.hide();
 			}
 		}
 		else{
 			$(sideBar).show();
-			if($(document).scrollTop() > ($(".jobs").height() - 100) && !$(".sideBar").hasClass("sideBarToAbout")){
-				//$(".sideBar").hide();
-				$(".sideBar").css({"margin-left" : "-256px"})
+			if($(document).scrollTop() > ($(".jobs").height() - 100) && !sideBar.hasClass(sideBarToAbout)){
+				sideBar.css({"margin-left" : "-256px"})
 			}
 			else{
-				$(".sideBar").css({"margin-left" : "0"})
-				//$(".sideBar").show();
+				sideBar.css({"margin-left" : "0"})
 			}
 		}	
 	}
+
+	
 
 	function setWork(){
 		var jobs = $(".jobs_wrap");
@@ -145,8 +181,8 @@ $(document).ready(function() {
 			if(j == colorArr.length){
 				j = 0;
 			}
-			$(".section_job").eq(i).attr("id","work_" + (i + 1));
-			$(".section_job").eq(i).addClass(colorArr[j]);
+			section_job.eq(i).attr("id","work_" + (i + 1));
+			section_job.eq(i).addClass(colorArr[j]);
 		}
 	}
 
@@ -215,12 +251,12 @@ $(document).ready(function() {
 
 		function hideTarget(){
 
-			if($(document).scrollTop() > 700 && $(window).width() > 768 && !$(".sideBar").hasClass("sideBarToAbout")) {
-				$(".scroll_tabs_wrap, .scroll_tabs, .scroll_tabs_cap").fadeIn("slow");
+			if($(document).scrollTop() > 700 && $(window).width() > 768 && !sideBar.hasClass(sideBarToAbout)) {
+				$(".scroll_tabs_wrap").fadeIn("slow");
 			}
 			else{
 
-				$(".scroll_tabs_wrap, .scroll_tabs, .scroll_tabs_cap").fadeOut("slow");
+				$(".scroll_tabs_wrap").fadeOut("slow");
 			}
 
 		}
@@ -228,36 +264,33 @@ $(document).ready(function() {
 		
 
 	function addButtonMenu(){
-		$('.top_menu_wrap li').click(function(){
-    			$('.top_menu_wrap li').removeClass("active");
-    			$(this).addClass("active");
-			});
-		$(".buttom_menu").click(function() {
-		  	$(".sandwich").toggleClass("active");
-		  	if(!$(".top_menu_wrap").hasClass("open")){
-		  		$(".top_menu_wrap").addClass("open");
-		  		$(".top_menu_wrap ul").addClass("open_menu");
-		  		$(".top_menu_wrap, .top_menu_wrap ul").fadeIn(400);
+		$(".buttom_menu").on('click',function() {
+		  	$(".sandwich").toggleClass(active);
+		  	if(!top_menu_wrap.hasClass("open")){
+		  		top_menu_wrap.addClass("open");
+		  		top_menu_wrap_ul.addClass("open_menu");
+		  		top_menu_wrap.fadeIn(400);
+		  		top_menu_wrap_ul.fadeIn(400);
 		  	}
 		  	else{
 		  		$(".top_menu_wrap, .top_menu_wrap ul").fadeOut(400,function(){
-		  			$(".top_menu_wrap").removeClass("open");
-		  			$(".top_menu_wrap ul").removeClass("open_menu");
-		  			$(".top_menu_wrap").removeAttr("style");
-		  			$(".top_menu_wrap ul").removeAttr("style");
-		  			$(".top_menu_wrap ul").removeAttr("class");
+		  			top_menu_wrap.removeClass("open");
+		  			top_menu_wrap_ul.removeClass("open_menu");
+		  			top_menu_wrap.removeAttr("style");
+		  			top_menu_wrap_ul.removeAttr("style");
+		  			top_menu_wrap_ul.removeAttr("class");
 		  		});
 		  	}
 		})
-		$(".top_menu_wrap ul li").click(function(){
+		top_menu_wrap.find("li").on('click',function(){
 			if($(window).width() <= 768){
-				$(".sandwich").toggleClass("active");
-				$(".top_menu_wrap").fadeOut(400,function(){
-					$(".top_menu_wrap").removeClass("open");
-		  			$(".top_menu_wrap ul").removeClass("open_menu");
-		  			$(".top_menu_wrap").removeAttr("style");
-		  			$(".top_menu_wrap ul").removeAttr("style");
-		  			$(".top_menu_wrap ul").removeAttr("class");
+				$(".sandwich").toggleClass(active);
+				top_menu_wrap.fadeOut(400,function(){
+					top_menu_wrap.removeClass("open");
+		  			top_menu_wrap_ul.removeClass("open_menu");
+		  			top_menu_wrap.removeAttr("style");
+		  			top_menu_wrap_ul.removeAttr("style");
+		  			top_menu_wrap_ul.removeAttr("class");
 
 				});
 			}
@@ -272,63 +305,69 @@ $(document).ready(function() {
 	}
 
 	function addScroll2id(){
-		$(".jobs_content a, .scroll_tabs_wrap a, .footer_jobs_wrap a").mPageScroll2id({ scrollSpeed: 800 });
+		$(".jobs_content").find("a").mPageScroll2id({ scrollSpeed: 800 });
+		$(".scroll_tabs_wrap").find("a").mPageScroll2id({ scrollSpeed: 800 });
+		$(".footer_jobs_wrap").find("a").mPageScroll2id({ scrollSpeed: 800 });
 	}
 
-	function footerPos(){
-		var contentPos = $("header").height() + $(".main").height();
-		$("footer").css({
-			"top" : $("body").height()
-		})
-	}
-
-
-	function footerPosWithSideBarOpen(){
-
-		$(".top_menu_wrap ul li").click(function(){
-			if($(".sideBar").hasClass(".sideBarToAbout")){
-				$("footer").css({
-				"top" : $(".sideBar").height()
-				})
-
-			}
-			console.log($(".sideBar").height());
-		})
-	}
 
 	function setStatus(){
 		var status = ["новичок","средний","опытный"];
-		var skill = $(".num_skill");
-		var summSkill = 0;
-		var summSkillMax = 0;
-		for (var i = 0; i <= skill.length-1; i++) {
-			var numSkill = skill.eq(i).text().split("/")[0];
-			var maxSkill = skill.eq(i).text().split("/")[1];
-			summSkill = +summSkill + +numSkill;
-			summSkillMax = +summSkillMax + +maxSkill;
-
-		};
-		var total = summSkill / skill.length;
-		//console.log(total);
-		if(total < 100){
-			$(".status p").text(status[0]);
-		}
+		$(".status").find("p").text(status[0]);
 	}
-	/*function setSkills(){
-		var loader = $(".loader");
-		var skill = $(".num_skill");
-		var indicator = $(".indicator");
 
-		for (var i = 0; i <= skill.length-1; i++) {
-			var numSkill = skill.eq(i).text().split("/")[0];
-			var maxSkill = 10;
-			var procent = maxSkill / 100 * numSkill;
-			loader.eq(i).css({
-				"width" : indicator.width() * procent
-			})
-		};
-	}*/
+	function ajaxForm(){
+		$('.main_form').submit(function(){
+			var name = $("#name").val();
+        	var email =$("#email").val();
+        	var text = $("#text").val(); 
+        	var dataString = 'name='+ name + '&email=' + email + '&text=' + text;
 
+
+			$.ajax({  
+      			type: "POST",  
+      			url: "/assets/templates/portfolio/ajax/mail.php",  //здесь указываем ИД ресурса, куда будет оправлен AJAX запрос
+      			data: dataString,
+      		success:  function() {  //сообщение об удачной отправке
+                        
+                        $('.main_form').trigger( 'reset' );
+                        $('.success').fadeIn("slow");
+                        setTimeout(function(){
+							$('.success').fadeOut("slow");
+						} ,3000)
+
+                } 
+    		});  
+    		return false;
+                });
+	}
+
+	function mailShow(){
+		$(".form_scroll").find("a").click(function(){
+			if(!$("article").hasClass(sideBarToAbout)){
+				$(".footer_jobs").hide();
+				sideBar.find(".form").show();
+	    		top_menu_wrap.find("li").removeClass(active);
+	    		top_menu_wrap.find("li:last").addClass(active);
+	    		sideBar.addClass(sideBarToAbout);
+				content.hide().css({"opacity": "0"});
+				setTimeout(function () {
+					$('body,html').animate({scrollTop: $(".form").offset().top }, 1100);
+				}, 600);
+				
+				
+			}
+		})
+
+			
+
+
+	}
+
+
+	
+	ajaxForm();
+	showAllAbout();
 	setSkills();
 	setWork();
 	addSection();
@@ -337,37 +376,36 @@ $(document).ready(function() {
 	addScroll2id();
 	addPopUpManager();
 	hideGalery();
-	sideBarHeight();
+	showScills();
 	setStatus();
-	//footerPosWithSideBarOpen();
+	mailShow();
+
 		
 
 
 	$(window).scroll(function() {
 		checkPosition();
-		//sideBarHeight();
 		hideSidebar();
 		hideTarget();
-		showAllAbout();
-		//footerPos();
+
+		
+		
 	});
 
 
 	$(window).resize(function(){
-		sideBarHeight();
 		hideSidebar();
-		showAllAbout();
 		hideTarget();
-		//footerPos();
+
+
 	});
 
 
 	$(window).load(function() {
-		sideBarHeight();
 		hideSidebar();
-		hideTarget()
-		showAllAbout();
-		//footerPos();
+		hideTarget();
+
+
 	}); 
 	
 });

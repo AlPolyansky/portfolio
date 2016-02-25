@@ -1,10 +1,12 @@
 
-
+.wrapper, .sidebar { height: 100%; }
 .wrapper{
 	width: 100%;
 	overflow-x: hidden;
 	height: 100%;
 }
+
+
 a:active, a:focus,a,img {
   outline: none;
 }
@@ -17,6 +19,34 @@ a,a:hover,a:active,a:visited{
 ::selection {background: $ltBlue}
 ::-moz-selection {background: $ltBlue;}
 ::-webkit-selection {background: $ltBlue; color:$white;}
+
+
+.success{
+	background: none repeat scroll 0 0 #000;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	opacity: 0.8;
+	display: none;
+	.msg{
+		left: 0;
+    	right: 0;
+    	top: 50%;
+    	margin-left: auto;
+    	margin-right: auto;
+		position: absolute;
+		color: $white;
+		text-transform: uppercase;
+		font-family: $RoborLight;
+		font-size: 35px;
+		text-align: center;
+	}
+	}
 
 .preloader{
 	background: none repeat scroll 0 0 #ffffff;
@@ -157,6 +187,7 @@ header{
 					height: 40px;
 					text-transform: uppercase;
 					font-size: 12px;
+					cursor: pointer;
 				}
 			}
 		}
@@ -206,9 +237,9 @@ header{
 		}
 		width: 100%;
 		transition: all 0.8s ease 0s;
-		h2{
+		section h2{
 				text-align: center;
-				font-size: $headerFontsSize + 0.5 +em;
+				font-size: $headerFontsSize + 0.8 +em;
 			}
 		.avatar{
 			
@@ -280,20 +311,59 @@ header{
 		}
 	}
 	.form{
+		margin: 20px auto;
+		margin-bottom: 70px;
+		.input_wrap{
+			margin: 20px auto;
+			width: $indicatorWidth * 3 + px;
 			text-align: center;
-			label{
-				display: block;
-				span{
-					color: $white;
-				}
-				input{
-					color: $dkGray;
-					width: 150px;
-					margin: 20px 0;
-				}
 
+			label{
+				text-transform: uppercase;
+				font-family: $RoborLight;
 			}
-			
+			input{
+					padding: 1.2em;
+					font-size: 16px;
+					color: $white;
+				    display: block;
+				    width: 100%;
+				    background-color: darken($grey,20%);
+				    border: 2px solid $ltBlue;
+				    height: 30px;
+				    margin-top: 10px;
+				    height: auto;
+				}
+			textarea{
+				font-size: 16px;
+				line-height: 20px;
+				border: 2px solid $ltBlue;
+				margin-top: 10px;
+				color: $white;
+				width: 100%;
+				height: 150px;
+				background-color: darken($grey,20%);
+				resize: none;
+				padding: 1.2em;
+			}
+			}
+			button{
+				text-align: center;
+				display: block;
+				margin: 0 auto;
+				padding: 5px 10px;
+				background-color: $dkGray;
+				color: $white;
+				border: 2px solid $ltBlue;
+				font-family: $Bebas;
+				letter-spacing: 1px;
+				transition: all 0.2s ease 0.15s;
+				&:hover,&:focus,&:visited{
+					background-color: $ltBlue;
+					border: 2px solid darken($grey,20%);
+				}
+			}
+
 		}
 		.status{
 			margin-top: 70px;
