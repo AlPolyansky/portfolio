@@ -46,22 +46,21 @@ $(document).ready(function() {
 
 	function showScills(){
 			$('.skill_wrap:not(:lt(3))').hide();
-
 			top_menu_wrap.find("li:last").on('click', function(){
-				skillWrap.show();
 				setSkills();
 			})
 			top_menu_wrap.find("li:first").on('click', function(){
-				$('.skill_wrap:not(:lt(3))').hide();
 				setSkills();
 			})
 	}
+
+	
 
 
 
 	function showAllAbout(){
 		top_menu_wrap.find("li:last").on('click',function(){
-			sideBar.find(".form").show();
+			
 
 
 
@@ -86,6 +85,8 @@ $(document).ready(function() {
 
 			}
 			else if(!top_menu_wrap.find("li:last").hasClass(status)){
+				skillWrap.show();
+				sideBar.find(".form").show();
 				top_menu_wrap.find("li:last").addClass(active);
 				top_menu_wrap.find("li:first").removeClass(active);
 				
@@ -105,7 +106,7 @@ $(document).ready(function() {
 
 
 
-			sideBar.find(".form").hide();
+			
 			if($(window).width() <= 768){
 				sideBar.removeClass(sideBarToAbout);
 				top_menu_wrap.find("li:first").addClass(active);
@@ -117,6 +118,8 @@ $(document).ready(function() {
 				} ,850)
 			}
 			else if(!top_menu_wrap.find("li:first").hasClass(status)){
+				$('.skill_wrap:not(:lt(3))').hide();
+				sideBar.find(".form").hide();
 				top_menu_wrap.find("li:first").addClass(active);
 				top_menu_wrap.find("li:last").removeClass(active);
 				sideBar.removeClass(sideBarToAbout);
@@ -344,19 +347,20 @@ $(document).ready(function() {
 
 	function mailShow(){
 		$(".form_scroll").find("a").click(function(){
-			if(!$("article").hasClass(sideBarToAbout)){
+			
 				$(".footer_jobs").hide();
 				sideBar.find(".form").show();
 	    		top_menu_wrap.find("li").removeClass(active);
 	    		top_menu_wrap.find("li:last").addClass(active);
 	    		sideBar.addClass(sideBarToAbout);
 				content.hide().css({"opacity": "0"});
+				skillWrap.show();
 				setTimeout(function () {
 					$('body,html').animate({scrollTop: $(".form").offset().top }, 1100);
 				}, 600);
 				
 				
-			}
+			
 		})
 
 			
