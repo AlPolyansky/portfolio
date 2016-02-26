@@ -1550,7 +1550,7 @@ img.mfp-img {
   overflow-x: hidden;
   height: 100%; }
 
-a:active, a:focus, a, img {
+a:active, a:focus, a, img, textarea:focus, input:focus, button:focus {
   outline: none; }
 
 a, a:hover, a:active, a:visited {
@@ -1647,7 +1647,9 @@ header {
     z-index: 1000; }
   header .top_menu ul li {
     float: left;
-    text-align: center; }
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none; }
 
 .main {
   width: 100%;
@@ -1748,8 +1750,8 @@ header {
       top: 64px;
       text-align: center; }
       .main .sideBarToAbout .avatar img {
-        -webkit-transition: all 0.5s ease 0.15s;
-                transition: all 0.5s ease 0.15s;
+        -webkit-transition: all 0.5s ease 0s;
+                transition: all 0.5s ease 0s;
         width: 200px;
         height: 200px; }
     .main .sideBarToAbout .about {
@@ -1809,7 +1811,9 @@ header {
           border: 2px solid #00b9ee;
           height: 30px;
           margin-top: 10px;
-          height: auto; }
+          height: auto;
+          -webkit-transition: all 0.8s ease 0s;
+                  transition: all 0.8s ease 0s; }
         .main .sideBarToAbout .form .input_wrap textarea {
           font-size: 16px;
           line-height: 20px;
@@ -1820,7 +1824,9 @@ header {
           height: 150px;
           background-color: #404040;
           resize: none;
-          padding: 1.2em; }
+          padding: 1.2em;
+          -webkit-transition: all 0.8s ease 0s;
+                  transition: all 0.8s ease 0s; }
       .main .sideBarToAbout .form button {
         text-align: center;
         display: block;
@@ -1831,11 +1837,23 @@ header {
         border: 2px solid #00b9ee;
         font-family: "BebasBold";
         letter-spacing: 1px;
-        -webkit-transition: all 0.2s ease 0.15s;
-                transition: all 0.2s ease 0.15s; }
-        .main .sideBarToAbout .form button:hover, .main .sideBarToAbout .form button:focus, .main .sideBarToAbout .form button:visited {
+        -webkit-transition: all 0.2s ease 0s;
+                transition: all 0.2s ease 0s; }
+        .main .sideBarToAbout .form button:hover {
           background-color: #00b9ee;
           border: 2px solid #404040; }
+      .main .sideBarToAbout .form .error_form {
+        width: 100%;
+        text-align: left;
+        color: #B83535;
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-top: 20px;
+        padding-left: 10px;
+        display: block;
+        height: 10px;
+        font-size: 14px;
+        opacity: 0; }
     .main .sideBarToAbout .status {
       margin-top: 70px;
       display: block; }
@@ -1848,8 +1866,8 @@ header {
         font-size: 30px; }
   .main .content {
     display: table-cell;
-    -webkit-transition: all 0.5s ease 0.15s;
-            transition: all 0.5s ease 0.15s;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
     width: 100%; }
     .main .content h2 {
       font-size: 3em;

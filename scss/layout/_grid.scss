@@ -7,13 +7,16 @@
 }
 
 
-a:active, a:focus,a,img {
+a:active, a:focus,a,img ,textarea:focus, input:focus, button:focus{
   outline: none;
 }
 
 a,a:hover,a:active,a:visited{
 	color: $white;
 }
+
+
+
 
 
 ::selection {background: $ltBlue}
@@ -84,6 +87,7 @@ header{
 		min-width: 130px;
 		text-decoration: none;
 		color: $white;
+
 		&:hover{
 			text-decoration: none;
 			color: $white;
@@ -112,6 +116,8 @@ header{
 		ul li{
 		float: left;
 		text-align: center;
+		-moz-user-select: none;
+		-webkit-user-select: none;
 		}
 
 	}
@@ -247,7 +253,7 @@ header{
 			top: ($sectionHeigth / 3) + px;
 			text-align: center;
 			img{
-				transition: all 0.5s ease 0.15s;
+				transition: all 0.5s ease 0s;
 				width: 200px;
 				height: 200px;
 			}
@@ -334,6 +340,7 @@ header{
 				    height: 30px;
 				    margin-top: 10px;
 				    height: auto;
+				    transition: all 0.8s ease 0s;
 				}
 			textarea{
 				font-size: 16px;
@@ -346,6 +353,7 @@ header{
 				background-color: darken($grey,20%);
 				resize: none;
 				padding: 1.2em;
+				transition: all 0.8s ease 0s;
 			}
 			}
 			button{
@@ -358,11 +366,25 @@ header{
 				border: 2px solid $ltBlue;
 				font-family: $Bebas;
 				letter-spacing: 1px;
-				transition: all 0.2s ease 0.15s;
-				&:hover,&:focus,&:visited{
+				transition: all 0.2s ease 0s;
+				&:hover{
 					background-color: $ltBlue;
 					border: 2px solid darken($grey,20%);
 				}
+
+			}
+			.error_form{
+			    width: 100%;
+			    text-align: left;
+			    color: #B83535;
+			    text-transform: uppercase;
+			    font-weight: 900;
+			    margin-top: 20px;
+			    padding-left: 10px;
+			    display: block;
+			    height: 10px;
+			    font-size: 14px;
+			    opacity: 0;
 			}
 
 		}
@@ -380,7 +402,7 @@ header{
 		}
 	.content{
 		display: table-cell;
-		transition: all 0.5s ease 0.15s;
+		transition: all 0.5s ease 0s;
 		width: 100%;
 		h2{
 			font-size: $headerFontsSize  + 2 +em;

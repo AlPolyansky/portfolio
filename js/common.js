@@ -356,78 +356,103 @@ $(document).ready(function() {
 	}
 
 	function ajaxForm(){
-		var field = ["name", "email","text"];
-		$('.main_form').submit(function(){
+		
+        $(".input_wrap").find("input").keyup(function(){
+        	if($(this).val()){
+        		$(this).css({"border-color": "#00B9EE"});
+        		$(this).siblings("span").empty();
+        	}
+        })
+        $(".input_wrap").find("textarea").keyup(function(){
+        	if($(this).val()){
+        		$(this).css({"border-color": "#00B9EE"});
+        		$(this).siblings("span").empty();
+        	}
+        })
+
+        
+		
+		$('.main_form').submit(function (e){
+			e.preventDefault();
+			var pattern = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+			var email =$("#email").val();
 			var name = $("#name").val();
-        	var email =$("#email").val();
         	var text = $("#text").val(); 
+        	var error=0; 
         	var dataString = 'name='+ name + '&email=' + email + '&text=' + text;
+           	
+           	var field = ["name", "email","text"];
 
-        	
-           /* var error=0; // индекс ошибки
-            $(".main_form").find("input").each(function() {// проверяем каждое поле в форме
-                for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
-                    if($(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
-                        
-                        if(!$(this).val()){// если в поле пустое
-                            $(this).css('border', 'red 1px solid');// устанавливаем рамку красного цвета
-                            error=1;// определяем индекс ошибки       
-                                                        
-                        }
-                        else{
-                            $(this).css('border', 'gray 1px solid');// устанавливаем рамку обычного цвета
-                        }
-                        
-                    }               
-                }
-           })
+
+
+
+            for(i = 0; i < $(".main_form").find(".input_wrap").length; i++){
+            	if($(".main_form").find("#" + field[i]).val() == ""){
+            		error = 1;
+            		$(".main_form").find("#" + field[i]).css({"border-color": "#EC4B4B"});
+            		$(".main_form").find("#" + field[i]).siblings("span").text("поле пустое").animate({opacity : 1},800);
+            	}
+            	else{
+            		$(".main_form").find("#" + field[i]).css({"border-color": "#00B9EE"});
+            		$(".main_form").find("#" + field[i]).siblings("span").empty();
+            	}
+
+            	}
+            	if($(".main_form").find("#email").val() != ""){
+            		if(!pattern.test(email)){
+            			error = 1;
+            			$("#email").siblings("span").text("не верный e-mail").animate({opacity : 1},800);
+            			$("#email").css({"border": "2px solid #EC4B4B"})
+			        }
+            	}
+
+
+            	
+
+
+      
             
-            	if(error==1) var err_text = "Не все обязательные поля заполнены!";
-            	console.log("Не все обязательные поля заполнены!")
-           	 	//$("#messenger").fadeIn("slow"); 
-            	return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.*/
+
+            if(!error == 1){
+            	
             
-            
+			            $(".input_wrap").find("span").empty();
+						$.ajax({  
+			      			type: "POST",  
+			      			url: "/assets/templates/portfolio/ajax/mail.php",
+			      			data: dataString,
+			      		success:  function() {
+			                        
+			                        $('.main_form').trigger( 'reset' );
+			                        $('.success').fadeIn("slow");
+			                        setTimeout(function(){
+										$('.success').fadeOut("slow");
+									} ,3000)
 
+			                } 
+			    		});
+			}
+			else{
+				setTimeout(function(){
+					$(".main_form").find("input").css({"border-color": "#00B9EE"});
+					$(".main_form").find("textarea").css({"border-color": "#00B9EE"});
+					$(".main_form").find("span").animate({opacity : 0},800);
+				},6000)
+			}
 
+     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			$.ajax({  
-      			type: "POST",  
-      			url: "/assets/templates/portfolio/ajax/mail.php",  //здесь указываем ИД ресурса, куда будет оправлен AJAX запрос
-      			data: dataString,
-      		success:  function() {  //сообщение об удачной отправке
-                        
-                        $('.main_form').trigger( 'reset' );
-                        $('.success').fadeIn("slow");
-                        setTimeout(function(){
-							$('.success').fadeOut("slow");
-						} ,3000)
-
-                } 
-    		});  
-    		return false;
-                });
+	
 	}
+
+
+
+
+	
+
+
+
+	
 
 	function mailShow(){
 		$(".form_scroll").find("a").click(function(){
@@ -488,7 +513,7 @@ $(document).ready(function() {
 
 
 	
-	ajaxForm();
+	ajaxForm(12);
 	statusMenu();
 	showAllAbout();
 	setSkills();
