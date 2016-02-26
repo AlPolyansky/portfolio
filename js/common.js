@@ -1,13 +1,15 @@
 $(document).ready(function() {
 	var sideBar = $('.sideBar');
+	var sideBarToA = $(".sideBarToAbout");
 	var skillWrap = $(".skill_wrap");
 	var section_job = $(".section_job");
 	var top_menu_wrap = $(".top_menu_wrap");
 	var content = $(".content");
-	var status = "disable";
 	var active = "active";
 	var sideBarToAbout = "sideBarToAbout";
-
+	var project = $("#project");
+	var about = $("#about");
+	var status = "data-status"
 	var top_menu_wrap_ul = top_menu_wrap.find("ul");
 	function addPopUpManager(){
 			
@@ -45,84 +47,114 @@ $(document).ready(function() {
 	}
 
 	function showScills(){
+		if(!sideBar.hasClass(sideBarToAbout)){
 			$('.skill_wrap:not(:lt(3))').hide();
-			top_menu_wrap.find("li:last").on('click', function(){
+		}
+			
+			about.on('click', function(){
+
 				setSkills();
 			})
-			top_menu_wrap.find("li:first").on('click', function(){
+			project.on('click', function(){
 				setSkills();
 			})
 	}
+
+
+	function statusMenu(){
+
+		project.on('click',function(){
+			if($(this).attr(status) == 1){
+				
+				about.attr(status,"1");
+			}
+		})
+
+		about.on('click',function(){
+			if($(this).attr(status) == 1){
+				project.attr(status,"1");
+			}
+
+
+		})
+
+}
+	
+
+
 
 	
 
 
 
+
+
+
 	function showAllAbout(){
-		top_menu_wrap.find("li:last").on('click',function(){
+		about.on('click',function(){
+
+
 			
-
-
-
-
-
-			top_menu_wrap.find("li:first").addClass(status);
-			setTimeout(function(){
-					top_menu_wrap.find("li:first").removeClass(status);
-			} ,950)
 
 
 
 
 			if($(window).width() <= 768){
 
-				sideBar.addClass("sideBarToAbout");
+				sideBar.addClass(sideBarToAbout);
 				sideBar.show();
-				top_menu_wrap.find("li:last").addClass(active);
-				top_menu_wrap.find("li:first").removeClass(active);
-				content.hide();
-				content.css({"opacity": "0"});
-
-			}
-			else if(!top_menu_wrap.find("li:last").hasClass(status)){
 				skillWrap.show();
 				sideBar.find(".form").show();
-				top_menu_wrap.find("li:last").addClass(active);
-				top_menu_wrap.find("li:first").removeClass(active);
+				about.addClass(active);
+				project.removeClass(active);
+				content.hide();
+				content.css({"opacity": "0"});
 				
+				sideBar.height(sideBarHeight(sideBar))
+
+
+			}
+			else if($(this).attr(status) == 1){
+				$(this).attr(status,"0");
+				project.attr(status,"0");
 				
+				setTimeout(function(){
+					project.attr(status,"1");
+					sideBar.height(sideBarHeight(sideBar))
+				} ,1250)
+				skillWrap.show();
+				sideBar.find(".form").show();
+				about.addClass(active);
+				project.removeClass(active);		
 				sideBar.addClass(sideBarToAbout);
 				content.hide().css({"opacity": "0"});
 
 			}
 		});
-		top_menu_wrap.find("li:first").on('click',function(){
-			
-			top_menu_wrap.find("li:last").addClass(status);
-			setTimeout(function(){
-					top_menu_wrap.find("li:last").removeClass(status);
-			} ,950)
-
-
-
-
-			
+		project.on('click',function(){
+			sideBar.height($(".main").outerHeight(true))
 			if($(window).width() <= 768){
 				sideBar.removeClass(sideBarToAbout);
-				top_menu_wrap.find("li:first").addClass(active);
-				top_menu_wrap.find("li:last").removeClass(active);
+				project.addClass(active);
+				about.removeClass(active);
 				content.show();
-				sideBar.hide();
 				setTimeout(function(){
 					content.css({"opacity": "1"});
 				} ,850)
 			}
-			else if(!top_menu_wrap.find("li:first").hasClass(status)){
+			else if($(this).attr(status) == 1){
+				sideBar.height($(".main").outerHeight(true))
+				$(this).attr(status,"0");
+				about.attr(status,"0");
+				setTimeout(function(){
+					about.attr(status,"1");;
+				} ,1250)
 				$('.skill_wrap:not(:lt(3))').hide();
 				sideBar.find(".form").hide();
-				top_menu_wrap.find("li:first").addClass(active);
-				top_menu_wrap.find("li:last").removeClass(active);
+				project.addClass(active);
+				about.removeClass(active);
 				sideBar.removeClass(sideBarToAbout);
+				sideBar.height(content.outerHeight(true));
 				setTimeout(function(){
 					content.show();
 				} ,800)
@@ -132,12 +164,16 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+
+
+	
 	
 	function hideGalery(){
-		top_menu_wrap.find("li:last").on('click',function(){
+		about.on('click',function(){
 			$(".footer_jobs").hide();
 		})
-		top_menu_wrap.find("li:first").on('click',function(){
+		project.on('click',function(){
 			$(".footer_jobs").show();
 		})
 	}
@@ -151,16 +187,16 @@ $(document).ready(function() {
 	function hideSidebar(){
 		if($(window).width() <= 768){
 			if(!$(sideBar).hasClass(sideBarToAbout)){
-				sideBar.hide();
+				//sideBar.hide();
 			}
 		}
 		else{
-			$(sideBar).show();
 			if($(document).scrollTop() > ($(".jobs").height() - 100) && !sideBar.hasClass(sideBarToAbout)){
-				sideBar.css({"margin-left" : "-256px"})
+				sideBar.css({"margin-left" : "-256px"});
+
 			}
-			else{
-				sideBar.css({"margin-left" : "0"})
+			if($(document).scrollTop() < ($(".jobs").height() - 100) && !sideBar.hasClass(sideBarToAbout)){
+				sideBar.css({"margin-left" : "0"});
 			}
 		}	
 	}
@@ -320,11 +356,59 @@ $(document).ready(function() {
 	}
 
 	function ajaxForm(){
+		var field = ["name", "email","text"];
 		$('.main_form').submit(function(){
 			var name = $("#name").val();
         	var email =$("#email").val();
         	var text = $("#text").val(); 
         	var dataString = 'name='+ name + '&email=' + email + '&text=' + text;
+
+        	
+           /* var error=0; // индекс ошибки
+            $(".main_form").find("input").each(function() {// проверяем каждое поле в форме
+                for(var i=0;i<field.length;i++){ // если поле присутствует в списке обязательных
+                    if($(this).attr("name")==field[i]){ //проверяем поле формы на пустоту
+                        
+                        if(!$(this).val()){// если в поле пустое
+                            $(this).css('border', 'red 1px solid');// устанавливаем рамку красного цвета
+                            error=1;// определяем индекс ошибки       
+                                                        
+                        }
+                        else{
+                            $(this).css('border', 'gray 1px solid');// устанавливаем рамку обычного цвета
+                        }
+                        
+                    }               
+                }
+           })
+            
+            	if(error==1) var err_text = "Не все обязательные поля заполнены!";
+            	console.log("Не все обязательные поля заполнены!")
+           	 	//$("#messenger").fadeIn("slow"); 
+            	return false; //если в форме встретились ошибки , не  позволяем отослать данные на сервер.*/
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			$.ajax({  
@@ -347,17 +431,22 @@ $(document).ready(function() {
 
 	function mailShow(){
 		$(".form_scroll").find("a").click(function(){
-			
+				
 				$(".footer_jobs").hide();
 				sideBar.find(".form").show();
-	    		top_menu_wrap.find("li").removeClass(active);
-	    		top_menu_wrap.find("li:last").addClass(active);
+	    		project.removeClass(active);
+	    		about.addClass(active);
 	    		sideBar.addClass(sideBarToAbout);
 				content.hide().css({"opacity": "0"});
 				skillWrap.show();
+				about.attr(status,"0");
 				setTimeout(function () {
 					$('body,html').animate({scrollTop: $(".form").offset().top }, 1100);
 				}, 600);
+				setTimeout(function(){
+					project.attr(status,"1");
+					sideBar.height(sideBarHeight(sideBar))
+				} ,1250)
 				
 				
 			
@@ -369,8 +458,38 @@ $(document).ready(function() {
 	}
 
 
+
+	function sideBarHeight(param){
+		var totalHeight = 0;
+
+		param.children().filter(":visible").each(function(){
+			totalHeight = totalHeight + $(this).outerHeight(true);
+		})
+		return totalHeight;
+	}
+
+
+	function sideBarToAboutHeight(){
+		var totalHeight = 0;
+
+		sideBarToA.children().each(function(){
+			totalHeight = totalHeight + $(this).height();
+		})
+		return totalHeight;
+	}
+
+
+
+
+	
+
+
+
+
+
 	
 	ajaxForm();
+	statusMenu();
 	showAllAbout();
 	setSkills();
 	setWork();
@@ -383,36 +502,69 @@ $(document).ready(function() {
 	showScills();
 	setStatus();
 	mailShow();
+	hideSidebar();
+	hideTarget();
 
-		
+
+
+
+	//alert("Высота элемента:" +  document.getElementById("content").offsetHeight);
+	//sideBar.height(document.getElementById("content").offsetHeight)
+
+
+	//sideBar.height(content.outerHeight(true))
+
 
 
 	$(window).scroll(function() {
 		checkPosition();
 		hideSidebar();
 		hideTarget();
+		/*if(!sideBar.hasClass(sideBarToAbout)){
+			sideBar.height(sideBarHeight(content))
+		}*/
+		
 
-		
-		
+
+
 	});
 
+	$(window).load(
+   		function() {
+   				sideBar.height(content.outerHeight(true) - sideBarHeight(sideBar));
+        	
+        	//sideBar.height(content.height() - sideBarToAboutHeight())
+    	}
+	);
+
+	
 
 	$(window).resize(function(){
 		hideSidebar();
 		hideTarget();
+		if(!sideBar.hasClass(sideBarToAbout)){
+   				sideBar.height(content.outerHeight(true) - sideBarHeight(sideBar));
+   		}
+   		else{
+
+   		}
+		//sideBar.height(content.height() - sideBarToAboutHeight())
+
+		
+
+
 
 
 	});
 
 
-	$(window).load(function() {
-		hideSidebar();
-		hideTarget();
-
-
-	}); 
 	
 });
+
+
+
+
+
 
 
 /*[[Wayfinder? 

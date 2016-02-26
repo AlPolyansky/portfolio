@@ -1664,7 +1664,6 @@ header {
     background: #737373;
     -webkit-transition: all 0.8s ease 0s;
             transition: all 0.8s ease 0s;
-    height: 100%;
     display: inline-table;
     zoom: 1;
     *display: inline; }
@@ -1736,6 +1735,7 @@ header {
     .main .sideBar .form {
       display: none; }
   .main .sideBarToAbout {
+    display: block;
     width: 100%;
     -webkit-transition: all 0.8s ease 0s;
             transition: all 0.8s ease 0s; }
@@ -1874,7 +1874,8 @@ header {
         border: 1px solid #737373; }
         .main .content .jobs .jobs_wrap:hover .jobs_content {
           opacity: 1;
-          background-color: rgba(0, 0, 0, 0.85); }
+          background-color: rgba(0, 0, 0, 0.85);
+          padding-top: 22%; }
       .main .content .jobs img {
         margin: 0;
         width: 270px;
@@ -1903,9 +1904,6 @@ header {
           margin-bottom: 25px;
           letter-spacing: 2px;
           font-size: 18px; }
-        .main .content .jobs .jobs_content p {
-          font-size: 10px;
-          color: #ccc; }
     .main .content .section_job {
       min-height: 800px;
       width: 100%;
@@ -2178,6 +2176,9 @@ header {
   .main .sideBar {
     display: none; }
 
+  .main .sideBarToAbout {
+    display: block; }
+
   .gallery_job {
     padding-bottom: 40px; }
 
@@ -2318,6 +2319,9 @@ header {
 @media only screen and (max-width: 480px) {
   .main .sideBar {
     display: none; }
+
+  .main .sideBarToAbout {
+    display: block; }
 
   body header {
     height: 10px; }
