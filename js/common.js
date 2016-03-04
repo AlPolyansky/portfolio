@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	var sideBar = $('.sideBar');
-	var sideBarToA = $(".sideBarToAbout");
 	var skillWrap = $(".skill_wrap");
 	var section_job = $(".section_job");
 	var top_menu_wrap = $(".top_menu_wrap");
@@ -9,15 +8,15 @@ $(document).ready(function() {
 	var sideBarToAbout = "sideBarToAbout";
 	var project = $("#project");
 	var about = $("#about");
-	var status = "data-status"
+	var status = "data-status";
 	var top_menu_wrap_ul = top_menu_wrap.find("ul");
 	function addPopUpManager(){
 			
 			var gallery = $(".gallery_job");
 
-			for(i = 1; i <= gallery.length; i++){
+			for(var i = 1; i <= gallery.length; i++){
 
-				$("#work_" + i +" .gallery_job a").addClass("popup_content_"+i)
+				$("#work_" + i +" .gallery_job a").addClass("popup_content_"+i);
 
 
 				$(".popup_content_"+ i).magnificPopup({
@@ -42,8 +41,8 @@ $(document).ready(function() {
 			var procent = maxSkill / 100 * numSkill;
 			loader.eq(i).css({
 				"width" : indicator.width() * procent
-			})
-		};
+			});
+		}
 	}
 
 	function showScills(){
@@ -54,10 +53,10 @@ $(document).ready(function() {
 			about.on('click', function(){
 
 				setSkills();
-			})
+			});
 			project.on('click', function(){
 				setSkills();
-			})
+			});
 	}
 
 
@@ -68,7 +67,7 @@ $(document).ready(function() {
 				
 				about.attr(status,"1");
 			}
-		})
+		});
 
 		about.on('click',function(){
 			if($(this).attr(status) == 1){
@@ -76,7 +75,7 @@ $(document).ready(function() {
 			}
 
 
-		})
+		});
 
 }
 	
@@ -92,15 +91,20 @@ $(document).ready(function() {
 
 	function showAllAbout(){
 		about.on('click',function(){
-
-
 			
 
+			
+		if($(this).attr(status) == 1){
+			$(this).attr(status,"0");
+			project.attr(status,"0");
+			setTimeout(function(){
+				project.attr(status,"1");
+			},1250)
 
 
-
-			if($(window).width() <= 768){
-
+			if($(window).width() < 1200){
+				$(".sandwich").toggleClass(active);
+				sideBar.css("width", "100%");
 				sideBar.addClass(sideBarToAbout);
 				sideBar.show();
 				skillWrap.show();
@@ -110,18 +114,16 @@ $(document).ready(function() {
 				content.hide();
 				content.css({"opacity": "0"});
 				
-				sideBar.height(sideBarHeight(sideBar))
+				sideBar.height(sideBarHeight(sideBar));
 
 
 			}
-			else if($(this).attr(status) == 1){
-				$(this).attr(status,"0");
-				project.attr(status,"0");
+			else{
 				
+				sideBar.css("width", "100%");
 				setTimeout(function(){
-					project.attr(status,"1");
-					sideBar.height(sideBarHeight(sideBar))
-				} ,1250)
+					sideBar.height(sideBarHeight(sideBar));
+				} ,1250);
 				skillWrap.show();
 				sideBar.find(".form").show();
 				about.addClass(active);
@@ -130,25 +132,33 @@ $(document).ready(function() {
 				content.hide().css({"opacity": "0"});
 
 			}
+		}
 		});
 		project.on('click',function(){
-			sideBar.height($(".main").outerHeight(true))
-			if($(window).width() <= 768){
+		if($(this).attr(status) == 1){
+			$(this).attr(status,"0");
+			about.attr(status,"0");
+			setTimeout(function(){
+					about.attr(status,"1");
+			} ,1250);
+			
+			sideBar.height($(".main").outerHeight(true));
+			if($(window).width() < 1200){
+				$(".sandwich").toggleClass(active);
 				sideBar.removeClass(sideBarToAbout);
 				project.addClass(active);
 				about.removeClass(active);
 				content.show();
+				sideBar.width('248px');
 				setTimeout(function(){
 					content.css({"opacity": "1"});
-				} ,850)
+				} ,850);
 			}
-			else if($(this).attr(status) == 1){
-				sideBar.height($(".main").outerHeight(true))
-				$(this).attr(status,"0");
-				about.attr(status,"0");
-				setTimeout(function(){
-					about.attr(status,"1");;
-				} ,1250)
+			else{
+				sideBar.width('248px');
+				sideBar.height($(".main").outerHeight(true));
+				
+				
 				$('.skill_wrap:not(:lt(3))').hide();
 				sideBar.find(".form").hide();
 				project.addClass(active);
@@ -157,11 +167,12 @@ $(document).ready(function() {
 				sideBar.height(content.outerHeight(true));
 				setTimeout(function(){
 					content.show();
-				} ,800)
+				} ,800);
 				setTimeout(function(){
 					content.css({"opacity": "1"});
-				} ,850)
+				} ,850);
 			}
+		}
 		});
 	}
 
@@ -172,10 +183,10 @@ $(document).ready(function() {
 	function hideGalery(){
 		about.on('click',function(){
 			$(".footer_jobs").hide();
-		})
+		});
 		project.on('click',function(){
 			$(".footer_jobs").show();
-		})
+		});
 	}
 
 
@@ -185,9 +196,8 @@ $(document).ready(function() {
 
 
 	function hideSidebar(){
-		if($(window).width() <= 768){
+		if($(window).width() < 1200){
 			if(!$(sideBar).hasClass(sideBarToAbout)){
-				//sideBar.hide();
 			}
 		}
 		else{
@@ -207,7 +217,7 @@ $(document).ready(function() {
 		var jobs = $(".jobs_wrap");
 		for(var i = 0; i < jobs.length; i++){
 			$(".jobs_content a").eq(i).attr("href","#work_" + (i + 1));
-			$(".footer_jobs_wrap a").eq(i).attr("href","#work_" + (i + 1))
+			$(".footer_jobs_wrap a").eq(i).attr("href","#work_" + (i + 1));
 		}
 
 	}
@@ -228,11 +238,10 @@ $(document).ready(function() {
 
 
 	function getPosition(){
-		var top_scroll = $(window).scrollTop();
 		var positionArr = [];
 		var documentHeight = $(document).height();
 		for (var i = 1; i <= $(".jobs").children().length; i++) {
-			elem = $("section[id^='work_"+ i +"']");
+			var elem = $("section[id^='work_"+ i +"']");
 			var position = elem.offset().top;
 			positionArr.push(position - 170);
 
@@ -249,7 +258,6 @@ $(document).ready(function() {
 	function checkPosition(){
 		var top_scroll = $(window).scrollTop();
 		var section = $("section[id^='work_']");
-		var sectionLength = section.length;
 		var j = 1;
 		for (var i = 0; i <= section.length; i++) {
 
@@ -274,23 +282,19 @@ $(document).ready(function() {
 
 		function addTarget(){
 			var jobs = $(".jobs");
-			if(jobs.children().length != 0){
+			if(jobs.children().length !== 0){
 				$(".scroll_tabs_wrap ul").append("<li><a href='#top_content' class='scroll_tabs_cap icons i_cap'></a></li>");
 			}
 			
 				for (var i = 1; i <= jobs.children().length; i++) {
-					$(".scroll_tabs_wrap ul").append("<li><a class='scroll_tabs'></a></li>");
-					$(".scroll_tabs").each(function(){
-						if(!($(this).attr("href")))
-						$(this).attr("href","#work_" + i);
-					})
+					$(".scroll_tabs_wrap").find("ul").append("<li><a href='#work_"+ i +"' class='scroll_tabs'></a></li>");
 				}
 			
 		}
 
 		function hideTarget(){
 
-			if($(document).scrollTop() > 700 && $(window).width() > 768 && !sideBar.hasClass(sideBarToAbout)) {
+			if($(document).scrollTop() > 700 && $(window).width() > 1200 && !sideBar.hasClass(sideBarToAbout)) {
 				$(".scroll_tabs_wrap").fadeIn("slow");
 			}
 			else{
@@ -303,16 +307,20 @@ $(document).ready(function() {
 		
 
 	function addButtonMenu(){
+		
 		$(".buttom_menu").on('click',function() {
-		  	$(".sandwich").toggleClass(active);
+		  	
 		  	if(!top_menu_wrap.hasClass("open")){
+		  		$(".sandwich").addClass(active);
 		  		top_menu_wrap.addClass("open");
 		  		top_menu_wrap_ul.addClass("open_menu");
 		  		top_menu_wrap.fadeIn(400);
 		  		top_menu_wrap_ul.fadeIn(400);
 		  	}
 		  	else{
+		  		$(".sandwich").removeClass(active);
 		  		$(".top_menu_wrap, .top_menu_wrap ul").fadeOut(400,function(){
+
 		  			top_menu_wrap.removeClass("open");
 		  			top_menu_wrap_ul.removeClass("open_menu");
 		  			top_menu_wrap.removeAttr("style");
@@ -320,10 +328,11 @@ $(document).ready(function() {
 		  			top_menu_wrap_ul.removeAttr("class");
 		  		});
 		  	}
-		})
+		});
 		top_menu_wrap.find("li").on('click',function(){
-			if($(window).width() <= 768){
-				$(".sandwich").toggleClass(active);
+			if($(window).width() < 1200){
+				
+				$('body,html').scrollTop(0);
 				top_menu_wrap.fadeOut(400,function(){
 					top_menu_wrap.removeClass("open");
 		  			top_menu_wrap_ul.removeClass("open_menu");
@@ -333,13 +342,13 @@ $(document).ready(function() {
 
 				});
 			}
-		})
-
+		});
 
 	}
 
+
 	function addPreloader(){
-		$(".loader_inner").fadeOut();
+		$(".loading").fadeOut(400);
 		$(".preloader").delay(400).fadeOut("slow");
 	}
 
@@ -362,32 +371,32 @@ $(document).ready(function() {
         		$(this).css({"border-color": "#00B9EE"});
         		$(this).siblings("span").empty();
         	}
-        })
+        });
         $(".input_wrap").find("textarea").keyup(function(){
         	if($(this).val()){
         		$(this).css({"border-color": "#00B9EE"});
         		$(this).siblings("span").empty();
         	}
-        })
+        });
 
         
 		
 		$('.main_form').submit(function (e){
 			e.preventDefault();
-			var pattern = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+			var pattern = /^([0-9a-zA-Z_-]+\.)*[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+(\.[0-9a-zA-Z_-]+)*\.[a-z]{2,6}$/;
 			var email =$("#email").val();
 			var name = $("#name").val();
         	var text = $("#text").val(); 
         	var error=0; 
-        	var dataString = 'name='+ name + '&email=' + email + '&text=' + text;
+        	var dataString = 'name='+ name + '&email=' + email.toLowerCase() + '&text=' + text;
            	
            	var field = ["name", "email","text"];
 
 
 
 
-            for(i = 0; i < $(".main_form").find(".input_wrap").length; i++){
-            	if($(".main_form").find("#" + field[i]).val() == ""){
+            for(var i = 0; i < $(".main_form").find(".input_wrap").length; i++){
+            	if($(".main_form").find("#" + field[i]).val() === ""){
             		error = 1;
             		$(".main_form").find("#" + field[i]).css({"border-color": "#EC4B4B"});
             		$(".main_form").find("#" + field[i]).siblings("span").text("поле пустое").animate({opacity : 1},800);
@@ -398,11 +407,11 @@ $(document).ready(function() {
             	}
 
             	}
-            	if($(".main_form").find("#email").val() != ""){
+            	if($(".main_form").find("#email").val() !== ""){
             		if(!pattern.test(email)){
             			error = 1;
             			$("#email").siblings("span").text("не верный e-mail").animate({opacity : 1},800);
-            			$("#email").css({"border": "2px solid #EC4B4B"})
+            			$("#email").css({"border": "2px solid #EC4B4B"});
 			        }
             	}
 
@@ -413,7 +422,7 @@ $(document).ready(function() {
       
             
 
-            if(!error == 1){
+            if(error === 0){
             	
             
 			            $(".input_wrap").find("span").empty();
@@ -427,9 +436,8 @@ $(document).ready(function() {
 			                        $('.success').fadeIn("slow");
 			                        setTimeout(function(){
 										$('.success').fadeOut("slow");
-									} ,3000)
-
-			                } 
+									} ,3000);
+			                }
 			    		});
 			}
 			else{
@@ -437,7 +445,7 @@ $(document).ready(function() {
 					$(".main_form").find("input").css({"border-color": "#00B9EE"});
 					$(".main_form").find("textarea").css({"border-color": "#00B9EE"});
 					$(".main_form").find("span").animate({opacity : 0},800);
-				},6000)
+				},6000);
 			}
 
      });
@@ -448,7 +456,6 @@ $(document).ready(function() {
 
 
 
-	
 
 
 
@@ -456,7 +463,7 @@ $(document).ready(function() {
 
 	function mailShow(){
 		$(".form_scroll").find("a").click(function(){
-				
+				sideBar.css({"width": "100%","margin-left" : "0"});
 				$(".footer_jobs").hide();
 				sideBar.find(".form").show();
 	    		project.removeClass(active);
@@ -470,12 +477,12 @@ $(document).ready(function() {
 				}, 600);
 				setTimeout(function(){
 					project.attr(status,"1");
-					sideBar.height(sideBarHeight(sideBar))
-				} ,1250)
+					sideBar.height(sideBarHeight(sideBar));
+				} ,1250);
 				
 				
 			
-		})
+		});
 
 			
 
@@ -489,19 +496,44 @@ $(document).ready(function() {
 
 		param.children().filter(":visible").each(function(){
 			totalHeight = totalHeight + $(this).outerHeight(true);
-		})
+		});
 		return totalHeight;
 	}
 
 
-	function sideBarToAboutHeight(){
-		var totalHeight = 0;
-
-		sideBarToA.children().each(function(){
-			totalHeight = totalHeight + $(this).height();
-		})
-		return totalHeight;
+	function btUp(){
+		$(".bt_up").on("click",function(){
+			$('body,html').animate({scrollTop: 0}, 1100);
+		});
 	}
+
+	function btUpOnScroll(){
+		var start_pos = $("#footer").offset().top;
+		if($(window).width() < 1200){
+			if($(document).scrollTop() > 700 && $(document).scrollTop() <= (start_pos - $("#footer").height() *3) && $(".bt_up_wrap_fixed").attr("data-btUp") == 0){
+				$(".bt_up_wrap_fixed").show(200);
+			}else{
+				$(".bt_up_wrap_fixed").hide(200);
+			}				
+		}
+		else{
+			$(".bt_up_wrap").show();
+			$(".bt_up_wrap_fixed").hide();
+		}
+	}
+
+
+	function positionFixed(){
+		if($(window).width() < 1200){
+			$(".main_form").find("input").on("focus",function(){
+				$("header").css({"position":"relative"})
+			})
+			$(".main_form").find("input").on("focusout",function(){
+				$("header").removeAttr("style");
+			})
+		}
+	}
+
 
 
 
@@ -513,13 +545,13 @@ $(document).ready(function() {
 
 
 	
-	ajaxForm(12);
+	ajaxForm();
 	statusMenu();
 	showAllAbout();
 	setSkills();
 	setWork();
 	addSection();
-	addTarget();
+	
 	addButtonMenu();
 	addScroll2id();
 	addPopUpManager();
@@ -529,15 +561,25 @@ $(document).ready(function() {
 	mailShow();
 	hideSidebar();
 	hideTarget();
+	btUp();
+	positionFixed();
+	
 
 
 
 
-	//alert("Высота элемента:" +  document.getElementById("content").offsetHeight);
-	//sideBar.height(document.getElementById("content").offsetHeight)
 
 
-	//sideBar.height(content.outerHeight(true))
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -545,20 +587,15 @@ $(document).ready(function() {
 		checkPosition();
 		hideSidebar();
 		hideTarget();
-		/*if(!sideBar.hasClass(sideBarToAbout)){
-			sideBar.height(sideBarHeight(content))
-		}*/
-		
-
-
+		//btUpOnScroll();
 
 	});
 
-	$(window).load(
-   		function() {
+	$(window).load(function() {
    				sideBar.height(content.outerHeight(true) - sideBarHeight(sideBar));
-        	
-        	//sideBar.height(content.height() - sideBarToAboutHeight())
+        		addPreloader();
+        		addTarget();
+        		//btUpOnScroll();
     	}
 	);
 
@@ -567,20 +604,24 @@ $(document).ready(function() {
 	$(window).resize(function(){
 		hideSidebar();
 		hideTarget();
+		positionFixed();
+		//btUpOnScroll();
 		if(!sideBar.hasClass(sideBarToAbout)){
    				sideBar.height(content.outerHeight(true) - sideBarHeight(sideBar));
    		}
    		else{
+   			sideBar.height(sideBarHeight(sideBar));
+   			sideBar.width($(window).width());
 
    		}
-		//sideBar.height(content.height() - sideBarToAboutHeight())
 
-		
+
 
 
 
 
 	});
+
 
 
 	
@@ -592,8 +633,3 @@ $(document).ready(function() {
 
 
 
-/*[[Wayfinder? 
-		&startId=`0`
-		&level=`1`
-		&outerTpl = `wayOuterTpl`
-		&rolTpl = `wayRolTpl`]]*/

@@ -16,7 +16,7 @@
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 1200px) {
 	.main .sideBar{display: none;}
 	.main .sideBarToAbout{display: block;}
 	.gallery_job{
@@ -28,10 +28,13 @@
 	}
 	header{
 		position: fixed;
-		z-index: 1000000;
+		z-index: 10000;
 		min-height: $headerHeight/1.2;
 		line-height: $headerHeight/1.2;
 		transition: all 0.5s ease 0s;
+		top: 0;
+		left: 0;
+		right: 0;
 		.top_menu{
 			ul{
 			display: none;
@@ -154,7 +157,27 @@
 .mfp-arrow{display: none !important;}
 .scroll_tabs{display: none;}
 .open_menu li a:hover{background-color: lighten($dkGray,5%);}
-	
+
+
+
+.main .content .jobs .jobs_wrap:hover .jobs_content{
+		opacity: 0;
+		background-color: rgba(0,0,0,.85);
+		padding-top: 0;
+	}
+
+.main .content .jobs .jobs_content{
+	opacity: 0;
+	background-color: rgba(0,0,0,.75);
+	padding: 0;
+	h3{
+		display: none;
+	}
+	a{
+		display: block;
+		height: 100%;
+	}
+}
 }
 
 /* Extra Small Devices, Phones */
